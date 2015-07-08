@@ -1,0 +1,24 @@
+buildscript {
+  repositories {
+    mavenLocal()
+  }
+  dependencies {
+    classpath 'org.wildfly.swarm:wildfly-swarm-plugin:1.0.0.Alpha4-SNAPSHOT'
+  }
+}
+
+apply plugin: 'wildfly-swarm'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.wildfly.swarm.examples.mail.Main'
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.wildfly.swarm:wildfly-swarm-jaxrs:1.0.0.Alpha4-SNAPSHOT'
+    compile 'org.wildfly.swarm:wildfly-swarm-mail:1.0.0.Alpha4-SNAPSHOT'
+}
