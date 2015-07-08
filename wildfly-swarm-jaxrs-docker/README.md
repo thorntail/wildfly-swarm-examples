@@ -4,7 +4,7 @@ You need to have Docker and docker-compose installed.
 
 ### Packaging your application
   
-Run `mvn clean package`. A `SwarmDocker-swarm.jar` file be built to your target folder  
+Run `mvn clean package`. A `SwarmDocker-swarm.jar` file will be built to your target folder  
  
 ### Building the Docker image
 
