@@ -14,7 +14,7 @@ public class SwarmMain {
         container.fraction(new LoggingFraction()
                 .formatter("PATTERN", "%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n")
                 .consoleHandler(logLevel, "PATTERN")
-                .rootLogger("CONSOLE", logLevel));
+                .rootLogger(logLevel, "CONSOLE"));
         container.start();
 
         JAXRSDeployment jaxrsDeployment = new JAXRSDeployment(container);

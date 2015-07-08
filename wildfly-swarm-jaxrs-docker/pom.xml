@@ -65,12 +65,12 @@
             <plugin>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly-swarm}</version>
                 <configuration>
-                    <mainClass>swarm.SwarmMain</mainClass>
+                    <mainClass>org.wildfly.swarm.example.docker.SwarmMain</mainClass>
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
                             <goal>package</goal>
                         </goals>

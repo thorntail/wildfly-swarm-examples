@@ -1,10 +1,16 @@
-## Run Wildfly-Swarm in Docker
+## Run a wildfly-wwarm microservice in Docker
 
-You need to have Docker and docker-compose installed. The Dockerfile downloads Maven version 3.3.3 and builds the project inside the container.
+You need to have Docker and docker-compose installed. 
+
+### Packaging your application
+  
+Run `mvn clean package`. A `SwarmDocker-swarm.jar` file be built to your target folder  
  
 ### Building the Docker image
 
 You build the Docker image with the command: `docker-compose build`
+
+This will add the `jar`-file to the Docker image and  
 
 ### Running Docker with a Wildfly-Swarm microservice inside
 
