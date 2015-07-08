@@ -64,5 +64,6 @@
     <module>static</module>
     <module>static-war</module>
     <module>transactions</module>
+    <module>wildfly-swarm-jaxrs-docker</module>
   </modules>
 </project>
