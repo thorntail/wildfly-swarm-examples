@@ -1,10 +1,10 @@
 package org.wildfly.swarm.examples.mail;
 
+import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.wildfly.swarm.container.Container;
-import org.wildfly.swarm.jaxrs.JAXRSDeployment;
+import org.wildfly.swarm.jaxrs.JAXRSArchive;
 import org.wildfly.swarm.mail.MailFraction;
 import org.wildfly.swarm.mail.SmtpServer;
-import org.wildfly.swarm.undertow.WarDeployment;
 
 /**
  * @author Helio Frota
@@ -22,10 +22,11 @@ public class Main {
                 .host("add_your_smtp_here")
                 .port("25")));
         
-        WarDeployment deployment = new JAXRSDeployment(container);
-        deployment.getArchive().addClass(Mail.class);
+        JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class);
+        deployment.addClass(Main.class);
+        deployment.addAllDependencies();
         container.start().deploy(deployment);
-        
+
         System.out.println(smtp.jndiName());
 
     }
