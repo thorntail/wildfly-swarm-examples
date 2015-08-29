@@ -1,5 +1,5 @@
 buildscript {
-  version = '1.0.0.Alpha4-SNAPSHOT'
+  version = '1.0.0.Alpha5-SNAPSHOT'
   repositories {
     mavenLocal()
   }

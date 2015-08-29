@@ -1,8 +1,8 @@
 package org.wildfly.swarm.examples.gradle;
 
+import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.wildfly.swarm.container.Container;
-import org.wildfly.swarm.jaxrs.JAXRSDeployment;
-import org.wildfly.swarm.undertow.WarDeployment;
+import org.wildfly.swarm.jaxrs.JAXRSArchive;
 
 /**
  * @author helio frota
@@ -14,10 +14,10 @@ public class Main {
 
         Container container = new Container();
 
-        WarDeployment war = new JAXRSDeployment(container);
-        war.staticContent("/");
-        war.getArchive().addClass(HelloRest.class);
-        container.start().deploy(war);
+        JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class);
+        deployment.addClass(HelloRest.class);
+        deployment.addAllDependencies();
+        container.start().deploy(deployment);
 
     }
 }
