@@ -53,6 +53,7 @@
     <module>jaxrs-cdi</module>
     <module>jaxrs-msc</module>
     <module>jaxrs-shrinkwrap</module>
+    <module>jaxws</module>
     <module>jpa-jaxrs-cdi</module>
     <module>jpa-jaxrs-cdi-shrinkwrap</module>
     <module>jpa-jaxrs-cdi-shrinkwrap2</module>
