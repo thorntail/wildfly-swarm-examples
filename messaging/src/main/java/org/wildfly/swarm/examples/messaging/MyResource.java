@@ -1,12 +1,9 @@
 package org.wildfly.swarm.examples.messaging;
 
-import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -20,21 +17,20 @@ import javax.ws.rs.Produces;
 @Path("/")
 public class MyResource {
 
+    public static final String MY_TOPIC = "/jms/topic/my-topic";
+
     @GET
     @Produces("text/plain")
     public String get() throws NamingException, JMSException {
         Context ctx = new InitialContext();
         ConnectionFactory factory = (ConnectionFactory) ctx.lookup("ConnectionFactory");
-        Connection conn = factory.createConnection();
+        Destination destination = (Destination) ctx.lookup(MY_TOPIC);
 
-        Topic topic = (Topic) ctx.lookup("/jms/topic/my-topic");
-
-        Session sess = conn.createSession();
-        MessageProducer prod = sess.createProducer(topic);
-        TextMessage message = sess.createTextMessage();
-        message.setText("Hello!");
-        prod.send(message);
-        sess.close();
+        try (
+                JMSContext context = factory.createContext()
+        ) {
+            context.createProducer().send(destination, "Hello!");
+        }
         return "Howdy!";
     }
 }

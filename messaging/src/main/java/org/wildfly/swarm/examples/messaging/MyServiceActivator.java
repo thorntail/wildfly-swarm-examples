@@ -15,7 +15,7 @@ public class MyServiceActivator implements ServiceActivator {
         System.err.println("activating services");
         ServiceTarget target = context.getServiceTarget();
 
-        target.addService(ServiceName.of("my", "service", "1"), new MyService("/jms/topic/my-topic"))
+        target.addService(ServiceName.of("my", "service", "1"), new MyService(MyResource.MY_TOPIC))
                 .install();
     }
 }
