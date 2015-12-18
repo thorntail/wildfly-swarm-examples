@@ -1,0 +1,50 @@
+= JAX-RS & Scala Example
+
+> Please raise any issues found with this example in this repo:
+> https://github.com/wildfly-swarm/wildfly-swarm-examples/issues
+>
+> Issues related to *WildFly Swarm* core should be raised in our JIRA:
+> https://issues.jboss.org/browse/SWARM
+
+== Project `pom.xml`
+
+The project is a normal maven project with `jar` packaging, not `war`.
+
+[source,xml]
+----
+<packaging>war</packaging>
+----
+
+The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+create the runnable `.jar`.
+
+[source,xml]
+----
+<plugin>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>wildfly-swarm-plugin</artifactId>
+  ....
+</plugin>
+----
+
+As with the other examples, this one inherits a few standard executions
+from the parent `pom.xml`, particularly the `package` execution.
+
+To define the needed parts of WildFly Swarm, a dependency is added
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>wildfly-swarm-jaxrs</artifactId>
+  <version>${version.wildfly-swarm}</version>
+</dependency>
+----
+
+== Run
+
+* mvn wildfly-swarm:run
+
+== Use
+
+    http://localhost:8080/

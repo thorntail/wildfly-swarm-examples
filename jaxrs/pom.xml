@@ -29,5 +29,6 @@
     <module>jaxrs-cdi</module>
     <module>contract-based-testing</module>
     <module>scala</module>
+    <module>clojure</module>
   </modules>
 </project>
