@@ -27,6 +27,7 @@
     <module>jaxrs-war</module>
     <module>jaxrs-shrinkwrap</module>
     <module>jaxrs-shrinkwrap-https</module>
+    <module>jaxrs-shrinkwrap-ajp</module>
     <module>jaxrs-cdi</module>
     <module>contract-based-testing</module>
     <module>scala</module>
