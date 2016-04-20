@@ -43,6 +43,7 @@
   
   <modules>
     <module>camel-core</module>
+    <module>camel-cdi</module>
   </modules>
   
 </project>

@@ -19,7 +19,7 @@
 
   <properties>
     <version.wildfly-swarm>${project.version}</version.wildfly-swarm>
-    <version.wildfly-swarm-camel>1.0.1</version.wildfly-swarm-camel>
+    <version.wildfly-swarm-camel>1.0.2</version.wildfly-swarm-camel>
 
     <maven.min.version>3.2.1</maven.min.version>
 
