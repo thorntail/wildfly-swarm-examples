@@ -12,7 +12,6 @@
     <groupId>org.wildfly.swarm.examples</groupId>
     <artifactId>examples-parent</artifactId>
     <version>1.0.0.CR1-SNAPSHOT</version>
-    <relativePath>../</relativePath>
   </parent>
 
   <artifactId>examples-camel</artifactId>
@@ -21,9 +20,30 @@
   <description>WildFly Swarm Examples: Camel parent</description>
 
   <packaging>pom</packaging>
-
-
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>camel-core</artifactId>
+        <version>${version.wildfly-swarm-camel}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>camel-full</artifactId>
+        <version>${version.wildfly-swarm-camel}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>camel-web</artifactId>
+        <version>${version.wildfly-swarm-camel}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <modules>
-    <module>camel-war</module>
+    <module>camel-core</module>
+    <module>camel-cdi</module>
   </modules>
+  
 </project>
