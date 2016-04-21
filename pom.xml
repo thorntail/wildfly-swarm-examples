@@ -19,6 +19,7 @@
 
   <properties>
     <version.wildfly-swarm>${project.version}</version.wildfly-swarm>
+    <version.wildfly-swarm-camel>1.0.1</version.wildfly-swarm-camel>
 
     <maven.min.version>3.2.1</maven.min.version>
 
@@ -232,7 +233,7 @@
     <module>base</module>
 
     <module>arjuna</module>
-    <!-- <module>camel</module> -->
+    <module>camel</module>
     <module>config-options</module>
     <module>datasource</module>
     <module>jaxrs</module>
