@@ -30,6 +30,7 @@
   </parent>
 
   <name>Wildfly Swarm :: Examples :: Camel Core</name>
+  
   <artifactId>example-camel-core</artifactId>
 
   <dependencies>

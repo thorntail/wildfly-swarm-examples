@@ -14,11 +14,9 @@
     <version>1.0.0.CR1-SNAPSHOT</version>
   </parent>
 
+  <name>WildFly Swarm :: Examples :: Camel</name>
+  
   <artifactId>examples-camel</artifactId>
-
-  <name>WildFly Swarm Examples: Camel parent</name>
-  <description>WildFly Swarm Examples: Camel parent</description>
-
   <packaging>pom</packaging>
   
   <dependencyManagement>
@@ -45,6 +43,7 @@
     <module>camel-core</module>
     <module>camel-cdi</module>
     <module>camel-cxf-jaxrs</module>
+    <module>camel-cxf-jaxws</module>
   </modules>
   
 </project>
