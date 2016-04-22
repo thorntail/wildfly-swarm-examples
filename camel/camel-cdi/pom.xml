@@ -49,7 +49,7 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
-          <mainClass>org.wildfly.swarm.examples.camel.cdi.MyMain</mainClass>
+          <mainClass>org.wildfly.swarm.examples.camel.cdi.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>

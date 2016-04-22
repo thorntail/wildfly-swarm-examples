@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.wildfly.swarm.examples.camel.cxf.jaxrs;
+package org.wildfly.swarm.examples.camel.cdi;
 
 import org.wildfly.swarm.container.Container;
 
-public class MyMain {
+public class Main {
 	
     public static void main(String... args) throws Exception {
 
