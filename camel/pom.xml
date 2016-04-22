@@ -44,6 +44,7 @@
   <modules>
     <module>camel-core</module>
     <module>camel-cdi</module>
+    <module>camel-cxf-jaxrs</module>
   </modules>
   
 </project>
