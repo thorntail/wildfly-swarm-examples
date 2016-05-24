@@ -20,7 +20,6 @@
 package org.wildfly.swarm.examples.camel.mail;
 
 import javax.annotation.Resource;
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 import javax.mail.Session;
 
@@ -29,7 +28,6 @@ import org.apache.camel.cdi.ContextName;
 import org.apache.camel.component.mail.MailConfiguration;
 import org.apache.camel.component.mail.MailEndpoint;
 
-@Startup
 @ApplicationScoped
 @ContextName("mail-context")
 public class MailRouteBuilder extends RouteBuilder {

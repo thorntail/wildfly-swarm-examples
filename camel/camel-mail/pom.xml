@@ -29,27 +29,30 @@
         <version>1.0.0.CR1-SNAPSHOT</version>
     </parent>
 
-    <name>Wildfly Swarm :: Examples :: Camel Mail</name>
+    <name>Wildfly Swarm Examples: Camel Mail</name>
 
     <artifactId>example-camel-mail</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>camel-full</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>mail</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.wildfly.swarm.examples</groupId>
             <artifactId>examples-base</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>camel-cdi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>camel-mail</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>camel-undertow</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.icegreen</groupId>
             <artifactId>greenmail-webapp</artifactId>
-            <version>1.4.1</version>
             <type>war</type>
         </dependency>
         <dependency>

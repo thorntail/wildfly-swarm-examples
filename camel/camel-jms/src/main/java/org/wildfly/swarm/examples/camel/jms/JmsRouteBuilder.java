@@ -20,7 +20,6 @@
 package org.wildfly.swarm.examples.camel.jms;
 
 import javax.annotation.Resource;
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 import javax.jms.ConnectionFactory;
 
@@ -28,7 +27,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
 import org.apache.camel.component.jms.JmsComponent;
 
-@Startup
 @ApplicationScoped
 @ContextName("jms-context")
 public class JmsRouteBuilder extends RouteBuilder {

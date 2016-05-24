@@ -19,13 +19,11 @@
  */
 package org.wildfly.swarm.examples.camel.cdi;
 
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
 
-@Startup
 @ApplicationScoped
 @ContextName("cdi-context")
 public class CdiRouteBuilder extends RouteBuilder {

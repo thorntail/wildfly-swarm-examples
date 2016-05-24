@@ -19,15 +19,21 @@
   <artifactId>examples-camel</artifactId>
   <packaging>pom</packaging>
 
-  <!-- Repositories -->
-  <repositories>
-    <repository>
-      <!-- for restlet -->
-      <id>springsource-libs-releases</id>
-      <url>http://repo.springsource.org/libs-release-remote</url>
-    </repository>
-  </repositories>
-
+  <properties>
+    <version.icegreen.greenmail>1.4.1</version.icegreen.greenmail>
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail-webapp</artifactId>
+        <version>${version.icegreen.greenmail}</version>
+        <type>war</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <modules>
     <module>camel-activemq</module>
     <module>camel-core</module>
@@ -39,4 +45,13 @@
     <module>camel-mail</module>
   </modules>
   
+  <!-- Repositories -->
+  <repositories>
+    <repository>
+      <!-- for restlet -->
+      <id>springsource-libs-releases</id>
+      <url>http://repo.springsource.org/libs-release-remote</url>
+    </repository>
+  </repositories>
+
 </project>

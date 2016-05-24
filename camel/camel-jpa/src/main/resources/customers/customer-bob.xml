@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<cus:customer xmlns:cus="http://org/wildfly/camel/examples/jpa/model/Customer"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://org/wildfly/camel/examples/jpa/model/Customer">
-    <cus:firstName>Bob</cus:firstName>
-    <cus:lastName>Doe</cus:lastName>
-    <cus:dateOfBirth>1975-12-25</cus:dateOfBirth>
-</cus:customer>

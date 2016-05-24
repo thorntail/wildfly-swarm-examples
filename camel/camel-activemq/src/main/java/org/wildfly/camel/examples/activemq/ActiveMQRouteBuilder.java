@@ -19,14 +19,12 @@
  */
 package org.wildfly.camel.examples.activemq;
 
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.apache.activemq.camel.component.ActiveMQComponent;
 import org.apache.camel.builder.RouteBuilder;
 import org.wildfly.extension.camel.CamelAware;
 
-@Startup
 @CamelAware
 @ApplicationScoped
 public class ActiveMQRouteBuilder extends RouteBuilder {

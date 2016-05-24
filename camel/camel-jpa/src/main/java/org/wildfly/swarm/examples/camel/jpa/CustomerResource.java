@@ -16,7 +16,7 @@ import org.wildfly.swarm.examples.camel.jpa.model.Customer;
 public class CustomerResource {
 
     @PersistenceContext
-    private EntityManager em;
+    EntityManager em;
 
     @GET
     @Produces("application/json")
