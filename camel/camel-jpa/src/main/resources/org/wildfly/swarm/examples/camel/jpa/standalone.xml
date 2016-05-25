@@ -1,0 +1,21 @@
+<subsystem xmlns="urn:jboss:domain:datasources:4.0">
+  <datasources>
+    <drivers>
+      <driver name="h2" module="com.h2database.h2">
+        <driver-class>org.h2.Driver</driver-class>
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource
+        </xa-datasource-class>
+      </driver>
+    </drivers>
+    <datasource jndi-name="java:jboss/datasources/${datasource.name}"
+      pool-name="ExampleDS" enabled="true" use-java-context="true">
+      <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      </connection-url>
+      <driver>h2</driver>
+      <security>
+        <user-name>sa</user-name>
+        <password>sa</password>
+      </security>
+    </datasource>
+  </datasources>
+</subsystem>

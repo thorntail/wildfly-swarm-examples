@@ -20,6 +20,7 @@ public class CamelJpaIT extends AbstractIntegrationTest {
     public void testCamelJPA() throws Exception {
     	
 		Log log = getStdOutLog();
+		assertThatLog(log).hasLineContaining("Bound data source [java:jboss/datasources/JpaExampleDS]");
 		assertThatLog(log).hasLineContaining("Bound camel naming object: java:jboss/camel/context/camel-1");
 		assertThatLog(log).hasLineContaining("Route: route1 started and consuming from: Endpoint[file://");
 

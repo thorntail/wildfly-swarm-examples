@@ -1,0 +1,5 @@
+project:
+    stage: default
+datasource:
+    name: JpaExampleDS 
+    
