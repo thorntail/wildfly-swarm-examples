@@ -16,7 +16,7 @@ To define the needed parts of WildFly Swarm, the following dependencies are adde
 
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>camel-full</artifactId>
+        <artifactId>camel-cxf</artifactId>
     </dependency>
 
 This dependency provides Camel and CXF APIs to your application, so the
@@ -26,7 +26,7 @@ project does *not* need to specify those.
 
 You can run it many ways:
 
-* mvn package && java -jar ./target/example-camel-cxf-jaxrs-swarm.jar
+* java -jar ./target/example-camel-cxf-jaxrs-swarm.jar
 * mvn wildfly-swarm:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 

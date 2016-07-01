@@ -16,7 +16,7 @@ To define the needed parts of WildFly Swarm, the following dependencies are adde
 
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>camel-full</artifactId>
+        <artifactId>camel-cxf</artifactId>
     </dependency>
 
 This dependency provides Camel and CXF APIs to your application, so the

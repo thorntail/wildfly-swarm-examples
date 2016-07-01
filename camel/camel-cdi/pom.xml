@@ -53,9 +53,7 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
-          <jvmArguments>
-            <jvmArgument>-Dswarm.http.eager=true</jvmArgument>
-          </jvmArguments>
+          <mainClass>org.wildfly.swarm.examples.camel.cdi.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
