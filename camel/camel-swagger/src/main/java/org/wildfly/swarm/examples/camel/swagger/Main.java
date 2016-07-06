@@ -26,8 +26,9 @@ import org.apache.camel.builder.RouteBuilder;
 import org.wildfly.swarm.camel.core.CamelCoreFraction;
 
 public class Main {
+
     public static void main(String... args) throws Exception {
-        // start with eager HTTP ports
+
         new Swarm()
             .fraction(new CamelCoreFraction().addRouteBuilder("rest-context", new RouteBuilder() {
                 @Override
