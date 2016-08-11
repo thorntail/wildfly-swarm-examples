@@ -40,6 +40,9 @@ public class CamelSwaggerIT extends AbstractIntegrationTest {
 		Log log = getStdOutLog();
 		assertThatLog(log).hasLineContaining("Camel context starting: rest-context");
 
+        browser.navigate().to("http://localhost:8080/rest/hello/Kermit");
+        Assertions.assertThat(browser.getPageSource()).contains("Hello Kermit");
+        
         browser.navigate().to("http://localhost:8080/rest/api-doc");
         Assertions.assertThat(browser.getPageSource()).contains("\"title\" : \"User API\"");
 	}

@@ -61,6 +61,7 @@
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
           <mainClass>org.wildfly.swarm.examples.camel.swagger.Main</mainClass>
+          <useUberJar>true</useUberJar>
         </configuration>
       </plugin>
     </plugins>
