@@ -10,6 +10,8 @@ import org.wildfly.swarm.jaxrs.JAXRSArchive;
  */
 public class Main {
 
+    static String driverModule;
+
     public static void main(String[] args) throws Exception {
 
         Swarm swarm = new Swarm();
@@ -20,19 +22,27 @@ public class Main {
         // and a datasource
         switch (useDB.toLowerCase()) {
             case "h2":
-                swarm.fraction(datasourceWithH2()); break;
+                swarm.fraction(datasourceWithH2());
+                driverModule = "com.h2database.h2";
+                break;
             case "postgresql" :
-                swarm.fraction(datasourceWithPostgresql()); break;
+                swarm.fraction(datasourceWithPostgresql());
+                driverModule = "org.postgresql";
+                break;
             case "mysql" :
-                swarm.fraction(datasourceWithMysql()); break;
+                swarm.fraction(datasourceWithMysql());
+                driverModule = "com.mysql";
+                break;
             default:
                 swarm.fraction(datasourceWithH2());
+                driverModule = "com.h2database.h2";
         }
 
         // Start the swarm
         swarm.start();
         JAXRSArchive appDeployment = ShrinkWrap.create(JAXRSArchive.class);
         appDeployment.addResource(MyResource.class);
+        appDeployment.addModule(driverModule);
 
         // Deploy your app
         swarm.deploy(appDeployment);
