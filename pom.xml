@@ -257,6 +257,7 @@
     <!--<module>spring-boot</module>-->
     <module>security</module>
     <module>resource-adapter</module>
+    <module>microprofile</module>
 
 <!--
     <module>kitchensink-html5-mobile</module>

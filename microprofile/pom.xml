@@ -15,26 +15,16 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>examples-jaxrs</artifactId>
+  <artifactId>examples-microprofile</artifactId>
 
-  <name>WildFly Swarm Examples: JAX-RS parent</name>
-  <description>WildFly Swarm Examples: JAX-RS parent</description>
+  <name>WildFly Swarm Examples: Microprofile parent</name>
+  <description>WildFly Swarm Examples: Microprofile RS parent</description>
 
   <packaging>pom</packaging>
 
 
   <modules>
-    <module>jaxrs-war</module>
-    <module>jaxrs-war-main</module>
-    <module>jaxrs-shrinkwrap</module>
-    <module>jaxrs-shrinkwrap-https</module>
-    <module>jaxrs-shrinkwrap-ajp</module>
-    <module>jaxrs-cdi</module>
-    <module>jaxrs-cdi-deltaspike</module>
-    <module>contract-based-testing</module>
-    <module>scala</module>
-    <module>kotlin</module>
-    <module>swagger</module>
-    <module>health</module>	
+    <module>microprofile-war</module>
+    <module>microprofile-shrinkwrap</module>	
   </modules>
 </project>
