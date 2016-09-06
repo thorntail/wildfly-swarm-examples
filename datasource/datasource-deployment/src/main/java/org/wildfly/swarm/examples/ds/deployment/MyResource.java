@@ -22,11 +22,8 @@ public class MyResource {
     public String get() throws NamingException, SQLException {
         Context ctx = new InitialContext();
         DataSource ds = (DataSource) ctx.lookup("jboss/datasources/ExampleDS");
-        Connection conn = ds.getConnection();
-        try {
+        try (Connection conn = ds.getConnection()) {
             return "Howdy using connection: " + conn;
-        } finally {
-            conn.close();
         }
     }
 }
