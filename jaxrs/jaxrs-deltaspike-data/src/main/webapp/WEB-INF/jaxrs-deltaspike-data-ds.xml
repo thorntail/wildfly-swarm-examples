@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+    <datasource jndi-name="java:jboss/datasources/jdd-ds" pool-name="jdd-ds" enabled="true" use-java-context="true">
+        <connection-url>jdbc:h2:mem:jdddb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+        <driver>h2</driver>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </datasource>
+</datasources>
