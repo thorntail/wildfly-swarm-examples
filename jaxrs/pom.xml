@@ -36,5 +36,6 @@
     <module>kotlin</module>
     <module>swagger</module>
     <module>health</module>	
+    <module>jaxrs-deltaspike-data</module>
   </modules>
 </project>
