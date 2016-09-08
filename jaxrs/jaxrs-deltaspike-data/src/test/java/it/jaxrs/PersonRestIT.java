@@ -37,8 +37,6 @@ public class PersonRestIT  extends AbstractIntegrationTest{
     public static final String API_URL = "http://127.0.0.1:8080/api/persons";
     Client client = ClientBuilder.newBuilder().build();
 
-    @Drone
-    WebDriver browser;
 
     WebTarget target;
 
@@ -47,7 +45,8 @@ public class PersonRestIT  extends AbstractIntegrationTest{
         target = client.target(API_URL);
     }
 
-    @Deployment
+//    If you want to make you tests work with you IDE, just uncomment the following lines
+    /*@Deployment
     public static Archive createDeployment() throws Exception {
         JAXRSArchive deployment = ShrinkWrap.create( JAXRSArchive.class );
         deployment.addPackage(Person.class.getPackage());
@@ -58,13 +57,13 @@ public class PersonRestIT  extends AbstractIntegrationTest{
         deployment.addAllDependencies();
         System.out.println(deployment.toString(true));
         return deployment;
-    }
+    }*/
 
     @Test
     @RunAsClient
     public void shouldGetAll(){
-        browser.navigate().to(API_URL);
-        assertThat(browser.getPageSource()).contains("ROCK");
+        Response response = target.request().get();
+        assertThat(response.getStatus()==200);
     }
 
     @Test
