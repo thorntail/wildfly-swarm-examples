@@ -7,13 +7,7 @@
     <groupId>org.wildfly.swarm.examples</groupId>
     <artifactId>jaxrs-deltaspike-data</artifactId>
     <packaging>war</packaging>
-
-    <parent>
-        <groupId>org.wildfly.swarm.examples</groupId>
-        <artifactId>examples-jaxrs</artifactId>
-        <version>2016.10-SNAPSHOT</version>
-        <relativePath>../</relativePath>
-    </parent>
+    <version>1.0.0.Final</version>
 
     <developers>
         <developer>
