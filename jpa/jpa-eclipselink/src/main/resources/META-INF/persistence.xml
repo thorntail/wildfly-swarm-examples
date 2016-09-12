@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.1"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="MyPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <properties>
+      <property name="eclipselink.target-server" value="JBoss"/>
+      <!--  Optimization #9 - statement caching -->
+      <property name="eclipselink.jdbc.cache-statements" value="true"/>
+      <!--  Optimization #10 - batch writing -->
+      <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+      <property name="eclipselink.jdbc.batch-writing.size" value="1000"/>
+      <!--  Optimization #11 - disable caching for batch insert (caching only improves reads, so only adds overhead for inserts) -->
+      <property name="eclipselink.cache.shared.default" value="false"/>
+
+      <property name="eclipselink.weaving" value="true"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+      <property name="eclipselink.logging.session" value="false"/>
+      <property name="eclipselink.logging.thread" value="false"/>
+      <property name="eclipselink.logging.timestamp" value="false"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+      <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+      <property name="javax.persistence.sql-load-script-source" value="META-INF/load.sql"/>
+    </properties>
+  </persistence-unit>
+</persistence>
