@@ -1,31 +1,20 @@
 package it.jaxrs;
 
-import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import org.wildfly.swarm.examples.jdd.Person;
-import org.wildfly.swarm.examples.jdd.PersonRest;
 import org.wildfly.swarm.it.AbstractIntegrationTest;
-import org.wildfly.swarm.jaxrs.JAXRSArchive;
 
-import static org.fest.assertions.Assertions.assertThat;
-
-
-import javax.annotation.security.RunAs;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-import java.io.File;
+
+import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Created by rafaelszp on 9/8/16.
@@ -63,7 +52,7 @@ public class PersonRestIT  extends AbstractIntegrationTest{
     @RunAsClient
     public void shouldGetAll(){
         Response response = target.request().get();
-        assertThat(response.getStatus()==200);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     }
 
     @Test
@@ -73,7 +62,13 @@ public class PersonRestIT  extends AbstractIntegrationTest{
         person.setDocumentId("a607feec176eb4b4fc32d7ca69f8e343");
         person.setName("MARIO DO ARMARIO");
         Response response = target.request().post(Entity.entity(person, "application/json"));
-        assertThat(response.getStatus()==201);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
+        assertThat(response.getHeaderString("Location")).startsWith("http://127.0.0.1:8080/api/persons/");
+        response.close();
+        Response getPerson = client.target(response.getHeaderString("Location")).request().get();
+        Person foundPerson = getPerson.readEntity(Person.class);
+        getPerson.close();
+        assertThat(foundPerson.getDocumentId()).isEqualTo(person.getDocumentId());
     }
 
     @Test
@@ -85,7 +80,7 @@ public class PersonRestIT  extends AbstractIntegrationTest{
         person.setDocumentId("66677fb9980dcc0f996c91e08ef6d6de");
         person.setName("ELIS SABELLA");
         Response response = target.request().put(Entity.entity(person, "application/json"));
-        assertThat(response.getStatus()==200);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     }
 
     @Test
@@ -93,7 +88,7 @@ public class PersonRestIT  extends AbstractIntegrationTest{
     public void shouldGetByName(){
         target = client.target(API_URL+"/?name=J");
         Response response = target.request().get();
-        assertThat(response.getStatus()==200);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     }
 
     @Test
@@ -101,7 +96,7 @@ public class PersonRestIT  extends AbstractIntegrationTest{
     public void shouldGetByNameAndDocumentID(){
         target = client.target(API_URL+"/?name=P&document-id=9e32f1112a8d64e75fea11c65c99f2ad");
         Response response = target.request().get();
-        assertThat(response.getStatus()==200);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     }
 
     @Test
@@ -109,7 +104,7 @@ public class PersonRestIT  extends AbstractIntegrationTest{
     public void shouldGetByDocumentID(){
         target = client.target(API_URL+"/?document-id=9e32f1112a8d64e75fea11c65c99f2ad");
         Response response = target.request().get();
-        assertThat(response.getStatus()==200);
+        assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     }
 
 }
