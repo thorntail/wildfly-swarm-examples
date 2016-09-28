@@ -31,6 +31,7 @@
 
   <name>WildFly Swarm Examples: Camel CDI</name>
   <artifactId>example-camel-cdi</artifactId>
+  <packaging>war</packaging>
 
   <dependencies>
     <dependency>
@@ -52,8 +53,11 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <mainClass>org.wildfly.swarm.examples.camel.cdi.Main</mainClass>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
     </plugins>
