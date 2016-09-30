@@ -265,7 +265,6 @@
     <module>gradle</module>
     <module>docker</module>
     <module>spring</module>
-    <!--<module>spring-boot</module>-->
     <module>security</module>
     <module>resource-adapter</module>
     <module>microprofile</module>
