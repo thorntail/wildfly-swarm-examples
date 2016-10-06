@@ -1,4 +1,4 @@
-FROM java:jre-alpine
+FROM openjdk:jre-alpine
 
 ADD example-docker-jaxrs-dockerfile-swarm.jar /opt/wildfly-swarm.jar
 
