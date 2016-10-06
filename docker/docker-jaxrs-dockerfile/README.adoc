@@ -4,8 +4,9 @@
 
 Run `mvn clean package`. An `example-docker-jaxrs-dockerfile-swarm.jar` file will be built in your target folder.
 
-Run `mvn clean package docker:build`. An `example-docker-jaxrs-dockerfile` docker image will be built
+Run `mvn clean package docker:build`. An `example-docker-jaxrs-dockerfile` docker image will be built.
 
+This example is using Spotifys docker-maven-plugin: https://github.com/spotify/docker-maven-plugin/
 
 
 == Running Docker with a Wildfly-Swarm microservice inside
