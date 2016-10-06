@@ -24,5 +24,6 @@
 
   <modules>
     <module>docker-jaxrs</module>
+    <module>docker-jaxrs-dockerfile</module>
   </modules>
 </project>
