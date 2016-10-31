@@ -51,6 +51,7 @@ public class EmployeeResource {
 
     @GET
     @Path("rollbackMsg")
+    @Produces("text/plain")
     public int getRollBackMsg() {
 
         return service.getRollbackMsg().size();
@@ -58,6 +59,7 @@ public class EmployeeResource {
 
     @GET
     @Path("commitMsg")
+    @Produces("text/plain")
     public int getCommitMsg() {
 
         return service.getCommitMsg().size();

@@ -57,10 +57,10 @@ public class JPAJAXRSCDIJTAApplicationIT extends AbstractIntegrationTest {
         assertThat(browser.getPageSource()).contains("*** On purpose failure during removal to test Rollback ***");
 
         browser.navigate().to("http://localhost:8080/rollbackMsg");
-        assertThat(browser.getPageSource().contains("5"));
+        assertThat(browser.getPageSource()).contains("5");
 
         browser.navigate().to("http://localhost:8080/commitMsg");
-        assertThat(browser.getPageSource().contains("0"));
+        assertThat(browser.getPageSource()).contains("0");
 
 
         testAll();
@@ -80,9 +80,9 @@ public class JPAJAXRSCDIJTAApplicationIT extends AbstractIntegrationTest {
         }
         assertThat(browser.getPageSource()).contains("*** On purpose failure during removal to test Rollback ***");
         browser.navigate().to("http://localhost:8080/rollbackMsg");
-        assertThat(browser.getPageSource().contains("0"));
+        assertThat(browser.getPageSource()).contains("0");
         browser.navigate().to("http://localhost:8080/commitMsg");
-        assertThat(browser.getPageSource().contains("3"));
+        assertThat(browser.getPageSource()).contains("3");
         browser.navigate().to("http://localhost:8080/all");
         assertThat(browser.getPageSource()).doesNotContain("{\"id\":1,\"name\":\"Penny\"}");
         assertThat(browser.getPageSource()).doesNotContain("{\"id\":2,\"name\":\"Sheldon\"}");
