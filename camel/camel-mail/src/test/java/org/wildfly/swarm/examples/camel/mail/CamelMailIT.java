@@ -34,6 +34,8 @@ public class CamelMailIT extends AbstractIntegrationTest {
 	@Test
 	public void testIt() throws Exception {
 
+		Thread.sleep(5000);
+
 		Log log = getStdOutLog();
 		assertThatLog(log).hasLineContaining("Bound camel naming object: java:jboss/camel/context/mail-context");
 		assertThatLog(log).hasLineContaining("Bound mail session [java:jboss/mail/greenmail]");
