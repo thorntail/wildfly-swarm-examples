@@ -49,6 +49,6 @@ public class ConsumerTest extends ConsumerPactTest {
 
     @Override
     protected void runTest(String url) throws IOException {
-        assertEquals(new ProviderClient(url).hello("FOOBAR"), "Howdy FOOBAR");
+        assertEquals("Howdy FOOBAR", new ProviderClient(url).hello("FOOBAR"));
     }
 }

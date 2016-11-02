@@ -38,14 +38,14 @@ public class ClientIT {
     public void testHello() {
         // Get a response from the WebService
         final String response = client.sayHello();
-        assertEquals(response, "Hello World!");
+        assertEquals("Hello World!", response);
     }
 
     @Test
     public void testHelloName() {
         // Get a response from the WebService
         final String response = client.sayHelloToName("John");
-        assertEquals(response, "Hello John!");
+        assertEquals("Hello John!", response);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class ClientIT {
 
         // Get a response from the WebService
         final String response = client.sayHelloToNames(names);
-        assertEquals(response, "Hello John, Mary & Mark!");
+        assertEquals("Hello John, Mary & Mark!", response);
     }
 
 }
