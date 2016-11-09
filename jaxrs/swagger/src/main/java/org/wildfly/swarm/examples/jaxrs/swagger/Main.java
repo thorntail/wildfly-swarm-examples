@@ -18,13 +18,11 @@ public class Main {
         SwaggerArchive archive = ShrinkWrap.create(SwaggerArchive.class, "swagger-app.war");
         JAXRSArchive deployment = archive.as(JAXRSArchive.class).addPackage(Main.class.getPackage());
 
-
         // Tell swagger where our resources are
         archive.setResourcePackages("org.wildfly.swarm.examples.jaxrs.swagger");
 
         deployment.addAllDependencies();
-        swarm
-                .fraction(LoggingFraction.createDefaultLoggingFraction())
+        swarm.fraction(LoggingFraction.createDefaultLoggingFraction())
                 .start()
                 .deploy(deployment);
     }

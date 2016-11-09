@@ -34,7 +34,5 @@ public class XmlMain {
 
         // Deploy your app
         swarm.deploy(appDeployment);
-
-
     }
 }

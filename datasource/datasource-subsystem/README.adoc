@@ -81,8 +81,8 @@ To support datasources in general, the next dependency is required:
 </dependency>
 ----
 
-The `wildfly-swarm-jaxrs` dependency allows usage of ShrinkWrap APIs within the `main()` in addition
-to providing the JAX-RS APIs.  The `wildfly-swarm-datasources` dependency provides configuration
+The `jaxrs` dependency allows usage of ShrinkWrap APIs within the `main()` in addition
+to providing the JAX-RS APIs.  The `datasources` dependency provides configuration
 classes for adding the JDBC driver and datasources to the container.
 
 == Project `main()`
@@ -94,49 +94,10 @@ configure the container and deploy the resources programatically.
 
 [source,java]
 ----
-package org.wildfly.swarm.examples.ds.subsystem;
-
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.wildfly.swarm.container.Container;
-import org.wildfly.swarm.datasources.DatasourcesFraction;
-import org.wildfly.swarm.jaxrs.JAXRSArchive;
-
-public class Main {
-
-    public static void main(String[] args) throws Exception {
-
-        Container container = new Container();
-
-        // Configure the Datasources subsystem with a driver
-        // and a datasource
-        container.fraction(new DatasourcesFraction()
-                        .jdbcDriver("h2", (d) -> {
-                            d.driverClassName("org.h2.Driver");
-                            d.xaDatasourceClass("org.h2.jdbcx.JdbcDataSource");
-                            d.driverModuleName("com.h2database.h2");
-                        })
-                        .dataSource("ExampleDS", (ds) -> {
-                            ds.driverName("h2");
-                            ds.connectionUrl("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
-                            ds.userName("sa");
-                            ds.password("sa");
-                        })
-        );
-
-
-        // Start the container
-        container.start();
-        JAXRSArchive appDeployment = ShrinkWrap.create(JAXRSArchive.class);
-        appDeployment.addResource(MyResource.class);
-
-        // Deploy your app
-        container.deploy(appDeployment);
-
-    }
-}
+include::src/main/java/org/wildfly/swarm/examples/ds/subsystem/Main.java[lines=11..95]
 ----
 
-This method constructs a new default Container, which automatically
+This method constructs a new default Swarm, which automatically
 initializes all fractions (or subsystems) that are available.  The datasources
 fraction has no particular default configuration, so by providing a
 specific configuration we enable a driver and a datasource.
@@ -153,22 +114,7 @@ The resource looks up the Datasource through JNDI at run-time:
 
 [source,java]
 ----
-@Path("/")
-public class MyResource {
-
-    @GET
-    @Produces("text/plain")
-    public String get() throws NamingException, SQLException {
-        Context ctx = new InitialContext();
-        DataSource ds = (DataSource) ctx.lookup("jboss/datasources/ExampleDS");
-        Connection conn = ds.getConnection();
-        try {
-            return "Howdy using connection: " + conn;
-        } finally {
-            conn.close();
-        }
-    }
-}
+include::src/main/java/org/wildfly/swarm/examples/ds/subsystem/MyResource.java[lines=17..32]
 ----
 
 
@@ -188,25 +134,6 @@ You can run it many ways:
 
 Of course, you can also use other databases such as PostgreSQL.
 
-When you use PostgreSQL JDBC Driver and datasource, the container settings may be the following snipet.
+When you want to use PostgreSQL JDBC Driver and datasource,
+simply set the `swarm.use.db` system property to a value of `postgresql`.
 
-[source,java]
-----
-// Configure the Datasources subsystem with a driver
-// and a datasource for PostgreSQL
-container.fraction(new DatasourcesFraction()
-                .jdbcDriver("org.postgresql", (d) -> {
-                    d.driverClassName("org.postgresql.Driver");
-                    d.xaDatasourceClass("org.postgresql.xa.PGXADataSource");
-                    d.driverModuleName("org.postgresql");
-                })
-                .dataSource("ExampleDS", (ds) -> {
-                    ds.driverName("org.postgresql");
-                    ds.connectionUrl("jdbc:postgresql://localhost:5432/postgres");
-                    ds.userName("postgres");
-                    ds.password("postgres");
-                });
-);
-----
-
-And, you should add `src/main/resources/modules/org/postgresql/main/module.xml` for PostgreSQL JDBC Driver as with h2.

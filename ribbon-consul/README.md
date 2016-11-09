@@ -8,7 +8,6 @@ JGroups, it relies upon Hashicorp's Consul service-discovery mechanisms.
 
 To execute this test, you must
 
-* Have v2.0+ of phantomjs available in your $PATH
 * Have a Consul server/agent running on http://<IP>:<PORT>
 
 You can run consul with

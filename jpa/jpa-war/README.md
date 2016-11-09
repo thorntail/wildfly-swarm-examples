@@ -41,7 +41,7 @@ To define the needed parts of WildFly Swarm, a few dependencies are added
         <version>${version.wildfly-swarm}</version>
     </dependency>
 
-The `wildfly-swarm-jpa` dependency provides the JPA APIs and `wildfly-swarm-undertow` provides the Servlet
+The `jpa` dependency provides the JPA APIs and `undertow` provides the Servlet
 APIs.
 
 ## Run

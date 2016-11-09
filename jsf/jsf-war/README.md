@@ -41,7 +41,7 @@ To define the needed parts of WildFly Swarm, a dependency is added
 </dependency>
 <dependency>
   <groupId>org.wildfly.swarm</groupId>
-  <artifactId>weld</artifactId>
+  <artifactId>cdi</artifactId>
   <version>${version.wildfly-swarm}</version>
 </dependency>
 ```

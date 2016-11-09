@@ -29,13 +29,13 @@ create the `.war`.
 
 Additionally, the usual `maven-war-plugin` is provided.
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-		<configuration>
-		  <failOnMissingWebXml>false</failOnMissingWebXml>
-		</configuration>
-            </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+    </plugin>
 
 Currently we have to add javax.transactions into the pom.xml for building due to
 https://github.com/wildfly-swarm/wildfly-swarm/issues/27
@@ -44,19 +44,19 @@ To define the needed parts of WildFly Swarm, a dependency is added
 
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-jaxrs</artifactId>
+        <artifactId>jaxrs</artifactId>
         <version>${version.wildfly-swarm}</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-transactions</artifactId>
+        <artifactId>transactions</artifactId>
         <version>${version.wildfly-swarm}</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-msc</artifactId>
+        <artifactId>msc</artifactId>
         <version>${version.wildfly-swarm}</version>
         <scope>provided</scope>
     </dependency>

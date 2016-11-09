@@ -10,15 +10,7 @@ I.e. declaring the database configuration for your production environment extern
 
 [source,yaml]
 ----
-database:
-    connection:
-        url: "jdbc:h2:mem:test-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
----
-project:
-    stage: production
-database:
-    connection:
-        url: "jdbc:h2:mem:prod-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+include::src/main/resources/project-stages.yml[]
 ----
 
 == Using expressions for configuration attributes
@@ -32,22 +24,5 @@ in the configuration model (aka config-api):
 
 [source,java]
 ----
-container.fraction(
- new DatasourcesFraction()
-         [...]
-         .dataSource("ExampleDS", (ds) -> {
-
-             // reference stage config property
-             ds.connectionUrl(
-                container
-                        .stageConfig()
-                        .resolve("database.connection.url")
-                        .getValue()
-             );
-
-             ds.driverName("h2");
-             ds.userName("sa");
-             ds.password("sa");
-         })
-);
+include::src/main/java/org/wildfly/swarm/examples/config/projectStage/ProjectStagesMain.java[lines=15..39]
 ----

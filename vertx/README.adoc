@@ -1,0 +1,41 @@
+= WildFly Swarm - Vert.x
+
+This example shows how to add support for the Vert.x API in Java EE applications by enabling the https://github.com/vert-x3/vertx-jca[Vert.x JCA adapter].
+
+== Enable Vert.x
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.wildfly.swarm</groupId>
+    <artifactId>vertx</artifactId>
+</dependency>
+----
+
+== Overview
+
+The general purpose of a JCA resource adapter is to provide connectivity to an Enterprise Information System (EIS) from a Java EE application server. Specifically, the Vert.x JCA adapter provides both outbound and inbound connectivity with a Vert.x instance.
+
+== Outbound Connectivity
+
+An application component (e.g Servlet, EJB), can send messages to a Vert.x instance.
+
+Usage:
+
+[source,java]
+----
+include::src/main/java/org/wildfly/swarm/examples/vertx/MyEndpoint.java[lines=20..30]
+----
+
+* NOTE: as with any JCA resource, always call the close() method when your work is complete to allow the connection to be returned to the pool. This will *not* close the underly Vert.x instance. Please see the JCA specification for my details.
+
+== Inbound Connectivity
+
+Since the JCA 1.5 specification, inbound connectivity is provided via a listener interface which can be implemented by a Java EE Message Driven Bean (MDB). As opposed to the default JMS listener type, the Vert.x JCA listener interface allows an MDB to receive messages from a Vert.x address.
+
+The endpoint of the MDB implements interface: <b>io.vertx.resourceadapter.inflow.VertxListener</b>.
+
+[source,java]
+----
+include::src/main/java/org/wildfly/swarm/examples/vertx/MyListener.java[lines=13..25]
+----

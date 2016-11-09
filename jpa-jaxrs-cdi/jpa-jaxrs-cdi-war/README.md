@@ -28,21 +28,8 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a few dependencies are added
-
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>jpa</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>jaxrs-weld</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
-
-The `wildfly-swarm-jpa` dependency provides the JPA APIs.  The `wildfly-swarm-weld-jaxrs` provides the CDI and JAX-RS
-APIs.
+We let the plugin define the parts of WildFly Swarm that we need based on the
+APIs our code uses, so we don't need to define any dependencies explicitly.
 
 ## Run
 

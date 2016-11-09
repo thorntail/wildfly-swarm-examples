@@ -1,0 +1,121 @@
+= JPA, JAX-RS and CDI with Shrinkwrap Example
+
+This example uses JPA, CDI and JAX-RS resources deployed through a user-provided
+`main()` programmatically without constructing a `.war` file during the build.
+
+> Please raise any issues found with this example in our JIRA:
+> https://issues.jboss.org/browse/SWARM
+
+== Project `pom.xml`
+
+This project is a normal maven project with `jar` packaging, not `war`.
+
+[source,xml]
+----
+<packaging>jar</packaging>
+----
+
+The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+create the runnable `.jar`.
+
+[source,xml]
+----
+<plugin>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>wildfly-swarm-plugin</artifactId>
+  <version>${version.wildfly-swarm}</version>
+  <configuration>
+    <mainClass>org.wildfly.swarm.examples.jpa.Main</mainClass>
+  </configuration>
+  <executions>
+    <execution>
+      <goals>
+        <goal>package</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+----
+
+To define the needed parts of WildFly Swarm, a few dependencies are added
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>jpa</artifactId>
+  <version>${version.wildfly-swarm}</version>
+</dependency>
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>jaxrs</artifactId>
+  <version>${version.wildfly-swarm}</version>
+</dependency>
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>cdi</artifactId>
+  <version>${version.wildfly-swarm}</version>
+</dependency>
+----
+
+The `jpa` dependency allows usage of ShrinkWrap APIs within the `main()`,
+provides configuration classes for adding the JDBC driver and datasources to the container,
+in addition to providing the JPA APIs.  The `jaxrs` and `cdi` dependencies provide the CDI and JAX-RS
+APIs.
+
+Additionally, the JDBC driver jar you wish to deploy is specified as a dependency
+within your `pom.xml`
+
+[source,xml]
+----
+<dependency>
+  <groupId>com.h2database</groupId>
+  <artifactId>h2</artifactId>
+  <version>1.4.187</version>
+</dependency>
+----
+
+== Project `main()`
+
+Since this project deploys CDI and JAX-RS resources without a `.war` being constructed, it
+provides its own `main()` method (specified above via the `wildfly-swarm-plugin`) to
+configure the container and deploy the resources programmatically. Additionally,
+it deploys the JDBC driver jar using a simplified Maven GAV (no version is required)
+and deploys a datasource.
+
+[source,java]
+----
+include::src/main/java/org/wildfly/swarm/examples/jpajaxrscdi/Main.java[lines=13..41]
+----
+
+This method constructs a new default Swarm container, which automatically
+initializes all fractions (or subsystems) that are available.
+
+The datasources fraction has no particular default configuration, so by providing a
+specific configuration we enable a driver and a datasource.
+
+JNDI names are bound automatically.
+
+We prevent the JPA fraction from automatically configuring a default datasource
+as we want to define that ourselves.
+
+The empty container is started.
+
+A `JAXRSArchive` is constructed, and the JAX-RS resource class is
+added to it, along with the JPA Entity class, persistence.xml and load.sql.
+
+By default, if no JAX-RS `Application` is provided a default is added
+to the deployment specifying an `@ApplicationPath("/")` to bind the
+deployment to the root URL.
+
+== Run
+
+You can run it many ways:
+
+* mvn package && java -jar ./target/example-jpa-jaxrs-cdi-shrinkwrap-swarm.jar
+* mvn wildfly-swarm:run
+* In your IDE run the `org.wildfly.swarm.examples.jpa.Main` class
+
+== Use
+
+    http://localhost:8080/

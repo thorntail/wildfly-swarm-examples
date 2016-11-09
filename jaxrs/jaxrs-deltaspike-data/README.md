@@ -2,7 +2,6 @@
 
 This example uses Apache Deltaspike Data Module with JAXRS.
 
-
 ## Project `pom.xml`
 
 This project is intented for use with the following approaches:
@@ -38,9 +37,8 @@ Additionally you must include wildfly-swarm maven plugin in your `pom.xml`
 ## Fractions used
  
 - jaxrs
-- jaxrs-api
+- cdi
 - jpa
-- datasources
 
 ##Testing
 
@@ -82,7 +80,3 @@ From your shell/prompt console just enter the following command
 ### POST
 
     curl http://localhost:8080/api/persons/ -X POST -H "Content-type: application/json" -d '{"name":"MARIO DO ARMARIO","documentId":"a607feec176eb4b4fc32d7ca69f8e343"}';
-
-
-    
-

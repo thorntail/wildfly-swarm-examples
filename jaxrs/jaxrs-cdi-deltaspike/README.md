@@ -32,12 +32,17 @@ create the runnable `.jar`.
 To define the needed parts of WildFly Swarm, the following dependency is added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>jaxrs-weld</artifactId>
-        <version>${version.wildfly-swarm}</version>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>jaxrs</artifactId>
+      <version>${version.wildfly-swarm}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>cdi</artifactId>
+      <version>${version.wildfly-swarm}</version>
     </dependency>
 
-This dependency provides the JAX-RS and CDI APIs to your application, so the
+These dependencies provide the JAX-RS and CDI APIs to your application, so the
 project does *not* need to specify those.
 
 Additional application dependencies (in this case `lombok`) can be
@@ -48,7 +53,7 @@ within the WildFly Swarm application `.jar`.
 
 You can run it many ways:
 
-* mvn package && java -jar ./target/wildfly-swarm-example-jaxrs-cdi-swarm.jar
+* mvn package && java -jar ./target/example-jaxrs-deltaspike-swarm.jar
 * mvn wildfly-swarm:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 

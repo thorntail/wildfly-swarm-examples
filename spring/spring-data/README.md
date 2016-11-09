@@ -33,7 +33,7 @@ To define the needed parts of WildFly Swarm, the following dependencies are adde
 
     <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>spring-rest</artifactId>
+        <artifactId>spring</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>

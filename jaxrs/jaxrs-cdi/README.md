@@ -29,16 +29,9 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, the following dependency is added
-
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>jaxrs-weld</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
-
-This dependency provides the JAX-RS and CDI APIs to your application, so the
-project does *not* need to specify those.
+For this example we're letting the plugin auto detect what dependencies
+we might need for our application, so no WildFly Swarm specific dependencies
+need to be added.
 
 Additional application dependencies (in this case `lombok`) can be
 specified and will be included in the normal `.war` construction and available
@@ -48,7 +41,7 @@ within the WildFly Swarm application `.jar`.
 
 You can run it many ways:
 
-* mvn package && java -jar ./target/wildfly-swarm-example-jaxrs-cdi-swarm.jar
+* mvn package && java -jar ./target/example-jaxrs-cdi-swarm.jar
 * mvn wildfly-swarm:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 

@@ -41,7 +41,7 @@ To define the needed parts of WildFly Swarm, a few dependencies are added
         <version>${version.wildfly-swarm}</version>
     </dependency>
 
-The `wildfly-swarm-jpa-eclipselink` dependency provides the JPA APIs with EclipseLink as JPA provider and `wildfly-swarm-undertow` provides the Servlet
+The `jpa-eclipselink` dependency provides the JPA APIs with EclipseLink as JPA provider and `undertow` provides the Servlet
 APIs.
 
 ## Run

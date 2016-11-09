@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Swarm swarm = new Swarm();
-        swarm.fraction(LoggingFraction.createDebugLoggingFraction() );
+        swarm.fraction(LoggingFraction.createDebugLoggingFraction());
 
         JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class, "myapp.war");
         deployment.addClass(MyResource.class);

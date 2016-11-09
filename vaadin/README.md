@@ -29,21 +29,7 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, the following dependencies are added
-
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>undertow</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>weld</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
-
-This dependency provides the Servlet and CDI APIs to your application, so the
-project does *not* need to specify those.
+We let the plugin determine which dependencies we need, so we don't add any ourselves.
 
 To add Vaadin (and Vaadin CDI) support there are also these dependencies:
 
@@ -71,7 +57,7 @@ within the WildFly Swarm application `.jar`.
 
 You can run it many ways:
 
-* mvn package && java -jar target/wildfly-swarm-example-vaadin-swarm.jar
+* mvn package && java -jar target/example-vaadin-swarm.jar
 * mvn wildfly-swarm:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 

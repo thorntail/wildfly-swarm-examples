@@ -36,18 +36,7 @@ Once the Swarm container has started, you can test the Camel JMS application by 
 
     http://localhost:8080/hello?name=bob
 
-Invoking this endpoint triggers a Camel route to place a string message of 'Hello bob' onto an in-memory JMS queue named TestQueue. This queue is configured
-within a Main class:
-
-    Container container = new Container();
-
-    container.fraction(MessagingFraction.createDefaultFraction()
-        .defaultServer((s) -> {
-            s.jmsQueue("TestQueue");
-        })
-    );
-
-    container.start();
+Invoking this endpoint triggers a Camel route to place a string message of 'Hello bob' onto an in-memory JMS queue named TestQueue.
 
 A second Camel route consumes messages from TestQueue and logs their contents to the console. In this example you 
 should see a message like the following output to the console:
