@@ -18,7 +18,7 @@ public class AbstractIntegrationTest {
     }
 
     protected Log getLog(String path) throws IOException {
-        return new Log(Files.readAllLines(Paths.get(path)));
+        return new Log(path, Files.readAllLines(Paths.get(path)));
     }
 
     public LogAssert assertThatLog(Log log) {

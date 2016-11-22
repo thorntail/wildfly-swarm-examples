@@ -13,7 +13,8 @@ public class LogAssert {
     }
 
     public LogAssert hasLineContaining(String match) {
-        assertThat( this.log.getLines().stream().filter( e->e.contains(match)).count() ).describedAs( "Should contain '" + match + "'" ).isGreaterThan( 0);
+        assertThat( this.log.getLines().stream().filter( e->e.contains(match)).count() )
+                .describedAs( log.getLogName() + " should contain '" + match + "'" ).isGreaterThan( 0);
         return this;
     }
 
