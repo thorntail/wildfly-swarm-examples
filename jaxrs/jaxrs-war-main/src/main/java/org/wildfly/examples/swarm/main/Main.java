@@ -10,6 +10,8 @@ import org.wildfly.swarm.jaxrs.JAXRSArchive;
 public class Main {
 
     public static void main(String...args) throws Exception {
+        System.out.println("Starting custom main: jaxrs-war-main");
+
         Swarm swarm = new Swarm(args);
 
         JAXRSArchive archive = ShrinkWrap.create(JAXRSArchive.class);

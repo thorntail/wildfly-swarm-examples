@@ -30,4 +30,9 @@ public class JAXRSApplicationIT extends AbstractIntegrationTest {
         browser.navigate().to("http://localhost:8080/bad");
         assertThat(browser.getPageSource()).contains("This is our exception page!");
     }
+
+    @Test
+    public void testCustomMainActuallyExecuted() throws Exception {
+        assertThatLog(getStdOutLog()).hasLineContaining("Starting custom main: jaxrs-war-main");
+    }
 }
