@@ -23,7 +23,6 @@ import org.wildfly.swarm.Swarm;
 
 public class Main {
     public static void main(String... args) throws Exception {
-        // start with eager HTTP ports
-        new Swarm().start(true).deploy();
+        new Swarm().start().deploy();
     }
 }

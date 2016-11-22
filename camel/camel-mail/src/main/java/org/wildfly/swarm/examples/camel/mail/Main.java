@@ -30,7 +30,7 @@ public class Main {
         swarm.fraction(new MailFraction().smtpServer("greenmail", s -> s.host("localhost").port(10110).username("user1@localhost").password("password")));
 
         // Deploy mock mail server
-        swarm.start(true);
+        swarm.start();
         swarm.deploy(Swarm.artifact("com.icegreen:greenmail-webapp:war:1.4.1"));
         swarm.deploy();
     }

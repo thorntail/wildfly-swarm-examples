@@ -48,6 +48,6 @@ public class Main {
                     from("direct:hello").transform(simple("Hello ${header.name}"));
                 }
              }))
-            .start(true).deploy();
+            .start().deploy();
     }
 }
