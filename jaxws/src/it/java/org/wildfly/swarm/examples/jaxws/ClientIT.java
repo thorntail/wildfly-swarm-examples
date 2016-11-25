@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.wildfly.swarm.it.AbstractIntegrationTest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  * @author Yoshimasa Tanabe
  *
  */
-public class ClientIT {
+public class ClientIT extends AbstractIntegrationTest {
 
     /**
      * The path of the WSDL endpoint in relation to the deployed web application.
@@ -35,10 +36,11 @@ public class ClientIT {
     }
 
     @Test
-    public void testHello() {
+    public void testHello() throws Exception {
         // Get a response from the WebService
         final String response = client.sayHello();
         assertEquals("Hello World!", response);
+        assertThatLog(getStdOutLog()).hasLineContaining("Checked request context");
     }
 
     @Test
