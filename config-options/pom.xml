@@ -25,7 +25,6 @@
 
   <modules>
     <module>xml-configuration</module>
-    <module>project-stages</module>
     <module>cdi-injection</module>
   </modules>
 </project>

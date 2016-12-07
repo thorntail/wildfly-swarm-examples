@@ -37,7 +37,6 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
-          <mainClass>org.wildfly.swarm.examples.jaxrs.cdi.Main</mainClass>
           <bundleDependencies>true</bundleDependencies>
         </configuration>
         <executions>

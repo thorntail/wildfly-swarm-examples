@@ -23,7 +23,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>arjuna-shrinkwrap</module>
-    <module>stm-shrinkwrap</module>
+    <module>arjuna</module>
+    <module>stm</module>
   </modules>
 </project>

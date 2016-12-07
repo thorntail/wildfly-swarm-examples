@@ -15,7 +15,7 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>examples-servlet</artifactId>
+  <artifactId>examples-servlet-parent</artifactId>
 
   <name>WildFly Swarm Examples: Servlet parent</name>
   <description>WildFly Swarm Examples: Servlet parent</description>
@@ -24,7 +24,7 @@
 
 
   <modules>
-    <module>servlet-war</module>
+    <module>servlet</module>
     <module>servlet-cdi</module>
   </modules>
 </project>

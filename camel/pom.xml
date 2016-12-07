@@ -15,7 +15,7 @@
   </parent>
 
   <name>WildFly Swarm Examples: Camel</name>
-  
+
   <artifactId>examples-camel</artifactId>
   <packaging>pom</packaging>
 
@@ -24,7 +24,7 @@
     <version.h2database.h2>1.4.187</version.h2database.h2>
     <version.icegreen.greenmail>1.4.1</version.icegreen.greenmail>
   </properties>
-  
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -56,7 +56,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  
+
   <modules>
     <module>camel-activemq</module>
     <module>camel-core</module>
@@ -68,7 +68,7 @@
     <module>camel-mail</module>
     <module>camel-swagger</module>
   </modules>
-  
+
   <!-- Repositories -->
   <repositories>
     <repository>

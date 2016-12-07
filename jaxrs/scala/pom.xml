@@ -19,7 +19,7 @@
 
   <name>WildFly Swarm Examples: Scala</name>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <build>
     <plugins>
@@ -27,9 +27,6 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <version>${version.wildfly-swarm}</version>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.scala.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <goals>

@@ -10,12 +10,6 @@ so that the JAX-RS endpoints can securely expose health checks to service regist
 > https://issues.jboss.org/browse/SWARM
 
 == Project `pom.xml`
-
-The project is a normal maven project with `jar` packaging, not `war`.
-
-[source,xml]
-----
-<packaging>jar</packaging>
 ----
 
 The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
@@ -27,9 +21,6 @@ create the runnable `.jar`.
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>wildfly-swarm-plugin</artifactId>
   <version>${version.wildfly-swarm}</version>
-  <configuration>
-    <mainClass>org.wildfly.swarm.examples.jaxrs.health.Main</mainClass>
-  </configuration>
   <executions>
     <execution>
       <goals>
@@ -57,22 +48,6 @@ To define the needed parts of WildFly Swarm, dependencies are added
 </dependency>
 ----
 
-== Project `main()`
-
-Since this project deploys JAX-RS resources without a `.war` being constructed, it
-provides its own `main()` method (specified above via the `wildfly-swarm-plugin`) to
-configure the container and deploy the resources programatically.
-
-[source,java]
-----
-include::src/main/java/org/wildfly/swarm/examples/jaxrs/health/Main.java[lines=15..42]
-----
-
-See: link:src/main/java/org/wildfly/swarm/examples/jaxrs/health/Main.java#L15[Main.java]
-
-This method constructs a new default Container, and
-adds the monitoring and management fractions that provide the /health endpoints and security to them.
-
 == @Health Annotations
 
 In our example, we annotate the JAX-RS resource to be exposed as a health endpoint:
@@ -84,8 +59,7 @@ include::src/main/java/org/wildfly/swarm/examples/jaxrs/health/HealthCheckResour
 
 See: link:src/main/java/org/wildfly/swarm/examples/jaxrs/health/HealthCheckResource.java#L14[HealthCheckResource.java]
 
-By pointing your browser at http://localhost:8080/health you should be prompted for credentials (see security domain setup) and
-be able to retrieve the health response.
+By pointing your browser at http://localhost:8080/health and be able to retrieve the health response.
 
 == Run
 

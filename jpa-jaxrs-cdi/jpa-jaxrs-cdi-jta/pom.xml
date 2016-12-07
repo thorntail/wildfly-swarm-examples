@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2016 Red Hat, Inc. and/or its affiliates.
+  ~
+  ~ Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>examples-jpa-jaxrs-cdi-parent</artifactId>
+    <groupId>org.wildfly.swarm.examples</groupId>
+    <version>2017.1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>jpa-jaxrs-cdi-jta</artifactId>
+
+  <name>WildFly Swarm Examples: JPA + JAX-RS + CDI + JTA</name>
+  <description>WildFly Swarm Examples: JPA + JAX-RS + CDI + JTA</description>
+
+  <packaging>war</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>package</id>
+          </execution>
+          <execution>
+            <id>start</id>
+          </execution>
+          <execution>
+            <id>stop</id>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wildfly.swarm.examples</groupId>
+      <artifactId>examples-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.187</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ws.rs</groupId>
+      <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+      <version>1.0.0.Final</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>1.0.0.Final</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <version>1.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.transaction</groupId>
+      <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+      <version>1.0.1.Final</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging</artifactId>
+      <version>3.3.0.Final</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+
+</project>

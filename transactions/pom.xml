@@ -15,7 +15,7 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>examples-transactions</artifactId>
+  <artifactId>examples-transactions-parent</artifactId>
 
   <name>WildFly Swarm Examples: Transactions parent</name>
   <description>WildFly Swarm Examples: Transactions parent</description>
@@ -24,7 +24,6 @@
 
 
   <modules>
-    <module>transactions-war</module>
-    <module>transactions-shrinkwrap</module>
+    <module>transactions</module>
   </modules>
 </project>

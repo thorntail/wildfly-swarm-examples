@@ -19,7 +19,7 @@
 
   <name>WildFly Swarm Examples: Kotlin</name>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <properties>
     <kotlin.version>1.0.0-beta-4589</kotlin.version>
@@ -31,9 +31,6 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <version>${version.wildfly-swarm}</version>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.kotlin.MainKt</mainClass>
-        </configuration>
         <executions>
           <execution>
             <goals>

@@ -33,6 +33,8 @@
   
   <artifactId>example-camel-cxf-jaxrs</artifactId>
 
+  <packaging>war</packaging>
+
   <dependencies>
     <dependency>
       <groupId>org.wildfly.swarm.examples</groupId>
@@ -49,9 +51,6 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.camel.cxf.jaxrs.Main</mainClass>
-        </configuration>
       </plugin>
     </plugins>
   </build>

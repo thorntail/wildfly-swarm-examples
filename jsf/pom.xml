@@ -15,16 +15,48 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>examples-jsf</artifactId>
+  <artifactId>example-jsf</artifactId>
 
-  <name>WildFly Swarm Examples: JSR parent</name>
-  <description>WildFly Swarm Examples: JSF parent</description>
+  <name>WildFly Swarm Examples: JSF</name>
+  <description>WildFly Swarm Examples: JSF</description>
 
-  <packaging>pom</packaging>
+  <packaging>war</packaging>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-plugin</artifactId>
+        <configuration>
+          <fractions>
+            <fraction>jsf</fraction>
+          </fractions>
+        </configuration>
+        <executions>
+          <execution>
+            <id>package</id>
+          </execution>
+          <execution>
+            <id>start</id>
+          </execution>
+          <execution>
+            <id>stop</id>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
-  <modules>
-    <module>jsf-war</module>
-    <module>jsf-shrinkwrap</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>org.wildfly.swarm.examples</groupId>
+      <artifactId>examples-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <version>1.2</version>
+    </dependency>
+  </dependencies>
+
 </project>

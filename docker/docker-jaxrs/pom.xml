@@ -19,7 +19,7 @@
 
   <name>WildFly Swarm Examples: Docker and JAX-RS</name>
   <description>WildFly Swarm Examples: JAX-RS in Docker container</description>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <dependencies>
     <dependency>
@@ -46,14 +46,6 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
       <plugin>

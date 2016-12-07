@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.wildfly.swarm.examples</groupId>
@@ -12,29 +13,16 @@
   <name>WildFly Swarm Examples: Vert.x</name>
   <description>WildFly Swarm Examples: Vert.x</description>
   <packaging>war</packaging>
+
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-      </plugin>
-      <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-<!--
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.vertx.Main</mainClass>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>package</goal>
-            </goals>
-          </execution>
-        </executions>
--->
       </plugin>
     </plugins>
   </build>
+
   <dependencies>
     <dependency>
       <groupId>org.wildfly.swarm</groupId>

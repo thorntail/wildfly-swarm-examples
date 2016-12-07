@@ -19,7 +19,7 @@
 
   <name>WildFly Swarm Examples: Docker and JAX-RS using Dockerfile</name>
   <description>WildFly Swarm Examples: JAX-RS in Docker container using a Dockerfile</description>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <properties>
       <maven.compiler.source>1.8</maven.compiler.source>

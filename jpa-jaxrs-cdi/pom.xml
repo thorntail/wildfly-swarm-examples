@@ -15,7 +15,7 @@
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>examples-jpa-jaxrs-cdi</artifactId>
+  <artifactId>examples-jpa-jaxrs-cdi-parent</artifactId>
 
   <name>WildFly Swarm Examples: JPA + JAX-RS + CDI parent</name>
   <description>WildFly Swarm Examples: JPA + JAX-RS + CDI parent</description>
@@ -24,9 +24,7 @@
 
 
   <modules>
-    <module>jpa-jaxrs-cdi-war</module>
-    <module>jpa-jaxrs-cdi-shrinkwrap</module>
-    <module>jpa-jaxrs-cdi-jta-shrinkwrap</module>
-    <module>jpa-jaxrs-cdi-jta-war</module>
+    <module>jpa-jaxrs-cdi</module>
+    <module>jpa-jaxrs-cdi-jta</module>
   </modules>
 </project>
