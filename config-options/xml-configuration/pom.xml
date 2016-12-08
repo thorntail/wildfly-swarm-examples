@@ -24,8 +24,6 @@
 
   <properties>
     <version.h2>1.4.187</version.h2>
-    <version.postgresql>9.4.1207</version.postgresql>
-    <version.mysql>5.1.38</version.mysql>
   </properties>
 
   <build>
@@ -39,6 +37,12 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
+        <configuration>
+          <arguments>
+            <argument>-c</argument>
+            <argument>../standalone.xml</argument>
+          </arguments>
+        </configuration>
         <executions>
           <execution>
             <id>package</id>
@@ -66,6 +70,10 @@
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>datasources</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>logging</artifactId>
     </dependency>
 
     <dependency>

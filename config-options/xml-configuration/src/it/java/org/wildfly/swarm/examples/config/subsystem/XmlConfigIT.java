@@ -23,7 +23,7 @@ public class XmlConfigIT extends AbstractIntegrationTest {
     public void testIt() throws Exception {
         Log log = getStdOutLog();
 
-        assertThatLog( log ).hasLineContaining( "WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]" );
+        assertThatLog( log ).hasLineContaining( "WFLYJCA0001: Bound data source [java:jboss/datasources/CustomDS]" );
 
 
         browser.navigate().to("http://localhost:8080/");
