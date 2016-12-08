@@ -272,9 +272,10 @@
     <module>resource-adapter</module>
     <module>microprofile</module>
     <module>swagger-webapp</module>
-<!--
-    <module>kitchensink-html5-mobile</module>
--->
+    <module>opentracing-jaxrs</module>
+    <!--
+        <module>kitchensink-html5-mobile</module>
+    -->
 
     <!-- extras -->
 <!--

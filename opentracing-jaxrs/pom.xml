@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>examples-parent</artifactId>
+    <groupId>org.wildfly.swarm.examples</groupId>
+    <version>2017.1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>opentracing-jaxrs</artifactId>
+
+  <properties>
+    <version.org.hawkular.apm>0.12.0.Final</version.org.hawkular.apm>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>opentracing-jaxrs</artifactId>
+      <version>2017.1.0-SNAPSHOT</version>
+    </dependency>
+
+    <!-- OpenTracing impl -->
+    <dependency>
+      <groupId>org.hawkular.apm</groupId>
+      <artifactId>hawkular-apm-client-opentracing</artifactId>
+      <version>${version.org.hawkular.apm}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hawkular.apm</groupId>
+      <artifactId>hawkular-apm-trace-publisher-rest-client</artifactId>
+      <version>${version.org.hawkular.apm}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>jaxrs</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-plugin</artifactId>
+        <configuration>
+          <mainClass>org.wildfly.swarm.examples.opentracing.jaxrs.Main</mainClass>
+          <properties>
+            <swarm.bind.address>127.0.0.1</swarm.bind.address>
+            <swarm.http.port>3000</swarm.http.port>
+            <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+          </properties>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
