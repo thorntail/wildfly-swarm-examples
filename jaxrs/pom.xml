@@ -36,5 +36,6 @@
     <module>health</module>	
     <module>jaxrs-deltaspike-data</module>
     <module>zipkin</module>
+    <module>opentracing-hawkular</module>
   </modules>
 </project>
