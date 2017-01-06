@@ -282,8 +282,9 @@
     <!-- extras -->
 <!--
     <module>ribbon-secured</module>
-    <module>logstash</module>
 -->
+    <module>logstash</module>
+
   </modules>
 
   <profiles>

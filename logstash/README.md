@@ -1,43 +1,67 @@
-# Multiple services plus NetFlixOSS Ribbon
+# Logstash Example
 
-> NOTE: This example will not work yet, as it relies upon a patch
-> in the upstream of WildFly not yet available in a released version.
+This example sends log messages to Logstash.
 
 > Please raise any issues found with this example in our JIRA:
 > https://issues.jboss.org/browse/SWARM
 
-The beginnings of a multi-service example.
+## Start Logstash
 
-Two services exist:
+### Local installed
 
-* Time
-* Events
+``` sh
+cd $LOGSTASH_HOME
+bin/logstash -f /this/project/pipeline/logstash-wildfly.conf
+```
 
-The `time` service simply returns the current time as a JSON map
-with fields for hour, minute, second, etc.
+### Docker
 
-The `events` service queries the `time` service, and returns a list of
-currently on-going events.  Currently, it just generates a list of events
-that started at the top of the current hour.
+``` sh
+docker run --rm -it \
+  -v /this/project/pipeline:/usr/share/logstash/pipeline \
+  -p 9300:9300 \
+  docker.elastic.co/logstash/logstash:5.1.1
+```
 
-Build and run the time service:
+## Build & Run Example
 
-    $ cd time
-    $ mvn -Dswarm.http.port=8081 wildfly-swarm:run
+``` sh
+mvn clean package
+java -jar target/examples-logstash-swarm.jar
+```
 
-Maybe run it twice:
+## Example Requests
 
-    $ cd time
-    $ mvn -Dswarm.http.port=8082 wildfly-swarm:run
+If you access the app [APIs](#apis), you can see the following log in Logstash console.
 
-Then run the events service, which consumes the time service(s):
+``` sh
+curl localhost:8080/info
+```
 
-    $ cd events
-    $ mvn wildfly-swarm:run
+```
+{
+     "loggerClassName" => "org.jboss.logging.Logger",
+               "level" => "INFO",
+             "message" => "This is INFO message",
+                 "ndc" => "",
+                 "mdc" => {},
+          "threadName" => "default task-2",
+                "tags" => [],
+            "threadId" => 162,
+            "sequence" => 27,
+          "@timestamp" => 2017-01-06T13:58:55.380Z,
+                "port" => 35318,
+            "@version" => 1,
+                "host" => "127.0.0.1",
+    "wildflySwarmNode" => "your-host-name",
+          "loggerName" => "org.wildfly.examples.swarm.logstash.MyResource"
+}
+```
 
-Then
+### APIs
 
-* http://localhost:8080/
-
-Kill and restart one or both of the `time` services, and witness how stuff
-behaves.
+* /debug
+* /info
+* /warn
+* /error
+* /exception
