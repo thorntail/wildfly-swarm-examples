@@ -24,5 +24,6 @@
 
   <modules>
     <module>jaas</module>
+    <module>keycloak</module>
   </modules>
 </project>
