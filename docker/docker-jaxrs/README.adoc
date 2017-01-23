@@ -5,7 +5,7 @@
 
 == Packaging your application
   
-Run `mvn clean package`. A `example-docker-jaxrs-swarm.jar` file will be built in your target folder.
+Run `mvn clean package -Pdocker`. A `example-docker-jaxrs-swarm.jar` file will be built in your target folder.
 
 Additionally A docker image named 'example-docker-jaxrs' will be added to your local image registry.
 
@@ -13,7 +13,7 @@ Additionally A docker image named 'example-docker-jaxrs' will be added to your l
 
 You run the Docker container and start the Wildfly-Swarm microservice (a simple JAX-RS application) with the following commands:
 
-`mvn docker:start`
+`mvn docker:start -Pdocker`
 
 OR
 
