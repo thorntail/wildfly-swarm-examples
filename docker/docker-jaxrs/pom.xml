@@ -89,7 +89,7 @@
                     </ports>
                   </run>
                   <build>
-                    <from>java:openjdk-8-jdk</from>
+                    <from>jboss/base-jdk:8</from>
                     <ports>
                       <port>8080</port>
                     </ports>

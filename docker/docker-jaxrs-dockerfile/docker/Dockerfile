@@ -1,4 +1,4 @@
-FROM openjdk:jre-alpine
+FROM jboss/base-jdk:8
 
 ADD example-docker-jaxrs-dockerfile-swarm.jar /opt/wildfly-swarm.jar
 
