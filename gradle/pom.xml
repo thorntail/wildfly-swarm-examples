@@ -42,7 +42,7 @@
         <artifactId>gradle-maven-plugin</artifactId>
         <version>1.0.8</version>
         <configuration>
-          <gradleVersion>2.14.1</gradleVersion>
+          <gradleVersion>3.1</gradleVersion>
           <tasks>
             <task>wildfly-swarm-package</task>
           </tasks>
