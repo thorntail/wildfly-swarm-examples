@@ -1,7 +1,7 @@
 package org.wildfly.swarm.examples.netflix.ribbon.events;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.wildfly.swarm.container.Container;
+import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
 import org.wildfly.swarm.jgroups.JGroupsFraction;
 import org.wildfly.swarm.keycloak.Secured;
@@ -13,7 +13,7 @@ import org.wildfly.swarm.netflix.ribbon.RibbonArchive;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Container container = new Container();
+        Swarm container = new Swarm();
         JGroupsFraction fraction = new JGroupsFraction()
                 .defaultChannel("swarm-jgroups")
                 .stack("udp", (s) -> {

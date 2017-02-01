@@ -1,7 +1,7 @@
 package org.wildfly.swarm.examples.mail;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.wildfly.swarm.container.Container;
+import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
 import org.wildfly.swarm.mail.MailFraction;
 
@@ -11,7 +11,7 @@ import org.wildfly.swarm.mail.MailFraction;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        final Container container = new Container();
+        final Swarm container = new Swarm();
         final MailFraction fraction = new MailFraction();
         final String host = System.getProperty("smtp.host");
         final String port = System.getProperty("smtp.port");

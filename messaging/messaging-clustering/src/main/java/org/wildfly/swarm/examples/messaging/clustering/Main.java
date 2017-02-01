@@ -2,7 +2,6 @@ package org.wildfly.swarm.examples.messaging.clustering;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.wildfly.swarm.Swarm;
-import org.wildfly.swarm.container.Container;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
 import org.wildfly.swarm.messaging.MessagingFraction;
 import org.wildfly.swarm.msc.ServiceActivatorArchive;
