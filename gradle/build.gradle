@@ -4,6 +4,9 @@ buildscript {
   repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+      url 'https://repository-projectodd.forge.cloudbees.com/snapshot'
+    }
   }
 
   dependencies {
@@ -28,6 +31,9 @@ swarm {
 repositories {
   mavenLocal()
   mavenCentral()
+  maven {
+    url 'https://repository-projectodd.forge.cloudbees.com/snapshot'
+  }
   maven {
     url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
   }
