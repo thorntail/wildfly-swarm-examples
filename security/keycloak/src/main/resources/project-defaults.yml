@@ -1,4 +1,7 @@
-swarm.keycloak.security.constraints:
-  - url-pattern: /secured
-    methods: [GET]
-    roles: [admin]
+swarm:
+  keycloak:
+    security:
+      constraints:
+        - url-pattern: /secured
+          methods: [GET]
+          roles: [admin]
