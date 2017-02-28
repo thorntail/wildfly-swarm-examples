@@ -121,6 +121,11 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.19.1</version>
+          <configuration>
+            <systemPropertyVariables>
+              <org.apache.maven.user-settings>${session.request.userSettingsFile.path}</org.apache.maven.user-settings>
+            </systemPropertyVariables>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
@@ -177,6 +182,7 @@
           </includes>
           <systemPropertyVariables>
             <phantomjs.binary.version>2.1.1</phantomjs.binary.version>
+            <org.apache.maven.user-settings>${session.request.userSettingsFile.path}</org.apache.maven.user-settings>
           </systemPropertyVariables>
         </configuration>
         <executions>
