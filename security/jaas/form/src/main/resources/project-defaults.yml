@@ -1,0 +1,12 @@
+swarm:
+  http:
+    login-config:
+      auth-method: FORM
+      form-login-config:
+        form-login-page: /login.jsp
+        form-error-page: /login_error.jsp
+      security-domain: my-domain
+    security-constraints:
+      - url-pattern: /*
+        methods: [GET, POST]
+        roles: [admin]

@@ -54,19 +54,6 @@ public class Main {
         deployment.addAsWebInfResource(new ClassLoaderAsset("META-INF/load.sql", Main.class.getClassLoader()), "classes/META-INF/load.sql");
         deployment.addResource(EmployeeResource.class);
 
-        // Builder for web.xml and jboss-web.xml
-        WebXmlAsset webXmlAsset = deployment.findWebXmlAsset();
-        webXmlAsset.setLoginConfig("BASIC", "my-realm");
-        webXmlAsset.protect("/*")
-                .withMethod("GET")
-                .withRole("admin");
-
-        deployment.setSecurityDomain("my-domain");
-
-        // Or, you can add web.xml and jboss-web.xml from classpath or somewhere
-        // deployment.addAsWebInfResource(new ClassLoaderAsset("WEB-INF/web.xml", Main.class.getClassLoader()), "web.xml");
-        // deployment.addAsWebInfResource(new ClassLoaderAsset("WEB-INF/jboss-web.xml", Main.class.getClassLoader()), "jboss-web.xml");
-
         swarm.deploy(deployment);
     }
 }
