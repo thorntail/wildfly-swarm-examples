@@ -1,9 +1,11 @@
 swarm:
-  http:
-    login-config:
-      auth-method: BASIC
-      security-domain: my-domain
-    security-constraints:
-      - url-pattern: /*
-        methods: [GET]
-        roles: [admin]
+  deployment:
+    app.war:
+      web:
+        login-config:
+          auth-method: BASIC
+          security-domain: my-domain
+        security-constraints:
+          - url-pattern: /*
+            methods: [GET]
+            roles: [admin]

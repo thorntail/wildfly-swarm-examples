@@ -46,7 +46,7 @@ public class Main {
 
         swarm.start();
 
-        WARArchive deployment = ShrinkWrap.create(WARArchive.class);
+        WARArchive deployment = ShrinkWrap.create(WARArchive.class, "app.war");
         deployment.addPackage(Main.class.getPackage());
 
         deployment.addAsWebInfResource(new ClassLoaderAsset("META-INF/persistence.xml", Main.class.getClassLoader()), "classes/META-INF/persistence.xml");
