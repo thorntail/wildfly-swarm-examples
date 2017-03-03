@@ -6,8 +6,8 @@ import java.util.Date;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-import org.wildfly.swarm.monitor.Health;
-import org.wildfly.swarm.monitor.HealthStatus;
+import org.wildfly.swarm.health.Health;
+import org.wildfly.swarm.health.HealthStatus;
 
 @Path("/app")
 public class HealthCheckResource {

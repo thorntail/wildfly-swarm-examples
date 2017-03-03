@@ -35,4 +35,10 @@ public class JAXRSApplicationIT extends AbstractIntegrationTest {
         browser.navigate().to("http://localhost:8080/app/propertyBoolean");
         assertThat(browser.getPageSource()).contains("true");
     }
+
+    @Test
+    public void testHealth() {
+        browser.navigate().to("http://localhost:8080/app/healthz");
+        assertThat(browser.getPageSource()).contains("UP");
+    }
 }
