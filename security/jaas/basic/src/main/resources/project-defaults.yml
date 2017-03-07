@@ -1,6 +1,6 @@
 swarm:
   deployment:
-    app.war:
+    example-jaas-basic.war:
       web:
         login-config:
           auth-method: BASIC
@@ -9,3 +9,22 @@ swarm:
           - url-pattern: /*
             methods: [GET]
             roles: [admin]
+  security:
+    security-domains:
+      my-domain:
+        classic-authentication:
+          login-modules:
+            Database:
+              code: Database
+              flag: required
+              module-options:
+                dsJndiName: java:jboss/datasources/MyDS
+                principalsQuery: SELECT password FROM REST_DB_ACCESS WHERE name=?
+                rolesQuery: SELECT role, 'Roles' FROM REST_DB_ACCESS WHERE name=?
+  datasources:
+    data-sources:
+      MyDS:
+        driver-name: h2
+        connection-url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        user-name: sa
+        password: sa

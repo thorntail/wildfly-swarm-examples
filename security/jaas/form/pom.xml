@@ -19,14 +19,13 @@
   <name>WildFly Swarm Examples: Security JAAS Form</name>
   <description>WildFly Swarm Examples: Security JAAS Form</description>
 
+  <packaging>war</packaging>
+
   <build>
     <plugins>
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.jaas.form.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <id>package</id>

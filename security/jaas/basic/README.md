@@ -9,7 +9,7 @@ You can run it many ways:
 
 * mvn package && java -jar ./target/example-jaas-basic-swarm.jar
 * mvn wildfly-swarm:run
-* In your IDE run the `org.wildfly.swarm.examples.jaas.basic.Main` class
+* In your IDE run the `org.wildfly.swarm.Swarm` class
 
 ## Use
 

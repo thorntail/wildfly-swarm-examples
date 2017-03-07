@@ -19,6 +19,8 @@
   <name>WildFly Swarm Examples: Security JAAS Basic</name>
   <description>WildFly Swarm Examples: Security JAAS Basic</description>
 
+  <packaging>war</packaging>
+
   <properties>
     <version.resteasy>3.0.14.Final</version.resteasy>
   </properties>
@@ -28,9 +30,6 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.jaas.basic.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <id>package</id>
