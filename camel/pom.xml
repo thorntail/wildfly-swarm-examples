@@ -58,15 +58,9 @@
   </dependencyManagement>
 
   <modules>
-    <module>camel-activemq</module>
-    <module>camel-core</module>
-    <module>camel-cdi</module>
-    <module>camel-cxf-jaxrs</module>
-    <module>camel-cxf-jaxws</module>
-    <module>camel-jms</module>
-    <module>camel-jpa</module>
-    <module>camel-mail</module>
-    <module>camel-swagger</module>
+    <!-- DO NOT ADD MODULES HERE. THIS ACTS AS A PARENT POM ONLY.
+         ANY MODULES SHOULD BE ADDED, AS APPROPRIATE, TO THE ROOT
+         pom.xml OF THIS PROJECT. -->
   </modules>
 
 </project>

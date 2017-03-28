@@ -220,7 +220,7 @@
     <dependencies>
       <dependency>
         <groupId>org.wildfly.swarm</groupId>
-        <artifactId>bom-all</artifactId>
+        <artifactId>bom</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -252,50 +252,113 @@
     <module>base</module>
 
     <module>arjuna</module>
-    <module>camel</module>
+    <module>arjuna/arjuna</module>
+    <module>arjuna/stm</module>
     <module>config-options</module>
+    <module>config-options/cdi-injection</module>
+    <module>config-options/xml-configuration</module>
     <module>datasource</module>
-    <module>flyway</module>
+    <module>datasource/datasource-subsystem</module>
+    <module>datasource/datasource-war</module>
     <module>jaxrs</module>
-    <module>jaxws</module>
+    <module>jaxrs/jaxrs</module>
+    <module>jaxrs/jaxrs-https</module>
+    <module>jaxrs/jaxrs-ajp</module>
+    <module>jaxrs/jaxrs-cdi</module>
+    <module>jaxrs/jaxrs-cdi-deltaspike</module>
+    <module>jaxrs/contract-based-testing</module>
+    <module>jaxrs/health</module>
+    <module>jaxrs/jaxrs-deltaspike-data</module>
     <module>jpa</module>
+    <module>jpa/jpa</module>
     <module>jpa-jaxrs-cdi</module>
+    <module>jpa-jaxrs-cdi/jpa-jaxrs-cdi</module>
+    <module>jpa-jaxrs-cdi/jpa-jaxrs-cdi-jta</module>
     <module>jsf</module>
-    <module>management-console</module>
-    <module>messaging</module>
     <module>msc</module>
     <module>servlet</module>
+    <module>servlet/servlet</module>
+    <module>servlet/servlet-cdi</module>
     <module>static</module>
+    <module>static/static-shrinkwrap</module>
+    <module>static/static-war</module>
     <module>transactions</module>
-    <module>vaadin</module>
-    <module>vertx</module>
-    <module>ribbon</module>
-    <!-- <module>ribbon-secured</module> -->
-    <module>ribbon-consul</module>
-<!--
-    <module>gradle</module>
--->
-    <module>docker</module>
-    <module>spring</module>
-    <module>security</module>
-    <module>resource-adapter</module>
+    <module>transactions/transactions</module>
+
+<!-- <module>kitchensink-html5-mobile</module> -->
     <module>microprofile</module>
-    <module>swagger-webapp</module>
-<!--
-    <module>kitchensink-html5-mobile</module>
--->
-
-    <!-- extras -->
-<!--
-    <module>ribbon-secured</module>
--->
-    <module>logstash</module>
-
+    <module>security</module>
+    <module>security/jaas</module>
+    <module>security/keycloak</module>
+    <module>vaadin</module>
   </modules>
 
   <profiles>
     <profile>
+      <id>unsupported</id>
+      <activation>
+        <property>
+          <name>!swarm.product.build</name>
+        </property>
+      </activation>
+      <modules>
+        <module>camel</module>
+        <module>camel/camel-activemq</module>
+        <module>camel/camel-core</module>
+        <module>camel/camel-cdi</module>
+        <module>camel/camel-cxf-jaxrs</module>
+        <module>camel/camel-cxf-jaxws</module>
+        <module>camel/camel-jms</module>
+        <module>camel/camel-jpa</module>
+        <module>camel/camel-mail</module>
+        <module>camel/camel-swagger</module>
+        <module>jaxrs/kotlin</module>
+        <module>jaxrs/opentracing-hawkular</module>
+        <module>jaxrs/scala</module>
+        <module>jaxrs/swagger</module>
+        <module>jaxrs/zipkin</module>
+        <module>jaxws</module>
+        <module>jpa/jpa-eclipselink</module>
+        <module>management-console</module>
+        <module>messaging</module>
+        <module>messaging/messaging-simple</module>
+        <module>messaging/messaging-mdb</module>
+        <module>messaging/messaging-clustering</module>
+        <module>resource-adapter</module>
+        <module>resource-adapter/resource-adapter-deployment</module>
+
+        <!-- <module>gradle</module> -->
+
+        <module>flyway</module>
+        <module>logstash</module>
+        <module>ribbon</module> <!-- declares submodules due to wildfly-swarm:multistart -->
+        <module>ribbon-consul</module> <!-- declares submodules due to wildfly-swarm:multistart -->
+        <!-- <module>ribbon-secured</module> -->
+        <module>spring</module>
+        <module>spring/spring-data</module>
+        <module>swagger-webapp</module>
+        <module>vertx</module>
+      </modules>
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>bom-all</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+    </profile>
+
+    <profile>
       <id>docker</id>
+      <modules>
+        <module>docker</module>
+        <module>docker/docker-jaxrs</module>
+        <module>docker/docker-jaxrs-dockerfile</module>
+      </modules>
     </profile>
     <profile>
       <id>uberjar</id>

@@ -24,8 +24,8 @@
 
 
   <modules>
-    <module>messaging-simple</module>
-    <module>messaging-mdb</module>
-    <module>messaging-clustering</module>
+    <!-- DO NOT ADD MODULES HERE. THIS ACTS AS A PARENT POM ONLY.
+         ANY MODULES SHOULD BE ADDED, AS APPROPRIATE, TO THE ROOT
+         pom.xml OF THIS PROJECT. -->
   </modules>
 </project>
