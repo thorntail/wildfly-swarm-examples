@@ -46,6 +46,6 @@ public class CamelMailIT extends AbstractIntegrationTest {
 			.returnContent()
 			.asString();
 
-		Assert.assertEquals(response, "Email sent to user1@localhost");
+		Assert.assertEquals("Email sent to user1@localhost", response);
 	}
 }

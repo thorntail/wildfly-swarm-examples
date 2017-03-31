@@ -3,6 +3,7 @@ package org.wildfly.swarm.examples.jaxws;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.jws.WebService;
 
 /**
@@ -15,8 +16,12 @@ import javax.jws.WebService;
         targetNamespace = "http://wildfly-swarm.io/HelloWorld")
 public class HelloWorldServiceImpl implements HelloWorldService {
 
+    @Inject
+    private SimpleService simpleService;
+
     @Override
     public String sayHello() {
+        simpleService.checkRequestContext();
         return "Hello World!";
     }
 

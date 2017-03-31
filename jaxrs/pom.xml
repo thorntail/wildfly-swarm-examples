@@ -28,7 +28,9 @@
     <module>jaxrs-https</module>
     <module>jaxrs-ajp</module>
     <module>jaxrs-cdi</module>
+    <module>jaxrs-cdi-beanvalidation</module>
     <module>jaxrs-cdi-deltaspike</module>
+    <module>jaxrs-cdi-ejb</module>
     <module>contract-based-testing</module>
     <module>scala</module>
     <module>kotlin</module>
