@@ -24,7 +24,8 @@
 
 
   <modules>
-    <module>jpa</module>
-    <module>jpa-eclipselink</module>
+    <!-- DO NOT ADD MODULES HERE. THIS ACTS AS A PARENT POM ONLY.
+         ANY MODULES SHOULD BE ADDED, AS APPROPRIATE, TO THE ROOT
+         pom.xml OF THIS PROJECT. -->
   </modules>
 </project>

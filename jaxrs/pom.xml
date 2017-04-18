@@ -24,18 +24,8 @@
 
 
   <modules>
-    <module>jaxrs</module>
-    <module>jaxrs-https</module>
-    <module>jaxrs-ajp</module>
-    <module>jaxrs-cdi</module>
-    <module>jaxrs-cdi-deltaspike</module>
-    <module>contract-based-testing</module>
-    <module>scala</module>
-    <module>kotlin</module>
-    <module>swagger</module>
-    <module>health</module>	
-    <module>jaxrs-deltaspike-data</module>
-    <module>zipkin</module>
-    <module>opentracing-hawkular</module>
+    <!-- DO NOT ADD MODULES HERE. THIS ACTS AS A PARENT POM ONLY.
+         ANY MODULES SHOULD BE ADDED, AS APPROPRIATE, TO THE ROOT
+         pom.xml OF THIS PROJECT. -->
   </modules>
 </project>
