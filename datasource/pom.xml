@@ -26,5 +26,6 @@
   <modules>
     <module>datasource-subsystem</module>
     <module>datasource-war</module>
+    <module>datasource-auto-detect</module> 
   </modules>
 </project>
