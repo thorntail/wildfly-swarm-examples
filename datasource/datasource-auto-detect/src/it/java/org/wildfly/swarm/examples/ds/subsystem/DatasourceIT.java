@@ -24,8 +24,6 @@ public class DatasourceIT extends AbstractIntegrationTest {
         Log log = getStdOutLog();
 
         assertThatLog( log ).hasLineContaining( "WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]" );
-        assertThatLog( log ).hasLineContaining( "WFLYJCA0001: Bound data source [java:jboss/datasources/TestDS]" );
-
 
         browser.navigate().to("http://localhost:8080/");
         assertThat(browser.getPageSource()).contains("Howdy using connection: org.jboss.jca.adapters.jdbc.jdk7.WrappedConnectionJDK7" );

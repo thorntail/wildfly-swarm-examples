@@ -20,7 +20,7 @@
   <name>WildFly Swarm Examples: Datasource Auto-detected</name>
   <description>WildFly Swarm Examples: Datasource Auto-detected</description>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <properties>
     <version.h2>1.4.187</version.h2>
@@ -31,18 +31,12 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.ds.autoDetect.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <id>package</id>
           </execution>
           <execution>
             <id>start</id>
-            <configuration>
-              <useUberJar>true</useUberJar>
-            </configuration>
           </execution>
           <execution>
             <id>stop</id>

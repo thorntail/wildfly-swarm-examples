@@ -13,11 +13,11 @@ driver be detected.
 
 == Project `pom.xml`
 
-The project is a normal maven project with `jar` packaging, not `war`.
+The project is a normal maven project with `war` packaging,
 
 [source,xml]
 ----
-<packaging>jar</packaging>
+<packaging>war</packaging>
 ----
 
 The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
@@ -28,9 +28,6 @@ create the runnable `.jar`.
 <plugin>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>wildfly-swarm-plugin</artifactId>
-  <configuration>
-    <mainClass>org.wildfly.swarm.examples.ds.subsystem.Main</mainClass>
-  </configuration>
   ....
 </plugin>
 ----
@@ -60,55 +57,12 @@ To support datasources in general, the next dependency is required:
 </dependency>
 ----
 
-The `jaxrs` dependency allows usage of ShrinkWrap APIs within the `main()` in addition
-to providing the JAX-RS APIs.  The `datasources` dependency provides configuration
-classes for auto-detecting the JDBC driver and add datasources to the container.
-
-== Project `main()`
-
-Since this project deploys JAX-RS resources without a `.war` being construction, it
-provides its own `main()` method (specified above via the `maven-jar-plugin`) to
-configure the container and deploy the resources programatically.
-
-
-[source,java]
-----
-include::src/main/java/org/wildfly/swarm/examples/ds/subsystem/Main.java[lines=11..30]
-----
-
-See: link:src/main/java/org/wildfly/swarm/examples/ds/subsystem/Main.java#L11[Main.java]
-
-This method constructs a new default Swarm, which automatically
-initializes all fractions (or subsystems) that are available. 
-
-JNDI names are bound automatically.
-
-The empty container is started.
-
-A `dsArchive` is constructed, and the TestDS is added using auto-detected
-driver `h2`. A Default ExampleDS also be added automatically using the auto-detected 
-driver `h2`.
-
-A `restArchive` is constructed, and the JAX-RS resource class is
-added to it and then deployed to the container.
-
-The resource looks up the Datasource through JNDI at run-time:
-
-
-[source,java]
-----
-include::src/main/java/org/wildfly/swarm/examples/ds/subsystem/MyResource.java[lines=17..30]
-----
-
-See: link:src/main/java/org/wildfly/swarm/examples/ds/subsystem/MyResource.java#L17[MyResource.java]
-
 == Run
 
 You can run it many ways:
 
 * mvn package && java -jar ./target/example-datasource-auto-detect-swarm.jar
 * mvn wildfly-swarm:run
-* In your IDE run the `org.wildfly.swarm.examples.ds.autoDetect.Main` class
 
 == Use
 
