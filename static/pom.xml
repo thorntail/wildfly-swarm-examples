@@ -25,6 +25,5 @@
 
   <modules>
     <module>static-war</module>
-    <module>static-shrinkwrap</module>
   </modules>
 </project>
