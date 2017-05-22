@@ -46,15 +46,15 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.ds.war.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <id>package</id>
           </execution>
           <execution>
             <id>start</id>
+            <configuration>
+              <arguments>-Sh2</arguments>
+            </configuration>
           </execution>
           <execution>
             <id>stop</id>

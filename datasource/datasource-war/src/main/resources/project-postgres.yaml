@@ -1,0 +1,13 @@
+swarm:
+  datasources:
+    jdbc-drivers:
+      org.postgresql:
+        driver-class-name: org.postgresl.Driver
+        xa-datasource-class: org.postgresql.xa.PGXADataSource
+        driver-module-name: org.postgresql
+    data-sources:
+      ExampleDS:
+        driver-name: org.postgresql
+        connection-url: jdbc:postgresql://localhost:5432/postgres"
+        user-name: postgres
+        password: postgres
