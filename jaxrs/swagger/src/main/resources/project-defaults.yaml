@@ -1,0 +1,7 @@
+
+swarm:
+  deployment:
+    example-jaxrs-swagger.war:
+      swagger:
+        packages:
+           - org.wildfly.swarm.examples.jaxrs.swagger
