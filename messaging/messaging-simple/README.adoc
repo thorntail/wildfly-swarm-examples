@@ -90,7 +90,6 @@ You can run it many ways:
 
 * mvn package &amp;&amp; java -jar ./target/example-messaging-swarm.jar
 * mvn wildfly-swarm:run
-* In your IDE run the `org.wildfly.swarm.examples.messaging.Main` class
 
 == Use
 

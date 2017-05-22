@@ -10,6 +10,7 @@ import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
 /**
  * @author Bob McWhirter
  */
@@ -23,10 +24,7 @@ public class MyResource {
         ConnectionFactory factory = (ConnectionFactory) ctx.lookup("ConnectionFactory");
         Topic topic = (Topic) ctx.lookup("/jms/topic/my-topic");
 
-        try (
-                JMSContext context = factory.createContext()
-        ) {
-
+        try (JMSContext context = factory.createContext()) {
             context.createProducer().send(topic, "Hello!");
         }
         return "Howdy!";
