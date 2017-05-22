@@ -1,0 +1,30 @@
+swarm:
+  messaging-activemq:
+    servers:
+      default:
+        jms-queues:
+          my-queue: {}
+        jms-topics:
+          my-topic: {}
+        http-acceptors:
+          http-acceptor:
+            http-listener: default
+        http-connectors:
+          http-connector:
+            socket-binding: http
+            endpoint: http-acceptor
+        cluster-password: CHANGEME
+        discovery-groups:
+          activemq-discovery:
+            jgroups-channel: activemq-jgroups-channel
+        broadcast-groups:
+          activemq-broadcast:
+            jgroups-channel: activemq-jgroups-broadcast
+            connectors:
+              - http-connector
+        cluster-connections:
+          activemq-cluster:
+            cluster-connection-address: jms
+            connector-name: http-connector
+            discovery-group: activemq-discovery
+

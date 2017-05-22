@@ -28,11 +28,8 @@ public class MyResource {
         ConnectionFactory factory = (ConnectionFactory) ctx.lookup("ConnectionFactory");
         Topic topic = (Topic) ctx.lookup("/jms/topic/my-topic");
 
-        try (
-                JMSContext context = factory.createContext()
-        ) {
-
-            context.createProducer().send(topic, "Hello! from " + uri.getBaseUri ());
+        try (JMSContext context = factory.createContext()) {
+            context.createProducer().send(topic, "Hello! from " + uri.getBaseUri());
         }
         return "Howdy!";
     }

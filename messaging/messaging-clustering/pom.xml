@@ -20,7 +20,7 @@
   <name>WildFly Swarm Examples: Messaging (Clustering)</name>
   <description>WildFly Swarm Examples: Messaging (Clustering)</description>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <build>
     <plugins>
@@ -28,7 +28,6 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
-          <mainClass>org.wildfly.swarm.examples.messaging.clustering.Main</mainClass>
           <properties>
             <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
             <swarm.bind.address>127.0.0.1</swarm.bind.address>
