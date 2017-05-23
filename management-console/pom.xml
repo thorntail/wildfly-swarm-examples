@@ -16,7 +16,9 @@
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
         <configuration>
+<!--
           <mainClass>org.wildfly.swarm.examples.management.console.Main</mainClass>
+-->
           <properties>
             <swarm.bind.address>127.0.0.1</swarm.bind.address>
             <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>

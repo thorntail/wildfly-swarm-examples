@@ -1,0 +1,13 @@
+
+swarm:
+  management:
+    security-realms:
+      ManagementRealm:
+        in-memory-authentication:
+          users:
+            bob:
+              password: TACOS!
+    http-interface-management-interface:
+      allowed-origin: http://localhost:8080
+      security-realm: ManagementRealm
+
