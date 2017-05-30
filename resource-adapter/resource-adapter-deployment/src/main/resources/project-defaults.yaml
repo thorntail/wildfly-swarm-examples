@@ -1,0 +1,24 @@
+
+swarm:
+  resource-adapters:
+    resource-adapters:
+      xadisk:
+        archive: xadisk.rar
+        transaction-support: XATransaction
+        config-properties:
+          instanceId:
+            value: xadisk1
+          xaDiskHome:
+            value: diskHome
+        connection-definitions:
+          XADiskConnectionFactoryPool:
+            class-name: org.xadisk.connector.outbound.XADiskManagedConnectionFactory
+            jndi-name: java:global/XADiskCF
+            config-properties:
+              instanceId:
+                value: xadisk1
+            min-pool-size: 0
+            max-pool-size: 5
+
+  deployment:
+    net.java.xadisk:xadisk.rar:

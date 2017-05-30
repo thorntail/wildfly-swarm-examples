@@ -1,4 +1,4 @@
-package org.wildfly.swarm.examples.ds.deployment;
+package org.wildfly.swarm.examples.rar.deployment;
 
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
