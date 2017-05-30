@@ -3,7 +3,7 @@ swarm:
     jdbc-drivers:
       h2:
         driver-class-name: org.h2.Driver
-        xa-datasource-class: org.h2.jdbcx.JdbcDataSource
+        xa-datasource-class-name: org.h2.jdbcx.JdbcDataSource
         driver-module-name: com.h2database.h2
     data-sources:
       ExampleDS:
