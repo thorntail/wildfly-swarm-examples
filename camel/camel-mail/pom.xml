@@ -72,9 +72,6 @@
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.camel.mail.Main</mainClass>
-        </configuration>
       </plugin>
     </plugins>
   </build>

@@ -1,0 +1,11 @@
+
+swarm:
+  mail:
+    smtp-servers:
+      greenmail:
+        host: localhost
+        port: 10110
+        username: user1@localhost
+        password: password
+  deployment:
+    com.icegreen:greenmail-webapp.war:
