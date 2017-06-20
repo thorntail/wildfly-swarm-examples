@@ -1,5 +1,5 @@
 buildscript {
-  version = System.getProperty('swarmVersion') ?: '2016.11.0-SNAPSHOT'
+  version = System.getProperty('swarmVersion') ?: '2017.7.0-SNAPSHOT'
 
   repositories {
     mavenLocal()
