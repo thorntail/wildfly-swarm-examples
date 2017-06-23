@@ -291,6 +291,7 @@
 -->
     <module>logstash</module>
     <module>opentracing</module>
+    <module>jaeger</module>
 
   </modules>
 

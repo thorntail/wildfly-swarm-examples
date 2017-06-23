@@ -10,15 +10,15 @@
 
   <parent>
     <groupId>org.wildfly.swarm.examples</groupId>
-    <artifactId>examples-opentracing-parent</artifactId>
+    <artifactId>examples-jaeger-parent</artifactId>
     <version>2017.8.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
-  <artifactId>example-opentracing-servlet</artifactId>
+  <artifactId>example-jaeger-servlet</artifactId>
 
-  <name>WildFly Swarm Examples: OpenTracing Servlet</name>
-  <description>WildFly Swarm Examples: OpenTracing Servlet</description>
+  <name>WildFly Swarm Examples: Jaeger Servlet</name>
+  <description>WildFly Swarm Examples: Jaeger Servlet</description>
 
   <packaging>war</packaging>
 
@@ -49,29 +49,12 @@
     </dependency>
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
-      <artifactId>opentracing</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.spec.javax.servlet</groupId>
-      <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-      <version>1.0.0.Final</version>
+      <artifactId>jaeger</artifactId>
     </dependency>
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
       <version>2.7</version>
-    </dependency>
-
-    <!-- concrete OpenTracing tracer implementation -->
-    <dependency>
-      <groupId>com.uber.jaeger</groupId>
-      <artifactId>jaeger-core</artifactId>
-      <version>0.20.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.uber.jaeger</groupId>
-      <artifactId>jaeger-tracerresolver</artifactId>
-      <version>0.20.0</version>
     </dependency>
   </dependencies>
 

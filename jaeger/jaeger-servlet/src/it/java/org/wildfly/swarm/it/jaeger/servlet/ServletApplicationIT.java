@@ -1,10 +1,8 @@
-package org.wildfly.swarm.it.opentracing.servlet;
+package org.wildfly.swarm.it.jaeger.servlet;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import org.wildfly.swarm.it.AbstractIntegrationTest;
 
 import java.io.BufferedReader;
@@ -29,7 +27,7 @@ public class ServletApplicationIT extends AbstractIntegrationTest {
     }
 
     private void hitEndpoint() throws IOException {
-        InputStream response = new URL("http://localhost:8080/_opentracing/hello").openStream();
+        InputStream response = new URL("http://localhost:8080/_jaeger/hello").openStream();
         String contents;
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(response))) {
             contents = buffer.lines().collect(Collectors.joining("\n"));
