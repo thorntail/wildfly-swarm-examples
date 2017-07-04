@@ -7,8 +7,8 @@ buildscript {
   }
 
   dependencies {
-    classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE"
-    classpath "org.wildfly.swarm:wildfly-swarm-plugin:$version"
+    classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+    classpath "org.wildfly.swarm:wildfly-swarm-gradle-plugin:$version"
   }
 }
 

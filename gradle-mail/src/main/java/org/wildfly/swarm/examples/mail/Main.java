@@ -14,7 +14,7 @@ public class Main {
         final Swarm container = new Swarm();
         final MailFraction fraction = new MailFraction();
         final String host = System.getProperty("smtp.host");
-        final String port = System.getProperty("smtp.port");
+        final int port = Integer.parseInt(System.getProperty("smtp.port"));
 
         System.out.println(String.format("Using smtp server at %s:%s", host, port));
 
