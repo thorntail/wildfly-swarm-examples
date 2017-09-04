@@ -20,16 +20,13 @@
   <name>WildFly Swarm Examples: Netflix Ribbon using Consul: Front End</name>
   <description>WildFly Swarm Examples: Netflix Ribbon using Consul: Front End</description>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.netflix.ribbon.frontend.Main</mainClass>
-        </configuration>
         <executions>
           <execution>
             <goals>

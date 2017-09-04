@@ -12,10 +12,11 @@ To execute this test, you must
 
 You can run consul with
 
-    consul agent -dev
+    $ consul agent -dev
 
-Once the above is satisfied, you can run
+Once the above is satisfied, you can run the examples with:
 
-    mvn verify -Pconsul -Dswarm.consul.url=http://<IP>:<PORT>
-
-
+    $ mvn wildfly-swarm:run -Dswarm.bind.address=127.0.0.1 -Dswarm.consul.url=http://<IP>:<PORT> -Dswarm.port.offset=<OFFSET>
+ 
+ You need to supply a bind address since wildfly-swarm will bind to "0.0.0.0" by default, which consul doesn't accept as service endpoint.
+ If you have consul running on localhost you can leave out the `swarm.consul.url`.

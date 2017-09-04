@@ -11,7 +11,7 @@ import io.netty.buffer.ByteBuf;
 /**
  * @author Bob McWhirter
  */
-@ResourceGroup( name="time" )
+@ResourceGroup( name="example-ribbon-consul-time" )
 public interface TimeService {
 
     TimeService INSTANCE = Ribbon.from(TimeService.class);
