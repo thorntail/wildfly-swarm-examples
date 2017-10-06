@@ -2,7 +2,7 @@ swarm:
   datasources:
     jdbc-drivers:
       org.postgresql:
-        driver-class-name: org.postgresl.Driver
+        driver-class-name: org.postgresql.Driver
         xa-datasource-class-name: org.postgresql.xa.PGXADataSource
         driver-module-name: org.postgresql
     data-sources:
