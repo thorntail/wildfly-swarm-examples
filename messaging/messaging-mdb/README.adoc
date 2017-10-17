@@ -1,25 +1,21 @@
 = JAX-RS &amp; Messaging MDB
 
-This examples uses JAX-RS resource implementations and deploys
-them through a user-provided `main()` programatically without
-construction a `.war` file during the build.
+This examples takes a normal JAX-RS and MDB build, and wraps it into a `-swarm` runnable jar.
 
-Additionally, it configures a JMS server and sets up some
-JMS destinations for use by the JAX-RS resource.
-
-It also deploys an MDB to consume messages from
-the destination.
+Additionally, it configures a JMS server, sets up some
+JMS destinations for use by the JAX-RS resource and
+deploys an MDB to consume messages from the destination.
 
 > Please raise any issues found with this example in our JIRA:
 > https://issues.jboss.org/browse/SWARM[https://issues.jboss.org/browse/SWARM]
 
-== Project `pomx.xml`
+== Project `pom.xml`
 
-The project is a normal maven project with `jar` packaging, not `war`.
+The project is a normal maven project with  packaging of `war` in the pom.xml.
 
 [source,xml]
 ----
-<packaging>jar</packaging>
+<packaging>war</packaging>
 ----
 
 The project adds a `plugin` to configure `wildfly-swarm-plugin` to
@@ -30,77 +26,63 @@ create the runnable `.jar`.
 <plugin>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>wildfly-swarm-plugin</artifactId>
-  <version>${version.wildfly-swarm}</version>
-  <configuration>
-    <mainClass>org.wildfly.swarm.examples.messaging.mdb.Main</mainClass>
-  </configuration>
   <executions>
     <execution>
-      <goals>
-        <goal>package</goal>
-      </goals>
+      <id>package</id>
+    </execution>
+    <execution>
+      <id>start</id>
+    </execution>
+    <execution>
+      <id>stop</id>
     </execution>
   </executions>
 </plugin>
 ----
 
-To define the needed parts of WildFly Swarm, some dependencies are added
+To define the required parts of WildFly Swarm, some dependencies are added
 
 [source,xml]
 ----
 <dependency>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>jaxrs</artifactId>
-  <version>${version.wildfly-swarm}</version>
 </dependency>
 <dependency>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>cdi</artifactId>
-  <version>${version.wildfly-swarm}</version>
 </dependency>
 <dependency>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>messaging</artifactId>
-  <version>${version.wildfly-swarm}</version>
 </dependency>
 <dependency>
   <groupId>org.wildfly.swarm</groupId>
   <artifactId>ejb</artifactId>
-  <version>${version.wildfly-swarm}</version>
 </dependency>
 ----
 
-== Project `main()`
+== Run
 
-This project supplies a `main()` in order to configure the messaging
-subsystem and deploy all the pieces of the application.
-
-[source,java]
-----
-include::src/main/java/org/wildfly/swarm/examples/messaging/mdb/Main.java[lines=13..31]
-----
-
-See: link:src/main/java/org/wildfly/swarm/examples/messaging/mdb/Main.java#L13[Main.java]
-
-After the container is instantiated, the Messaging fraction is
-configured and installed, enabling the in-vm connector and setting
-up a topic and a queue. 
-
-The container is started.
-
-A JAX-RS deployment based on a project class is deployed.
 
 You can run it many ways:
 
 * mvn package &amp;&amp; java -jar ./target/example-messaging-mdb-swarm.jar
 * mvn wildfly-swarm:run
-* In your IDE run the `org.wildfly.swarm.examples.messaging.mdb.Main` class
+* In your IDE run the `org.wildfly.swarm.Swarm` class
 
 == Use
+
+To access the JAX-RS Resource:
 
 [source]
 ----
 http://localhost:8080/
+----
+
+The JAX-RS endpoint publishes a message to JMS and returns:
+----
+Howdy!
 ----
 
 On the console the MDB will print the message it received over JMS
