@@ -8,6 +8,7 @@ swarm:
             bob:
               password: TACOS!
     http-interface-management-interface:
-      allowed-origin: http://localhost:8080
+      allowed-origins:
+       - http://localhost:8080
       security-realm: ManagementRealm
 
