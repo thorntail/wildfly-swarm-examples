@@ -10,7 +10,6 @@ so that the JAX-RS endpoints can securely expose health checks to service regist
 > https://issues.jboss.org/browse/SWARM
 
 == Project `pom.xml`
-----
 
 The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
 create the runnable `.jar`.
