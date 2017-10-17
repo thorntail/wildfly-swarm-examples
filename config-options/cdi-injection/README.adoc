@@ -1,0 +1,99 @@
+= CDI Injection Configuration
+
+This examples takes a normal JAX-RS build, and wraps it into a `-swarm` runnable jar.
+
+The example shows how to use CDI injection to configure WildFly Swarm.
+
+> Please raise any issues found with this example in our JIRA:
+> https://issues.jboss.org/browse/SWARM[https://issues.jboss.org/browse/SWARM]
+
+== Project `pom.xml`
+
+The project is a normal maven project with  packaging of `war` in the pom.xml.
+
+[source,xml]
+----
+<packaging>war</packaging>
+----
+
+The project adds a `plugin` to configure `wildfly-swarm-plugin` to
+create the runnable `.jar`.
+
+[source,xml]
+----
+<plugin>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>wildfly-swarm-plugin</artifactId>
+  <configuration>
+    <bundleDependencies>true</bundleDependencies>
+  </configuration>
+  <executions>
+    <execution>
+      <id>package</id>
+    </execution>
+    <execution>
+      <id>start</id>
+    </execution>
+    <execution>
+      <id>stop</id>
+    </execution>
+  </executions>
+</plugin>
+----
+
+To define the required parts of WildFly Swarm, some dependencies are added
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>jaxrs</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>cdi</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>monitor</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>logging</artifactId>
+</dependency>
+----
+
+== Run
+
+
+You can run it many ways:
+
+* mvn package &amp;&amp; java -jar ./target/example-messaging-mdb-swarm.jar
+* mvn wildfly-swarm:run
+* In your IDE run the `org.wildfly.swarm.Swarm` class
+
+== Use
+
+The file `src/main/resources/project-defaults.yml` defines the configuration that is available to the application
+
+[source]
+----
+some:
+  string:
+    property: Hello World
+  integer:
+    property: 50
+  boolean:
+    property: true
+----
+
+This configuration is injected into properties of the JAX-RS controller which can then be accessed by calling
+the JAX-RS endpoints.
+
+[source]
+----
+http://localhost:8080/app/propertyString
+http://localhost:8080/app/propertyInteger
+http://localhost:8080/app/propertyBoolean
+----
+
