@@ -68,7 +68,7 @@ To define the required parts of WildFly Swarm, some dependencies are added
 
 You can run it many ways:
 
-* mvn package &amp;&amp; java -jar ./target/example-messaging-mdb-swarm.jar
+* mvn package &amp;&amp; java -jar ./target/cdi-injection-swarm.jar
 * mvn wildfly-swarm:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
