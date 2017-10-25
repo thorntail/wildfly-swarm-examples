@@ -1,6 +1,6 @@
 # MicroProfile .war Example
 
-This example takes a normal http://microprofile.io[MicroProfile] WAR, and wraps it into
+This example takes a normal [MicroProfile](http://microprofile.io) WAR, and wraps it into
 a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
