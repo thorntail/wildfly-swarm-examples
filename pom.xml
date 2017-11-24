@@ -275,6 +275,7 @@
     <module>resource-adapter</module>
     <module>microprofile</module>
     <module>logstash</module>
+    <module>microprofile-opentracing</module>
     <module>opentracing</module>
     <module>jaeger</module>
     <module>ribbon</module>
