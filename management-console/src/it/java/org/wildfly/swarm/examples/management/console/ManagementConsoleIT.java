@@ -18,7 +18,8 @@ public class ManagementConsoleIT extends AbstractIntegrationTest {
     @Test
     public void testIt() throws Exception {
         Log log = getStdOutLog();
-        assertThatLog(log).hasLineContaining("Registered web context: /console");
+
+        assertThatLog(log).hasLineContaining("Registered web context: '/console'");
 
         browser.navigate().to("http://127.0.0.1:8080/console");
         Assertions.assertThat(browser.getTitle()).isEqualTo("Management Interface");

@@ -269,9 +269,11 @@
     <module>transactions</module>
     <module>vaadin</module>
     <module>vertx</module>
+<!--
     <module>ribbon</module>
-    <!-- <module>ribbon-secured</module> -->
+    <module>ribbon-secured</module>
     <module>ribbon-consul</module>
+-->
 <!--
     <module>gradle</module>
 -->
