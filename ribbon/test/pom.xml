@@ -80,19 +80,28 @@
                 <process>
                   <artifactId>example-ribbon-time</artifactId>
                   <properties>
+                    <swarm.port.offset>1</swarm.port.offset>
+<!--
                     <swarm.http.port>8081</swarm.http.port>
+-->
                   </properties>
                 </process>
                 <process>
                   <artifactId>example-ribbon-time</artifactId>
                   <properties>
+                    <swarm.port.offset>2</swarm.port.offset>
+<!--
                     <swarm.http.port>8082</swarm.http.port>
+-->
                   </properties>
                 </process>
                 <process>
                   <artifactId>example-ribbon-events</artifactId>
                   <properties>
+                    <swarm.port.offset>3</swarm.port.offset>
+<!--
                     <swarm.http.port>8083</swarm.http.port>
+-->
                   </properties>
                 </process>
               </processes>

@@ -10,6 +10,7 @@ swarm:
           TCP:
             properties:
               bind_port: 9090
+              port_range: 5
           TCPPING:
             properties:
               initial_hosts: "localhost[9090],localhost[9091],localhost[9092],localhost[9093]"
