@@ -1,6 +1,7 @@
 package org.wildfly.swarm.examples.netflix.ribbon.events;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -57,7 +58,7 @@ public class EventsResource {
                         ObjectMapper mapper = new ObjectMapper();
                         ObjectReader reader = mapper.reader();
                         JsonFactory factory = new JsonFactory();
-                        JsonParser parser = factory.createParser(new ByteBufInputStream(result));
+                        JsonParser parser = factory.createParser((InputStream) new ByteBufInputStream(result));
                         Map map = reader.readValue(parser, Map.class);
                         event.setTimestamp(map);
                         event.setId(EVENTS.size());

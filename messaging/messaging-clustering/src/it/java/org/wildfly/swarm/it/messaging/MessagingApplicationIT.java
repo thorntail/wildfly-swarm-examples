@@ -30,7 +30,6 @@ public class MessagingApplicationIT extends AbstractIntegrationTest {
         Log log = getStdOutLog();
 
         assertThatLog(log).hasLineContaining("WFLYJCA0007: Registered connection factory java:/DefaultJMSConnectionFactory");
-        assertThatLog(log).hasLineContaining("Starting to receive from ActiveMQTopic[my-topic]");
         assertThatLog(log).hasLineContaining("received: Hello!");
     }
 }

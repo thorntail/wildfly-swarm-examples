@@ -49,11 +49,6 @@ To define the needed parts of WildFly Swarm, a dependency is added
         <artifactId>transactions</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
-    <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>msc</artifactId>
-        <version>${version.wildfly-swarm}</version>
-    </dependency>
 
 ## Build
 

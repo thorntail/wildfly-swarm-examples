@@ -26,6 +26,6 @@ public class DatasourceIT extends AbstractIntegrationTest {
         assertThatLog( log ).hasLineContaining( "WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]" );
 
         browser.navigate().to("http://localhost:8080/");
-        assertThat(browser.getPageSource()).contains("Howdy using connection: org.jboss.jca.adapters.jdbc.jdk7.WrappedConnectionJDK7" );
+        assertThat(browser.getPageSource()).matches(".*(Howdy using connection: org.jboss.jca.adapters.jdbc.jdk)(7|8)(.WrappedConnectionJDK)(7|8)\\@[a-zA-Z\\d]+.*");
     }
 }

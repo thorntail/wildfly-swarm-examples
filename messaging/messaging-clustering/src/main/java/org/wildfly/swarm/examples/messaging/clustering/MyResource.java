@@ -2,7 +2,6 @@ package org.wildfly.swarm.examples.messaging.clustering;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSContext;
-import javax.jms.JMSException;
 import javax.jms.Topic;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,16 +16,17 @@ import javax.ws.rs.core.UriInfo;
  */
 @Path("/")
 public class MyResource {
+    public static final String TOPIC = "/jms/topic/my-topic";
 
     @Context
     private UriInfo uri;
 
     @GET
     @Produces("text/plain")
-    public String get() throws NamingException, JMSException {
+    public String get() throws NamingException {
         InitialContext ctx = new InitialContext();
         ConnectionFactory factory = (ConnectionFactory) ctx.lookup("ConnectionFactory");
-        Topic topic = (Topic) ctx.lookup("/jms/topic/my-topic");
+        Topic topic = (Topic) ctx.lookup(TOPIC);
 
         try (JMSContext context = factory.createContext()) {
             context.createProducer().send(topic, "Hello! from " + uri.getBaseUri());

@@ -24,7 +24,6 @@
 
 
   <modules>
-    <module>messaging-simple</module>
     <module>messaging-mdb</module>
     <module>messaging-clustering</module>
   </modules>
