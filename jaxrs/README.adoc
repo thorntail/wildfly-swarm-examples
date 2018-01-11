@@ -1,6 +1,6 @@
 = JAX-RS Examples
 
-There's a variety way ways to use JAX-RS.
+There's a variety ways to use JAX-RS.
 
 First, by working with a traditional `.war` deployment.
 
