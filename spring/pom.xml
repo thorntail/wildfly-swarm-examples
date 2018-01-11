@@ -18,8 +18,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <version.spring-data-jpa>1.10.2.RELEASE</version.spring-data-jpa>
-    <version.spring>4.3.0.RELEASE</version.spring>
+    <version.spring-data-jpa>1.11.9.RELEASE</version.spring-data-jpa>
+    <version.spring>4.3.13.RELEASE</version.spring>
   </properties>
 
   <modules>
