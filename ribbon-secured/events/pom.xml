@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.wildfly.swarm.examples</groupId>
     <artifactId>examples-ribbon-secured-parent</artifactId>
-    <version>1.0.0.Alpha9-SNAPSHOT</version>
+    <version>2018.2.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 

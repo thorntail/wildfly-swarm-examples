@@ -55,12 +55,18 @@ topology().then(function(topo) {
             <TimeService endpoints={addresses} />
           </div>
         );
-      } else {
+      } if ( this.props.service == 'events' ) {
         return (
           <div className='service'>
             <EventService endpoints={addresses} />
           </div>
         );
+      } else {
+        return (
+          <div className='service'>
+            <OtherService service={this.props.service} endpoints={addresses} />
+          </div>
+        )
       }
     }
   });
@@ -158,6 +164,31 @@ topology().then(function(topo) {
     }
   });
 
+  var OtherService = React.createClass({
+    getInitialState: function() {
+      return {response: []};
+    },
+
+    updatePanel: function(response) {
+      console.log(response);
+      this.setState({
+        response: response
+      });
+    },
+
+    render: function() {
+      return (
+        <div className='other-service'>
+          <h2>{this.props.service} Service</h2>
+          <div className='endpoints'>
+          <h3>Endpoints</h3>
+          {this.props.endpoints}
+          </div>
+        </div>
+      );
+    }
+  });
+
   var GetJSONButton = React.createClass({
     handleClick: function(event) {
       topo.getJSON(this.props.serviceName)
@@ -199,12 +230,12 @@ topology().then(function(topo) {
   var Address = React.createClass({
     render: function() {
       return (
-          <div>
-            <p className='service-address'>{this.props.address.endpoint}</p>
-            {this.props.address.tags.map( function(tag) {
-              return (<span key={tag}>{tag}</span>);
-            })}
-          </div>
+        <div>
+          <p className='service-address'>{this.props.address.endpoint}</p>
+          {this.props.address.tags.map( function(tag) {
+            return (<span key={tag}>{tag}</span>);
+          })}
+        </div>
       );
     }
   });

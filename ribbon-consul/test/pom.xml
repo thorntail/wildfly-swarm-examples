@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.wildfly.swarm.examples</groupId>
     <artifactId>examples-ribbon-consul-parent</artifactId>
-    <version>2017.12.0-SNAPSHOT</version>
+    <version>2018.2.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
@@ -116,19 +116,19 @@
                     <process>
                       <artifactId>example-ribbon-consul-time</artifactId>
                       <properties>
-                        <swarm.http.port>8081</swarm.http.port>
+                        <swarm.port.offset>1</swarm.port.offset>
                       </properties>
                     </process>
                     <process>
                       <artifactId>example-ribbon-consul-time</artifactId>
                       <properties>
-                        <swarm.http.port>8082</swarm.http.port>
+                        <swarm.port.offset>2</swarm.port.offset>
                       </properties>
                     </process>
                     <process>
                       <artifactId>example-ribbon-consul-events</artifactId>
                       <properties>
-                        <swarm.http.port>8083</swarm.http.port>
+                        <swarm.port.offset>3</swarm.port.offset>
                       </properties>
                     </process>
                   </processes>
@@ -154,16 +154,19 @@
       <groupId>org.wildfly.swarm.examples</groupId>
       <artifactId>example-ribbon-consul-frontend</artifactId>
       <version>${project.version}</version>
+      <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.wildfly.swarm.examples</groupId>
       <artifactId>example-ribbon-consul-time</artifactId>
       <version>${project.version}</version>
+      <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.wildfly.swarm.examples</groupId>
       <artifactId>example-ribbon-consul-events</artifactId>
       <version>${project.version}</version>
+      <type>war</type>
     </dependency>
   </dependencies>
 

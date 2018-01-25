@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.wildfly.swarm.examples</groupId>
     <artifactId>examples-ribbon-consul-parent</artifactId>
-    <version>2017.12.0-SNAPSHOT</version>
+    <version>2018.2.0-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
@@ -20,23 +20,13 @@
   <name>WildFly Swarm Examples: Netflix Ribbon using Consul: Front End</name>
   <description>WildFly Swarm Examples: Netflix Ribbon using Consul: Front End</description>
 
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
-        <configuration>
-          <mainClass>org.wildfly.swarm.examples.netflix.ribbon.frontend.Main</mainClass>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>package</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

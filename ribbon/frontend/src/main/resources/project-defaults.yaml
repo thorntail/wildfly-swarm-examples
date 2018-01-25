@@ -1,21 +1,24 @@
 
 swarm:
+  network:
+    socket-binding-groups:
+      standard-sockets:
+        socket-bindings:
+          jgroups-custom-tcp:
+            port: 9090
   jgroups:
     stacks:
-      udp:
+      tcpping:
         transports:
-          UDP:
-            socket-binding: jgroups-udp
-        protocols:
           TCP:
-            properties:
-              bind_port: 9090
+            socket-binding: jgroups-custom-tcp
+        protocols:
           TCPPING:
             properties:
-              initial_hosts: "localhost[9090],localhost[9091],localhost[9092],localhost[9093]"
-              port_range: 4
+              initial_hosts: "localhost[9090]"
+              port_range: 3
           FD_SOCK:
-            socket-binding: jgroups-udp-fd
+            socket-binding: jgroups-tcp-fd
           FD_ALL:
           VERIFY_SUSPECT:
           pbcast.NAKACK2:
@@ -24,11 +27,10 @@ swarm:
           pbcast.GMS:
             properties:
               join_timeout: 3000
-          UFC:
           MFC:
           FRAG2:
           RSVP:
     channels:
       swarm-jgroups:
-        stack: udp
+        stack: tcpping
     default-channel: swarm-jgroups
