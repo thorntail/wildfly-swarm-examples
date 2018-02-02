@@ -50,6 +50,10 @@ within the WildFly Swarm application `.jar`.
 * mvn wildfly-swarm:run
 * From your IDE, run class `org.wildfly.swarm.Swarm`
 
+For build and deployment to OpenShift, will deploy to active OpenShift project.
+* oc project
+* mvn clean package fabric8:build fabric8:deploy
+
 ## Use
 
 Since WildFly Swarm apps tend to support one deployment per executable, it
