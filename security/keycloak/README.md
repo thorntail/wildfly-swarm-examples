@@ -11,6 +11,25 @@ This example is based on the following Keycloak blog article.
 
 ## Start Keycloak
 
+### Keycloak Swarm Server
+
+Download the latest Swarm Keycloak standalone server jar, for example, 2018.2.0 version:
+
+``` sh
+wget http://repo1.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2018.2.0/keycloak-2018.2.0-swarm.jar .
+```
+and start it:
+
+``` sh
+THIS_EXAMPLE=/path/to/this/example
+java -Dswarm.http.port=8180 \
+     -Dkeycloak.migration.action=import \
+     -Dkeycloak.migration.provider=singleFile \
+     -Dkeycloak.migration.file=${THIS_EXAMPLE}/realm/wildfly-swarm-keycloak-example-realm.json \
+     -jar keycloak-swarm.jar
+```
+
+
 ### Local installed
 
 ``` sh
@@ -29,7 +48,7 @@ bin/standalone.sh \
 docker run -it -d \
   -p 8180:8080 \
   -v `pwd`/realm:/tmp/realm \
-  jboss/keycloak:2.5.0.Final \
+  jboss/keycloak:3.4.0.Final \
   -b 0.0.0.0 \
   -Dkeycloak.migration.action=import \
   -Dkeycloak.migration.provider=singleFile \
