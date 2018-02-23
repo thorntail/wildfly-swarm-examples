@@ -15,4 +15,8 @@ You can run it many ways:
 
 http://localhost:8080/
 
-You can see a Basic access authentication dialog for username/password, and then input `Penny/password` to get Employees resource.
+You can see a Basic access authentication dialog for username/password.
+
+Input `Penny/password` to get a list of all Employees which is permitted only to users in the 'admin' role.
+Restart a browser and input `Sheldon/password` ('user' role) and get an empty list of Employees.
+Finally, restart a browser and input `Amy/password` ('guest' role) and get a 'Forbidden' response.

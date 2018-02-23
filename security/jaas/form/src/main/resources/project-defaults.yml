@@ -11,7 +11,7 @@ swarm:
         security-constraints:
           - url-pattern: /*
             methods: [GET, POST]
-            roles: [admin]
+            roles: [admin, user]
   security:
     security-domains:
       my-domain:
