@@ -21,8 +21,10 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Employee> employees = em.createNamedQuery("Employee.findAll", Employee.class).getResultList();
-        req.setAttribute("employees", req.isUserInRole("admin") ? employees : Collections.emptyList());
+        List<Employee> employees = req.isUserInRole("admin")
+            ? em.createNamedQuery("Employee.findAll", Employee.class).getResultList()
+            : Collections.emptyList();
+        req.setAttribute("employees",  employees);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/employees.jsp");
         dispatcher.forward(req, resp);
