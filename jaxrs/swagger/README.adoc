@@ -175,3 +175,21 @@ To `GET` the JAX-RS resouce
 To `GET` the API specification as a `swagger.json` document
 
     http://localhost:8080/swagger.json
+
+== View the API with Swagger-UI
+
+Download the latest Swarm Swagger-UI standalone server jar, for example, 2018.2.0 version:
+
+wget http://repo1.maven.org/maven2/org/wildfly/swarm/servers/swagger-ui/2018.2.0/swagger-ui-2018.2.0-swarm.jar .
+
+and start it:
+
+java -Dswarm.http.port=8180 -jar swagger-ui-2018.2.0-swarm.jar.jar
+
+Go to 
+
+http://localhost:8180/swagger-ui
+
+and Explore "http://localhost:8080/swagger.json". 
+
+
