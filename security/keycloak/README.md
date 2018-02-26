@@ -26,7 +26,7 @@ java -Dswarm.http.port=8180 \
      -Dkeycloak.migration.action=import \
      -Dkeycloak.migration.provider=singleFile \
      -Dkeycloak.migration.file=${THIS_EXAMPLE}/realm/wildfly-swarm-keycloak-example-realm.json \
-     -jar keycloak-swarm.jar
+     -jar keycloak-2018.2.0-swarm.jar
 ```
 
 
