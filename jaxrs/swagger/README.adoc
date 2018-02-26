@@ -184,7 +184,7 @@ wget http://repo1.maven.org/maven2/org/wildfly/swarm/servers/swagger-ui/2018.2.0
 
 and start it:
 
-java -Dswarm.http.port=8180 -jar swagger-ui-2018.2.0-swarm.jar.jar
+java -Dswarm.http.port=8180 -jar swagger-ui-2018.2.0-swarm.jar
 
 Go to 
 
