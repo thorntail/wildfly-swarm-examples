@@ -73,7 +73,7 @@ Click on the Add button and enter the following information:
     Name: Localhost
     Scheme: http
     Hostname: 127.0.0.1
-    Port: 9090
+    Port: 9990
 
 Press the Ping button and present the following authentication info:
 

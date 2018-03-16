@@ -6,7 +6,7 @@ swarm:
         in-memory-authentication:
           users:
             bob:
-              password: TACOS!
+              password: tacos!
     http-interface-management-interface:
       allowed-origins:
        - http://localhost:8080
