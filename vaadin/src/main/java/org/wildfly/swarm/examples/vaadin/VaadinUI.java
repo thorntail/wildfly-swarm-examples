@@ -14,7 +14,6 @@ import com.vaadin.ui.UI;
  *
  * @author Matti Tahvonen
  */
-@Theme("valo")
 @CDIUI("")
 public class VaadinUI extends UI {
 

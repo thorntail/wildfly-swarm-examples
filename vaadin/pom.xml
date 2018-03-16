@@ -22,10 +22,6 @@
 
   <packaging>war</packaging>
   
-  <properties>
-      <version.vaadin>7.5.3</version.vaadin>
-  </properties>
-
   <build>
     <plugins>
       <plugin>
@@ -52,6 +48,17 @@
       </plugin>
     </plugins>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-bom</artifactId>
+        <version>8.3.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -61,22 +68,18 @@
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-server</artifactId>
-        <version>${version.vaadin}</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-client-compiled</artifactId>
-        <version>${version.vaadin}</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-themes</artifactId>
-        <version>${version.vaadin}</version>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-cdi</artifactId>
-      <version>1.0.3</version>
     </dependency>
     <dependency>
       <groupId>javax.enterprise</groupId>
