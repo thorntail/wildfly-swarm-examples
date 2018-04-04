@@ -22,6 +22,7 @@ public class Main {
                 .start()
                 .deploy(ShrinkWrap.create(JAXRSArchive.class)
                                 .addClass(Mail.class)
+                                .addClass(MyApplication.class)
                                 .addAllDependencies());
     }
 }

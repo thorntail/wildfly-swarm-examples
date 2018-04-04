@@ -16,6 +16,7 @@ public class Main {
 
         JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class);
         deployment.addClass(HelloRest.class);
+        deployment.addClass(MyApplication.class);
         deployment.addAllDependencies();
         swarm.start().deploy(deployment);
 
