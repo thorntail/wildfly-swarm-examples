@@ -269,28 +269,21 @@
     <module>transactions</module>
     <module>vaadin</module>
     <module>vertx</module>
-    <module>ribbon</module>
-    <module>ribbon-consul</module>
-<!--
-    <module>gradle</module>
--->
     <module>docker</module>
     <module>spring</module>
     <module>security</module>
     <module>resource-adapter</module>
     <module>microprofile</module>
-<!--
-    <module>kitchensink-html5-mobile</module>
--->
-
-    <!-- extras -->
-<!--
-    <module>ribbon-secured</module>
--->
     <module>logstash</module>
     <module>opentracing</module>
     <module>jaeger</module>
-
+    <module>ribbon</module>
+    <module>ribbon-consul</module>
+    <!--
+    <module>ribbon-secured</module>
+    <module>gradle</module>
+    <module>kitchensink-html5-mobile</module>
+    -->
   </modules>
 
   <profiles>
