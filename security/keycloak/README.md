@@ -85,4 +85,4 @@ TOKEN=`echo $RESULT | sed 's/.*access_token":"//g' | sed 's/".*//g'`
 curl -H "Authorization: bearer $TOKEN" localhost:8080/secured
 ```
 
-You'll get the response which contains `This is Secured Resource`.
+You'll get the response which contains `Hi user1, this is Secured Resource`.
