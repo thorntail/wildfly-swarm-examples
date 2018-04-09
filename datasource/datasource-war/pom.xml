@@ -24,7 +24,7 @@
 
   <properties>
     <version.h2>1.4.187</version.h2>
-    <version.postgresql>9.4.1207</version.postgresql>
+    <version.postgresql>42.2.2</version.postgresql>
     <version.mysql>5.1.38</version.mysql>
   </properties>
 
