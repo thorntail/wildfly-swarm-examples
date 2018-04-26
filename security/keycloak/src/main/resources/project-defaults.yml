@@ -5,6 +5,6 @@ swarm:
         login-config:
           auth-method: KEYCLOAK
         security-constraints:
-          - url-pattern: /secured
+          - url-pattern: /app/secured
             methods: [GET]
             roles: [admin]
