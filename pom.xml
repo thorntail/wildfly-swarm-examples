@@ -280,9 +280,8 @@
     <module>ribbon</module>
     <module>ribbon-consul</module>
     <!--
-    <module>ribbon-secured</module>
-    <module>gradle</module>
     <module>kitchensink-html5-mobile</module>
+    <module>gradle</module>
     -->
   </modules>
 

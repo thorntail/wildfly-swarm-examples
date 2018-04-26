@@ -1,9 +1,0 @@
-{
-  "realm": "ribbon-test",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy2CTkAzoYbIStJVgfEOSu12D9k3YT9ZYEAKZEeCw0J1TLDKjViYh//9pGWLZWEM6GhiwrnsU59OP55d4YAcuW0i3BoixiSuhCP3Al/vPsvN+EoqGwFmPmzG45AYYX7AbNcEnKpF3/OmpJW02VNMIOqsV09nMsWmecer/VZv29SzPl65WHarkSs0Aw05kbvyqL5vqtzRW/3Knde2qqhBplubjLbe65Muld8m4OCpv2O8X1ytIxWNiC/u1jtAjnRxANMbVqV+zSHi4WUj1T3T6ZtG9IinOWCohLyGsw1SQNwN9ZRXPhPVmcr1+JPYj52Cl/Fc1QNtdt1AYKDxYCGgg7QIDAQAB",
-  "auth-server-url": "http://localhost:9191/auth",
-  "ssl-required": "external",
-  "resource": "test",
-  "public-client": true
-}
-
