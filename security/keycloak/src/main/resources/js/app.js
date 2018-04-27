@@ -46,9 +46,9 @@ var Secured = React.createClass({
     req.onreadystatechange = function () {
         if (req.readyState == 4) {
             if (req.status == 200) {
-               console.log(req.responseText);
+               alert(req.responseText);
             } else {
-               console.log('Unauthorized');
+               alert('Unauthorized');
             }
         }
     }
