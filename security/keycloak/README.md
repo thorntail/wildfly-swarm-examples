@@ -109,7 +109,7 @@ java -Dswarm.keycloak.json.path=$THIS_EXAMPLE/src/main/resources/browser-client-
 
 ### Access the public client page
 
-Navigate the browser to "http:localhost:8080/" 
+Navigate the browser to "http://localhost:8080/" 
 
 ### Access the secured resource
 
@@ -118,7 +118,7 @@ You'll get `Unauthorized` displayed.
 
 ### Login
 
-Click on "Login" and use the "user1:password1" credentials to login into Keycloak.
+Click on "Login" and use the user1/password1 credentials to login into Keycloak.
 
 ### Access the secured resource
 
