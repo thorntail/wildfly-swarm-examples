@@ -24,7 +24,7 @@ THIS_EXAMPLE=/path/to/this/example
 java -Dswarm.http.port=8180 \
      -Dkeycloak.migration.action=import \
      -Dkeycloak.migration.provider=dir \
-     -Dkeycloak.migration.file=${THIS_EXAMPLE}/realm \
+     -Dkeycloak.migration.dir=${THIS_EXAMPLE}/realm \
      -jar keycloak-2018.4.1-swarm.jar
 ```
 
@@ -38,7 +38,7 @@ bin/standalone.sh \
   -Djboss.socket.binding.port-offset=100 \
   -Dkeycloak.migration.action=import \
   -Dkeycloak.migration.provider=dir \
-  -Dkeycloak.migration.file=${THIS_EXAMPLE}/realm
+  -Dkeycloak.migration.dir=${THIS_EXAMPLE}/realm
 ```
 
 ### Docker
@@ -51,7 +51,7 @@ docker run -it -d \
   -b 0.0.0.0 \
   -Dkeycloak.migration.action=import \
   -Dkeycloak.migration.provider=dir \
-  -Dkeycloak.migration.file=/tmp/realm
+  -Dkeycloak.migration.dir=/tmp/realm
 ```
 
 ## Build Example
@@ -65,9 +65,7 @@ mvn clean package
 ### Start the example server
 
 ``` sh
-THIS_EXAMPLE=/path/to/this/example
-java -Dswarm.keycloak.json.path=$THIS_EXAMPLE/src/main/resources/cmd-client-keycloak.json \
-  -jar target/example-keycloak-swarm.jar
+java -Dswarm.keycloak.json.path=classpath:cmd-client-keycloak.json -jar target/example-keycloak-swarm.jar
 ```
 
 ### Access the secured resource
@@ -102,9 +100,7 @@ You'll get the response which contains `Hi user1, this is Secured Resource`.
 Stop the example server if it is already running and start it with:
 
 ``` sh
-THIS_EXAMPLE=/path/to/this/example
-java -Dswarm.keycloak.json.path=$THIS_EXAMPLE/src/main/resources/browser-client-keycloak.json \
-  -jar target/example-keycloak-swarm.jar
+java -Dswarm.keycloak.json.path=classpath:browser-client-keycloak.json -jar target/example-keycloak-swarm.jar
 ```
 
 ### Access the public client page
