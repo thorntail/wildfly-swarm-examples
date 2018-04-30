@@ -1,0 +1,6 @@
+swarm:
+  messaging-activemq:
+    servers:
+      default:
+        jms-queues:
+          TestQueue:
