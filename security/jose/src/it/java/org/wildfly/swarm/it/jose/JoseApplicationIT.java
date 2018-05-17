@@ -2,6 +2,10 @@ package org.wildfly.swarm.it.jose;
 
 import static org.fest.assertions.Assertions.assertThat;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
+
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -62,9 +66,7 @@ public class JoseApplicationIT extends AbstractIntegrationTest {
     }
 
     private void sign(LoanRequest request) throws Exception {
-        final String keySet = 
-            "{\"keys\":[{\"kid\":\"HMacKey\",\"alg\":\"HS256\",\"kty\":\"oct\","
-            + "\"k\":\"AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow\"}]}";
+        final String keySet = readKeySet();
         JsonWebKeySet jwkSet = new JsonWebKeySet(keySet);
         JsonWebKey jwkKey = jwkSet.getJsonWebKeys().get(0);
         
@@ -78,6 +80,13 @@ public class JoseApplicationIT extends AbstractIntegrationTest {
         String[] parts = signature.split("\\.");
         assertThat(parts.length).isEqualTo(3);
         assertThat(parts[1].isEmpty()).isTrue();
+    }
+
+    private String readKeySet() throws Exception {
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        try (BufferedReader is = new BufferedReader(new InputStreamReader(cl.getResourceAsStream("jwk.keys")))) {
+            return is.lines().collect(Collectors.joining());
+        }
     }
 
 }
