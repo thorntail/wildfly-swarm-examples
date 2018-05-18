@@ -7,4 +7,4 @@ swarm:
       key:
         alias: HMacKey
       algorithm: HS256
-      data-detached: true
+
