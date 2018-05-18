@@ -1,0 +1,18 @@
+swarm:
+  deployment:
+    example-keycloak-multitenancy.war:
+      web:
+        login-config:
+          auth-method: KEYCLOAK
+        security-constraints:
+          - url-pattern: /app/secured
+            methods: [GET]
+            roles: [admin]
+          - url-pattern: /app/health
+            methods: [GET]
+            roles: [admin]
+  keycloak:
+    multitenancy:
+      paths:
+        /app/secured: app-client-keycloak.json
+        /app/health: health-client-keycloak.json
