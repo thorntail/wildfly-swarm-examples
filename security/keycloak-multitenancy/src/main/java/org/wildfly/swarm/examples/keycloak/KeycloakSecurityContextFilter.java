@@ -8,6 +8,7 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
+import org.keycloak.KeycloakSecurityContext;
 import org.wildfly.swarm.keycloak.deployment.KeycloakSecurityContextAssociation;
 
 /**
@@ -22,11 +23,11 @@ public class KeycloakSecurityContextFilter implements ContainerRequestFilter {
         // which is a unique (UUID/etc) identifier. The custom security context
         // sets the principal name to the preferred user name instead.
         
-        
+        final KeycloakSecurityContext kcSecurityContext = KeycloakSecurityContextAssociation.get();
         final SecurityContext securityContext = requestContext.getSecurityContext();
         // Simplifying for the demo purposes only
         final Principal kcPrincipal = () -> {
-            return KeycloakSecurityContextAssociation.get().getToken().getPreferredUsername();
+            return kcSecurityContext.getToken().getPreferredUsername();
         };
         
         requestContext.setSecurityContext(new SecurityContext() {
@@ -51,6 +52,8 @@ public class KeycloakSecurityContextFilter implements ContainerRequestFilter {
                 return securityContext.getAuthenticationScheme();
             }            
         });
+        
+        requestContext.getHeaders().add("Realm", kcSecurityContext.getRealm());
     }
 
 }

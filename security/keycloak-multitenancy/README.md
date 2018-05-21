@@ -73,7 +73,7 @@ You'll get the response with `401 Unauthorized`. Let's get a Token to access it.
 ``` sh
 USER=user1
 PASS=password1
-RESULT=`curl -s --data "grant_type=password&client_id=wildfly-swarm-app-client&username=${USER}&password=${PASS}" http://localhost:8180/auth/realms/wildfly-swarm-client/protocol/openid-connect/token`
+RESULT=`curl -s --data "grant_type=password&client_id=wildfly-swarm-app-client&username=${USER}&password=${PASS}" http://localhost:8180/auth/realms/wildfly-swarm-app-client/protocol/openid-connect/token`
 TOKEN=`echo $RESULT | sed 's/.*access_token":"//g' | sed 's/".*//g'`
 ```
 
@@ -83,7 +83,7 @@ TOKEN=`echo $RESULT | sed 's/.*access_token":"//g' | sed 's/".*//g'`
 curl -H "Authorization: bearer $TOKEN" localhost:8080/app/secured
 ```
 
-You'll get the response which contains `Hi user1, this is Secured Resource`.
+You'll get the response which contains `Hi user1, this is Secured Resource accessed from the wildfly-swarm-app-client`.
 
 ### Access the secured health endpoints
 
@@ -98,15 +98,15 @@ You'll get the response with `401 Unauthorized`. Let's get a Token to access it.
 ``` sh
 USER=user1
 PASS=password1
-RESULT=`curl -s --data "grant_type=password&client_id=wildfly-swarm-health-client&username=${USER}&password=${PASS}" http://localhost:8180/auth/realms/wildfly-swarm-client/protocol/openid-connect/token`
+RESULT=`curl -s --data "grant_type=password&client_id=wildfly-swarm-health-client&username=${USER}&password=${PASS}" http://localhost:8180/auth/realms/wildfly-swarm-health-client/protocol/openid-connect/token`
 TOKEN=`echo $RESULT | sed 's/.*access_token":"//g' | sed 's/".*//g'`
 ```
 
 ### Access the secured resource with the Token
 
 ``` sh
-curl -H "Authorization: bearer $TOKEN" localhost:8080/health
+curl -H "Authorization: bearer $TOKEN" localhost:8080/app/health
 ```
 
-You'll get the information about the service health
+You'll get the information about the realm (wildfly-swarm-health-client) and the service health.
 

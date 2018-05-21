@@ -1,5 +1,5 @@
 {
-  "realm": "wildfly-swarm-client",
+  "realm": "wildfly-swarm-health-client",
   "bearer-only": "true",
   "auth-server-url": "http://localhost:8180/auth",
   "ssl-required": "external",

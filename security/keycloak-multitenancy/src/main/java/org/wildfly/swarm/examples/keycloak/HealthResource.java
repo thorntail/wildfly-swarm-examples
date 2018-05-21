@@ -6,6 +6,8 @@ import java.net.InetAddress;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.dmr.ModelNode;
@@ -15,29 +17,34 @@ import org.wildfly.swarm.SwarmInfo;
 @Produces("application/json")
 public class HealthResource {
 
+    @Context
+    private HttpHeaders httpHeaders;
+    
     @GET
     public String getAll() {
         ModelNode node = new ModelNode();
+        addRealmProperty(node);
         node.add("node", getNodeInfo());
         node.add("threads", getThreadsInfo());
         node.add("heap", getHeapInfo());
+        
         return node.toJSONString(false);
     }
     
     @GET
     @Path("node")
     public String getNode() {
-        return getNodeInfo().toJSONString(false);
+        return addRealmProperty(getNodeInfo()).toJSONString(false);
     }
     @GET
     @Path("heap")
     public String getHeap() {
-        return getHeapInfo().toJSONString(false);
+        return addRealmProperty(getHeapInfo()).toJSONString(false);
     }
     @GET
     @Path("threads")
     public String getThreads() {
-        return getThreadsInfo().toJSONString(false);
+        return addRealmProperty(getThreadsInfo()).toJSONString(false);
     }
     
     private ModelNode getNodeInfo() {
@@ -51,15 +58,7 @@ public class HealthResource {
         op.get("select").add("running-mode");
         op.get("select").add("uuid");
 
-        try (ModelControllerClient client = ModelControllerClient.Factory.create(
-                InetAddress.getByName("localhost"), 9990)) {
-            ModelNode response = client.execute(op);
-            ModelNode unwrapped = unwrap(response);
-            unwrapped.get("swarm-version").set(SwarmInfo.VERSION);
-            return unwrapped;
-        } catch (IOException e) {
-            return new ModelNode().get("failure-description").set(e.getMessage());
-        }
+        return getModelNodeResponse(op);
 
     }
 
@@ -71,13 +70,7 @@ public class HealthResource {
         op.get("select").add("heap-memory-usage");
         op.get("select").add("non-heap-memory-usage");
 
-        try (ModelControllerClient client = ModelControllerClient.Factory.create(
-                InetAddress.getByName("localhost"), 9990)) {
-            ModelNode response = client.execute(op);
-            return unwrap(response);
-        } catch (IOException e) {
-            return new ModelNode().get("failure-description").set(e.getMessage());
-        }
+        return getModelNodeResponse(op);
     }
 
     private ModelNode getThreadsInfo() {
@@ -91,13 +84,7 @@ public class HealthResource {
         op.get("select").add("current-thread-cpu-time");
         op.get("select").add("current-thread-user-time");
 
-        try (ModelControllerClient client = ModelControllerClient.Factory.create(
-                InetAddress.getByName("localhost"), 9990)) {
-            ModelNode response = client.execute(op);
-            return unwrap(response);
-        } catch (IOException e) {
-            return new ModelNode().get("failure-description").set(e.getMessage());
-        }
+        return getModelNodeResponse(op);
     }
     
     private static ModelNode unwrap(ModelNode response) {
@@ -108,4 +95,19 @@ public class HealthResource {
         }
     }
 
+    private ModelNode addRealmProperty(ModelNode node) {
+        return node.add("realm", httpHeaders.getHeaderString("Realm"));
+    }
+    
+    private ModelNode getModelNodeResponse(ModelNode op) {
+        try (ModelControllerClient client = ModelControllerClient.Factory.create(
+                InetAddress.getByName("localhost"), 9990)) {
+            ModelNode response = client.execute(op);
+            ModelNode unwrapped = unwrap(response);
+            unwrapped.get("swarm-version").set(SwarmInfo.VERSION);
+            return unwrapped;
+        } catch (IOException e) {
+            return new ModelNode().get("failure-description").set(e.getMessage());
+        }
+    }
 }

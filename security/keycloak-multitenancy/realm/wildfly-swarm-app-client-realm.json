@@ -1,11 +1,11 @@
 {
-  "id" : "wildfly-swarm-client",
-  "realm" : "wildfly-swarm-client",
+  "id" : "wildfly-swarm-app-client",
+  "realm" : "wildfly-swarm-app-client",
   "enabled" : true,
   "sslRequired" : "external",
   "roles" : {
     "realm" : [ {
-      "name" : "admin",
+      "name" : "app-admin",
       "description" : "Admin priviliges"
     } ]
   },
@@ -21,7 +21,7 @@
       "algorithm" : "pbkdf2",
       "createdDate" : 1484340574721
     } ],
-    "realmRoles" : [ "admin" ],
+    "realmRoles" : [ "app-admin" ],
     "clientRoles" : {
       "account" : [ "view-profile", "manage-account" ]
     }
@@ -29,19 +29,11 @@
   "clientScopeMappings" : {
     "realm-management" : [ {
       "client" : "wildfly-swarm-app-client",
-      "roles" : [ "admin" ]
-    }, {
-      "client" : "wildfly-swarm-health-client",
-      "roles" : [ "admin" ]
+      "roles" : [ "app-admin" ]
     } ]
   },
   "clients" : [ {
     "clientId" : "wildfly-swarm-app-client",
-    "enabled" : true,
-    "directAccessGrantsEnabled" : true,
-    "publicClient" : true
-  }, {
-    "clientId" : "wildfly-swarm-health-client",
     "enabled" : true,
     "directAccessGrantsEnabled" : true,
     "publicClient" : true

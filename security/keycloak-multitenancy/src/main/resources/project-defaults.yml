@@ -7,10 +7,10 @@ swarm:
         security-constraints:
           - url-pattern: /app/secured
             methods: [GET]
-            roles: [admin]
+            roles: [app-admin]
           - url-pattern: /app/health
             methods: [GET]
-            roles: [admin]
+            roles: [health-admin]
   keycloak:
     multitenancy:
       paths:
