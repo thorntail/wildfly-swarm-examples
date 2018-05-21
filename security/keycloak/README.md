@@ -15,7 +15,7 @@ secured by Keycloak.
 Download the latest Swarm Keycloak standalone server jar, for example, 2018.4.1 version:
 
 ``` sh
-wget http://repo1.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2018.4.1/keycloak-2018.4.1-swarm.jar .
+wget http://repo1.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2018.5.0/keycloak-2018.5.0-swarm.jar .
 ```
 and start it:
 
@@ -25,7 +25,7 @@ java -Dswarm.http.port=8180 \
      -Dkeycloak.migration.action=import \
      -Dkeycloak.migration.provider=dir \
      -Dkeycloak.migration.dir=${THIS_EXAMPLE}/realm \
-     -jar keycloak-2018.4.1-swarm.jar
+     -jar keycloak-2018.5.0-swarm.jar
 ```
 
 
