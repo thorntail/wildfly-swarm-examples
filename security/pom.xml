@@ -25,5 +25,6 @@
   <modules>
     <module>jaas</module>
     <module>keycloak</module>
+    <module>keycloak-multitenancy</module>
   </modules>
 </project>
