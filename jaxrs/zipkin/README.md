@@ -1,4 +1,4 @@
-# Wildfly Swarm Zipkin JAX-RS Fraction Example
+# Thorntail Zipkin JAX-RS Fraction Example
 
 Swarm JAX-RS application instrumented with Zipkin.
 

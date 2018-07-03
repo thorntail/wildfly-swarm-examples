@@ -21,8 +21,8 @@ public class JSFApplicationIT extends AbstractIntegrationTest {
     @Test
     public void testIt() {
         browser.navigate().to("http://localhost:8080/");
-        assertThat(browser.getPageSource()).contains("WildFly Swarm Facelet");
+        assertThat(browser.getPageSource()).contains("Thorntail Facelet");
         assertThat(browser.getPageSource()).contains("Hello from JSF");
-        assertThat(browser.getPageSource()).contains("Powered by WildFly Swarm");
+        assertThat(browser.getPageSource()).contains("Powered by Thorntail");
     }
 }

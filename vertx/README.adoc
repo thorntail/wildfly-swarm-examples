@@ -1,4 +1,4 @@
-= WildFly Swarm - Vert.x
+= Thorntail - Vert.x
 
 This example shows how to add support for the Vert.x API in Java EE applications by enabling the https://github.com/vert-x3/vertx-jca[Vert.x JCA adapter].
 

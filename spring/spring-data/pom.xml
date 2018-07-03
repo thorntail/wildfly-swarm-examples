@@ -4,24 +4,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-spring</artifactId>
-    <version>2018.6.0-SNAPSHOT</version>
+    <version>2.0.1.Final-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
   <artifactId>example-spring-data</artifactId>
 
-  <name>WildFly Swarm Examples: Spring Data</name>
-  <description>WildFly Swarm Examples: Spring Data</description>
+  <name>Thorntail Examples: Spring Data</name>
+  <description>Thorntail Examples: Spring Data</description>
 
   <packaging>war</packaging>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
         <executions>
           <execution>
             <id>package</id>
@@ -39,15 +39,15 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.wildfly.swarm.examples</groupId>
+      <groupId>io.thorntail.examples</groupId>
       <artifactId>examples-base</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>spring</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jpa</artifactId>
     </dependency>
     <dependency>

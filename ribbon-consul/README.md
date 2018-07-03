@@ -1,7 +1,7 @@
 # Multiple services plus NetFlixOSS Ribbon
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 This example is like the `ribbon` example, but instead of using
 JGroups, it relies upon Hashicorp's Consul service-discovery mechanisms.

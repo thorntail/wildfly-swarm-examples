@@ -1,7 +1,7 @@
 = Datasource Examples
 
 JDBC Drivers and datasources can be configured in two
-different ways within a WildFly Swarm application.
+different ways within a Thorntail application.
 
 The first is through a *deployment*, which is, as you might
 guess, a deployment-time creation of a datasource. Through

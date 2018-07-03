@@ -37,7 +37,7 @@ create the runnable `.jar`.
 </plugin>
 ----
 
-To define the needed parts of WildFly Swarm, a few dependencies are added
+To define the needed parts of Thorntail, a few dependencies are added
 
 [source,xml]
 ----

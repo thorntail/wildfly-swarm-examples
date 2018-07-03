@@ -7,7 +7,7 @@ This example uses Apache Deltaspike Data Module with JAXRS.
 This project is intented for use with the following approaches:
 
 1. `org.wildfly.swarm.Swarm` class
-2. Wildfly Swarm Plugin
+2. Thorntail Plugin
 
 In order to achieve these objectives the packaging type must be:
 
@@ -16,8 +16,8 @@ In order to achieve these objectives the packaging type must be:
 Additionally you must include wildfly-swarm maven plugin in your `pom.xml`
 
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
+                <groupid>io.thorntail</groupId>
+                <artifactId>thorntail-maven-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
                 <executions>
                     <execution>
@@ -52,7 +52,7 @@ From your IDE run the `org.wildfly.swarm.Swarm` class
     
 From your shell/prompt console just enter the following command
     
-    mvn wildfly-swarm:run
+    mvn thorntail:run
    
 
 ## Testing with curl

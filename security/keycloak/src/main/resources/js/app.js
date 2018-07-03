@@ -15,7 +15,7 @@ var App = React.createClass({
   render: function() {
     return (
         <div>
-          <h1>WildFly Swarm Keycloak Example</h1>
+          <h1>Thorntail Keycloak Example</h1>
           <Auth keycloak={this.props.keycloak}/>
           <Secured keycloak={this.props.keycloak}/>
         </div>

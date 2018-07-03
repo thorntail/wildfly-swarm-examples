@@ -16,7 +16,7 @@ public class HelloRest {
     @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
 
-        return "hello: wildfly swarm + gradle + java";
+        return "hello: Thorntail + gradle + java";
     }
 
 }

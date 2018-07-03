@@ -4,18 +4,18 @@ This example uses camel-jms to produce and consume messages via the messaging su
 
 ## Project `pom.xml`
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
     </plugin>
 
-To define the needed parts of WildFly Swarm, the following dependencies are added
+To define the needed parts of Thorntail, the following dependencies are added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>camel-full</artifactId>
     </dependency>
 
@@ -27,7 +27,7 @@ project does *not* need to specify those.
 You can run it many ways:
 
 * mvn package && java -jar ./target/example-camel-jms-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 ## Use

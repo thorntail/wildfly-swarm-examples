@@ -7,7 +7,7 @@ This example demonstrates driver auto-detect functionality.
 
 If a user application includes the appropriate vendor JDBC
 library in their normal dependencies, they will be detected
-and installed by WildFly Swarm without any additional effort.
+and installed by Thorntail without any additional effort.
 An `ExampleDS` also will be auto register if only one verdor's
 driver be detected.
 
@@ -35,7 +35,7 @@ create the runnable `.jar`.
 As with the other examples, this one inherits a few standard executions
 from the parent `pom.xml`, particularly the `package` execution.
     
-To define the needed parts of WildFly Swarm, a few dependencies are added.
+To define the needed parts of Thorntail, a few dependencies are added.
 The first is not strictly required for configuring datasources, but is
 needed for the example to demonstrate usage of the datasource:
 

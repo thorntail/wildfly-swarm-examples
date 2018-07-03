@@ -3,7 +3,7 @@ topology().then(function(topo) {
     render: function() {
       return (
           <div>
-            <h1>WildFly Swarm Ribbon Example</h1>
+            <h1>Thorntail Ribbon Example</h1>
             <Topology />
           </div>
       );

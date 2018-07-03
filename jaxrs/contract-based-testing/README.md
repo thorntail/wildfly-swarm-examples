@@ -1,7 +1,7 @@
 # Contract based testing example
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 This is an example that demonstrates how consumer driven contracts can be used to verify the contract between a service consumer and a service provider.
 

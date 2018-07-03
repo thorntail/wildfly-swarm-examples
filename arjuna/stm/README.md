@@ -10,12 +10,12 @@ The project is a normal maven project with `war` packaging, not `jar`.
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the `.war`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -37,15 +37,15 @@ Additionally, the usual `maven-war-plugin` is provided.
         </configuration>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a dependency is added
+To define the needed parts of Thorntail, a dependency is added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>jaxrs</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>transactions</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
@@ -56,7 +56,7 @@ To define the needed parts of WildFly Swarm, a dependency is added
 
 ## Run
 
-   mvn wildfly-swarm:run
+   mvn thorntail:run
 
 ## Use
 
@@ -79,7 +79,7 @@ Transactional object value incremented to 18
 Transactional object value incremented to 19
 Transactional object value incremented to 20
 
-What's happening is that we've created a recoverable STM-managed object (an integer state) within WildFly Swarm and given it an initial value
+What's happening is that we've created a recoverable STM-managed object (an integer state) within Thorntail and given it an initial value
 of 10; then we increment it by another 10, printing out each time we do.
 
 If you repeat the operation you will see a new instance created and the end state will always be 20.

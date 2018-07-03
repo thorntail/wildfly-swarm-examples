@@ -3,7 +3,7 @@
 This example sends log messages to Logstash.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Start Logstash
 

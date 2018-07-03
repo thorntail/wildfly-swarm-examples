@@ -4,7 +4,7 @@ This example takes a normal JPA and Servlet build, and wraps it into
 a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -12,12 +12,12 @@ This project is a traditional JPA project with `war` packaging.
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -28,15 +28,15 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a few dependencies are added
+To define the needed parts of Thorntail, a few dependencies are added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>jpa-eclipselink</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>undertow</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
@@ -49,7 +49,7 @@ APIs.
 You can run it many ways:
 
 * mvn package && java -jar ./target/example-jpa-eclipselink-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * From your IDE, run class `org.wildfly.swarm.Swarm`
 
 ## Use

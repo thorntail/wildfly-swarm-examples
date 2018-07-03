@@ -9,14 +9,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-parent</artifactId>
     <version>1.0.0.Alpha7-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
   <artifactId>example-kitchensink-html5-mobile</artifactId>
-  <name>WildFly Swarm Examples: Kitchensink HTML5/Mobile</name>
+  <name>Thorntail Examples: Kitchensink HTML5/Mobile</name>
   <description> Java EE HTML5 mobile web application for use on WildFly, that was converted from the WildFly Quickstart</description>
 
   <packaging>war</packaging>
@@ -49,32 +49,32 @@
     <!-- Import the JAX-RS API -->
     <!-- Import the Servlet API -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jaxrs-cdi</artifactId>
-      <version>${version.wildfly-swarm}</version>
+      <version>${version.thorntail}</version>
     </dependency>
 
     <!-- Import the JPA API -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jpa</artifactId>
-      <version>${version.wildfly-swarm}</version>
+      <version>${version.thorntail}</version>
     </dependency>
 
     <!-- Import the EJB API -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>ejb</artifactId>
-      <version>${version.wildfly-swarm}</version>
+      <version>${version.thorntail}</version>
     </dependency>
 
     <!-- JSR-303 (Bean Validation) Implementation -->
     <!-- Provides portable constraints such as @Email -->
     <!-- Import the Hibernate Validator API -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>${version.wildfly-swarm}</version>
+      <version>${version.thorntail}</version>
     </dependency>
 
   </dependencies>
@@ -90,8 +90,8 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
         <executions>
           <execution>
             <goals>

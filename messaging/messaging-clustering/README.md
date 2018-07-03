@@ -1,7 +1,7 @@
 # Messaging & Clustering
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -9,12 +9,12 @@ The project is a normal maven project with `jar` packaging, not `war`.
 
     <packaging>jar</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <configuration>
         <mainClass>org.wildfly.swarm.examples.messaging.clustering.Main</mainClass>
@@ -28,20 +28,20 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, some dependencies are added
+To define the needed parts of Thorntail, some dependencies are added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>jaxrs</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>messaging</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>msc</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>

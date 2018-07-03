@@ -5,7 +5,7 @@ will be executed when the application starts. By default it uses the primary
 configured DataSource.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -13,12 +13,12 @@ This project is a simple `.war` project
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -29,10 +29,10 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a dependency is added
+To define the needed parts of Thorntail, a dependency is added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>flyway</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
@@ -40,7 +40,7 @@ To define the needed parts of WildFly Swarm, a dependency is added
 ## Run
 
 * `mvn package && java -jar ./target/example-flyway-swarm.jar`
-* Or `mvn wildfly-swarm:run`
+* Or `mvn thorntail:run`
 
 ## Use
 

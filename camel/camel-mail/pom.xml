@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
-  Wildfly Swarm :: Camel Core Runtime
+  Thorntail :: Camel Core Runtime
   %%
   Copyright (C) 2016 RedHat
   %%
@@ -24,30 +24,30 @@
     <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-camel</artifactId>
-    <version>2018.6.0-SNAPSHOT</version>
+    <version>2.0.1.Final-SNAPSHOT</version>
   </parent>
 
-  <name>Wildfly Swarm Examples: Camel Mail</name>
+  <name>Thorntail Examples: Camel Mail</name>
 
   <artifactId>example-camel-mail</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>org.wildfly.swarm.examples</groupId>
+      <groupId>io.thorntail.examples</groupId>
       <artifactId>examples-base</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-cdi</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-mail</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-undertow</artifactId>
     </dependency>
     <dependency>
@@ -70,8 +70,8 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

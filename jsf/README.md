@@ -4,7 +4,7 @@ This example takes a normal JSF build, and wraps it into
 a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -13,13 +13,13 @@ of `war` in the `pom.xml`
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
 ``` xml
 <plugin>
-  <groupId>org.wildfly.swarm</groupId>
-  <artifactId>wildfly-swarm-plugin</artifactId>
+  <groupid>io.thorntail</groupId>
+  <artifactId>thorntail-maven-plugin</artifactId>
   <version>${version.wildfly-swarm}</version>
   <executions>
     <execution>
@@ -31,16 +31,16 @@ create the runnable `.jar`.
 </plugin>
 ```
 
-To define the needed parts of WildFly Swarm, a dependency is added
+To define the needed parts of Thorntail, a dependency is added
 
 ``` xml
 <dependency>
-  <groupId>org.wildfly.swarm</groupId>
+  <groupid>io.thorntail</groupId>
   <artifactId>jsf</artifactId>
   <version>${version.wildfly-swarm}</version>
 </dependency>
 <dependency>
-  <groupId>org.wildfly.swarm</groupId>
+  <groupid>io.thorntail</groupId>
   <artifactId>cdi</artifactId>
   <version>${version.wildfly-swarm}</version>
 </dependency>
@@ -52,12 +52,12 @@ project does *not* need to specify those.
 ## Run
 
 * mvn package && java -jar ./target/example-jsf-war-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * From your IDE, run class `org.wildfly.swarm.Swarm`
 
 ## Use
 
-Since WildFly Swarm apps tend to support one deployment per executable, it
+Since Thorntail apps tend to support one deployment per executable, it
 automatically adds a `jboss-web.xml` to the deployment if it doesn't already
 exist.  This is used to bind the deployment to the root of the web-server,
 instead of using the `.war`'s own name as the application context.
@@ -68,15 +68,15 @@ $ curl localhost:8080/index.xhtml
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt2">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>WildFly Swarm Facelet</title></head><body>
+    <title>Thorntail Facelet</title></head><body>
 
-    <div id="top"><h1>WildFly Swarm Facelet</h1>
+    <div id="top"><h1>Thorntail Facelet</h1>
     </div>
 
     <div id="content">Hello from JSF
     </div>
 
-    <div id="bottom">Powered by WildFly Swarm
+    <div id="bottom">Powered by Thorntail
     </div></body>
 
 </html>%

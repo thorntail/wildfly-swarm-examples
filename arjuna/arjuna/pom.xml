@@ -25,16 +25,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-arjuna</artifactId>
-    <version>2018.6.0-SNAPSHOT</version>
+    <version>2.0.1.Final-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
   <artifactId>example-arjuna</artifactId>
 
-  <name>WildFly Swarm Examples: Arjuna</name>
-  <description>WildFly Swarm Examples: Arjuna</description>
+  <name>Thorntail Examples: Arjuna</name>
+  <description>Thorntail Examples: Arjuna</description>
 
   <packaging>war</packaging>
 
@@ -45,8 +45,8 @@
         <artifactId>maven-surefire-plugin</artifactId>
       </plugin>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
         <executions>
           <execution>
             <id>package</id>
@@ -64,15 +64,15 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.wildfly.swarm.examples</groupId>
+      <groupId>io.thorntail.examples</groupId>
       <artifactId>examples-base</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jaxrs</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>transactions</artifactId>
     </dependency>
   </dependencies>

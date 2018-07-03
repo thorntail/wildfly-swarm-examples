@@ -1,7 +1,7 @@
 = XML Configuration
 
 This example demonstrates how to use XML configuration instead of the java config-api,
-to configure WildFly Swarm. This might be useful, when you are migrating from a traditional
+to configure Thorntail. This might be useful, when you are migrating from a traditional
 WildFly deployment and you have your `standalone.xml` file ready.
 
 To build this example, execute `mvn package` on the command line in the directory where
@@ -19,7 +19,7 @@ cd xml-configuration
 java -jar target/example-xml-config-swarm.jar -c ../standalone.xml
 ----
 
-2. Place your `standalone.xml` in the directory from which you are starting the WildFly Swarm
+2. Place your `standalone.xml` in the directory from which you are starting the Thorntail
 executable jar:
 
 [source,sh,subs="quotes"]
@@ -30,7 +30,7 @@ cdi-injection  pom.xml  *standalone.xml*  xml-configuration
 java -jar xml-configuration/target/example-xml-config-swarm.jar
 ----
 
-3. Package your `standalone.xml` in the root directory of your WildFly Swarm
+3. Package your `standalone.xml` in the root directory of your Thorntail
 executable jar:
 
 [source,sh]

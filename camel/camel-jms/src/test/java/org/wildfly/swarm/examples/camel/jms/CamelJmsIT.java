@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Swarm :: Examples :: Camel JMS
+ * Thorntail :: Examples :: Camel JMS
  * %%
  * Copyright (C) 2016 RedHat
  * %%

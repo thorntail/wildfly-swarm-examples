@@ -5,7 +5,7 @@ capabilities to it. Refer to the README on that example to understand
 the basics of how it works.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -66,7 +66,7 @@ uncomment the Jaeger dependencies.
 You are now ready to run the example and have span data reported to Jaeger:
 
 * mvn package && java -jar ./target/example-opentracing-servlet-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 You may now make HTTP calls to the application, like:

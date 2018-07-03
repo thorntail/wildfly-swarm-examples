@@ -4,7 +4,7 @@ This example takes a normal [MicroProfile](http://microprofile.io) WAR, and wrap
 a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -13,12 +13,12 @@ of `war` in the `pom.xml`
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -29,10 +29,10 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a dependency is added
+To define the needed parts of Thorntail, a dependency is added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>microprofile</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
@@ -42,12 +42,12 @@ to your application, so the project does *not* need to specify those.
 
 Additional application dependencies (in this case `joda-time`) can be
 specified and will be included in the normal `.war` construction and available
-within the WildFly Swarm application `.jar`.
+within the Thorntail application `.jar`.
 
 ## Run
 
 * mvn package && java -jar ./target/example-microprofile-war-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * From your IDE, run class `org.wildfly.swarm.Swarm`
 
 For build and deployment to OpenShift, will deploy to active OpenShift project.
@@ -56,7 +56,7 @@ For build and deployment to OpenShift, will deploy to active OpenShift project.
 
 ## Use
 
-Since WildFly Swarm apps tend to support one deployment per executable, it
+Since Thorntail apps tend to support one deployment per executable, it
 automatically adds a `jboss-web.xml` to the deployment if it doesn't already
 exist.  This is used to bind the deployment to the root of the web-server,
 instead of using the `.war`'s own name as the application context.

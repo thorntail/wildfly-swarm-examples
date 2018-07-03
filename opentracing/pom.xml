@@ -9,16 +9,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-parent</artifactId>
-    <version>2018.6.0-SNAPSHOT</version>
+    <version>2.0.1.Final-SNAPSHOT</version>
     <relativePath>../</relativePath>
   </parent>
 
   <artifactId>examples-opentracing-parent</artifactId>
 
-  <name>WildFly Swarm Examples: OpenTracing parent</name>
-  <description>WildFly Swarm Examples: OpenTracing parent</description>
+  <name>Thorntail Examples: OpenTracing parent</name>
+  <description>Thorntail Examples: OpenTracing parent</description>
 
   <packaging>pom</packaging>
 

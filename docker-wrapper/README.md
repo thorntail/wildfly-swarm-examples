@@ -1,6 +1,6 @@
 # Run a WildFly-Swarm example in Docker
 
-You need to have docker and docker-compose installed, and the WildFly Swarm example you want to bundle in a
+You need to have docker and docker-compose installed, and the Thorntail example you want to bundle in a
 Docker image needs to be built with Maven first.
 
 ## Building the Docker image
@@ -11,7 +11,7 @@ If we wanted to build the `jpa-jaxrs-cdi` example we would run the following:
 
 This will copy the `jar` file of the `jpa-jaxrs-cdi` example to this directory, add it to the Docker image and build it.
 
-You can use `build.sh` with any of the examples by passing a different path to a WildFly Swarm jar into the script.
+You can use `build.sh` with any of the examples by passing a different path to a Thorntail jar into the script.
 
 ## Running Docker image
 

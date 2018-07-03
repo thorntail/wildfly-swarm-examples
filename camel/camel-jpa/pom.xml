@@ -9,43 +9,43 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.wildfly.swarm.examples</groupId>
+    <groupId>io.thorntail.examples</groupId>
     <artifactId>examples-camel</artifactId>
-    <version>2018.6.0-SNAPSHOT</version>
+    <version>2.0.1.Final-SNAPSHOT</version>
   </parent>
 
-  <name>WildFly Swarm Examples: Camel JPA</name>
+  <name>Thorntail Examples: Camel JPA</name>
 
   <artifactId>example-camel-jpa</artifactId>
   <packaging>war</packaging>
 
   <dependencies>
     <dependency>
-      <groupId>org.wildfly.swarm.examples</groupId>
+      <groupId>io.thorntail.examples</groupId>
       <artifactId>examples-base</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-cdi</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-jaxb</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>camel-jpa</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>datasources</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jaxrs</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>cdi</artifactId>
     </dependency>
     <dependency>
@@ -71,8 +71,8 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

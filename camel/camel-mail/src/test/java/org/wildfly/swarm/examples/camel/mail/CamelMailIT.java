@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Swarm :: Examples :: Camel Mail
+ * Thorntail :: Examples :: Camel Mail
  * %%
  * Copyright (C) 2016 RedHat
  * %%

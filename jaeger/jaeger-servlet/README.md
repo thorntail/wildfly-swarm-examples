@@ -5,7 +5,7 @@ the Jaeger fraction instead. Refer to the README on that example to understand
 the basics of how it works.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -34,7 +34,7 @@ export JAEGER_SAMPLER_TYPE=const
 export JAEGER_SAMPLER_PARAM=1 
 ```
 
-Alternatively, you can use the following Wildfly Swarm properties to configure 
+Alternatively, you can use the following Thorntail properties to configure 
 the Tracer. Note that these can also be changed at runtime by your application,
 by using the `org.wildfly.swarm.jaeger.JaegerFraction` or via all regular Wildfly
 Swarm procedures:
@@ -68,7 +68,7 @@ Jaeger will be available at [http://localhost:16686](http://localhost:16686)
 You are now ready to run the example and have span data reported to Jaeger:
 
 * mvn package && java -jar ./target/example-jaeger-servlet-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 You may now make HTTP calls to the application, like:

@@ -2,7 +2,7 @@
 
 This examples takes a normal JAX-RS build, and wraps it into a `-swarm` runnable jar.
 
-The example shows how to use CDI injection to configure WildFly Swarm.
+The example shows how to use CDI injection to configure Thorntail.
 
 > Please raise any issues found with this example in our JIRA:
 > https://issues.jboss.org/browse/SWARM[https://issues.jboss.org/browse/SWARM]
@@ -41,7 +41,7 @@ create the runnable `.jar`.
 </plugin>
 ----
 
-To define the required parts of WildFly Swarm, some dependencies are added
+To define the required parts of Thorntail, some dependencies are added
 
 [source,xml]
 ----

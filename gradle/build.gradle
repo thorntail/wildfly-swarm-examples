@@ -1,5 +1,5 @@
 buildscript {
-  version = System.getProperty('swarmVersion') ?: '2018.6.0-SNAPSHOT'
+  version = System.getProperty('swarmVersion') ?: '2.0.1.Final-SNAPSHOT'
 
   repositories {
     mavenLocal()
@@ -8,7 +8,7 @@ buildscript {
 
   dependencies {
     classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
-    classpath "org.wildfly.swarm:wildfly-swarm-gradle-plugin:$version"
+    classpath "io.thorntail:thorntail-gradle-plugin:$version"
   }
 }
 
@@ -35,10 +35,10 @@ repositories {
 
 dependencyManagement {
   imports {
-    mavenBom "org.wildfly.swarm:bom-all:$version"
+    mavenBom "io.thorntail:bom-all:$version"
   }
 }
 
 dependencies {
-  compile "org.wildfly.swarm:jaxrs"
+  compile "io.thorntail:jaxrs"
 }

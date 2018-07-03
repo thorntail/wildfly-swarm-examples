@@ -8,7 +8,7 @@ with the addition of setting up Java Authentication and Authorization Service(JA
 You can run it many ways:
 
 * mvn package && java -jar ./target/example-jaas-basic-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 ## Use

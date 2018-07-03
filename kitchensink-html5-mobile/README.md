@@ -4,7 +4,7 @@ This example takes the [kitchensick-html5-mobile](https://github.com/wildfly/qui
 quickstart from WildFly, and wraps it into a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -13,12 +13,12 @@ of `war` in the `pom.xml`
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -29,25 +29,25 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, the following dependencies are added
+To define the needed parts of Thorntail, the following dependencies are added
 
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupid>io.thorntail</groupId>
       <artifactId>jaxrs-weld</artifactId>
       <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupid>io.thorntail</groupId>
       <artifactId>jpa</artifactId>
       <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupid>io.thorntail</groupId>
       <artifactId>ejb</artifactId>
       <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupid>io.thorntail</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>${version.wildfly-swarm}</version>
     </dependency>
@@ -57,19 +57,19 @@ project does *not* need to specify those.
 
 Additional application dependencies can be
 specified and will be included in the normal `.war` construction and available
-within the WildFly Swarm application `.jar`.
+within the Thorntail application `.jar`.
 
 ## Run
 
 You can run it many ways:
 
 * mvn package && java -jar ./target/wildfly-swarm-example-kitchensink-html5-mobile-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 ## Use
 
-Since WildFly Swarm apps tend to support one deployment per executable, it
+Since Thorntail apps tend to support one deployment per executable, it
 automatically adds a `jboss-web.xml` to the deployment if it doesn't already
 exist.  This is used to bind the deployment to the root of the web-server,
 instead of using the `.war`'s own name as the application context.

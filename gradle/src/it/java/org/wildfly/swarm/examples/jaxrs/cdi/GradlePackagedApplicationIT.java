@@ -21,6 +21,6 @@ public class GradlePackagedApplicationIT extends AbstractIntegrationTest {
     @Test
     public void testIt() {
         browser.navigate().to("http://localhost:8181/");
-        assertThat(browser.getPageSource()).contains("hello: wildfly swarm + gradle + java");
+        assertThat(browser.getPageSource()).contains("hello: Thorntail + gradle + java");
     }
 }

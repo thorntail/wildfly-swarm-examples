@@ -4,7 +4,7 @@ This example takes a normal JPA, JTA (transaction), CDI, JAX-RS build, and wraps
 a `-swarm` runnable jar.
 
 > Please raise any issues found with this example in our JIRA:
-> https://issues.jboss.org/browse/SWARM
+> https://issues.jboss.org/browse/THORN
 
 ## Project `pom.xml`
 
@@ -12,12 +12,12 @@ This project is a normal maven project with `war` packaging.
 
     <packaging>war</packaging>
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
+        <groupid>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
         <executions>
           <execution>
             <id>package</id>
@@ -31,7 +31,7 @@ create the runnable `.jar`.
         </executions>
       </plugin>
       
-To define the needed parts of WildFly Swarm, a few dependencies are added
+To define the needed parts of Thorntail, a few dependencies are added
 
     <dependency>
       <groupId>org.jboss.spec.javax.ws.rs</groupId>
@@ -76,7 +76,7 @@ The `org.jboss.logging:jboss-logging` provides JBoss Logging required by observe
 You can run it many ways:
 
 * mvn package && java -jar ./target/example-jpa-jaxrs-cdi-jta-swarm.jar
-* mvn wildfly-swarm:run
+* mvn thorntail:run
 * In your IDE run the `org.wildfly.swarm.Swarm` class
 
 ## Use

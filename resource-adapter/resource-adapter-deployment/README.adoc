@@ -33,7 +33,7 @@ create the runnable `.jar`.
 As with the other examples, this one inherits a few standard executions
 from the parent `pom.xml`, particularly the `package` execution.
 
-To define the needed parts of WildFly Swarm, a few dependencies are added.
+To define the needed parts of Thorntail, a few dependencies are added.
 To support resource adapters in general, the next dependency is required:
     
 [source,xml]

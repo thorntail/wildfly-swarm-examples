@@ -1,6 +1,6 @@
 /*
  * #%L
- * Wildfly Swarm :: Examples :: Camel CDI
+ * Thorntail :: Examples :: Camel CDI
  * %%
  * Copyright (C) 2016 RedHat
  * %%

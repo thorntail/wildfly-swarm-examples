@@ -1,7 +1,7 @@
 = Configuration Examples
 
-There's a variety of ways to configure WildFly Swarm
+There's a variety of ways to configure Thorntail
 
 First, CDI Injection can be used to inject property values into code.
 
-Alternatively, XML configuration can be used to cofigure WildFly Swarm, for example using a custom `standalone.xml` file.
+Alternatively, XML configuration can be used to cofigure Thorntail, for example using a custom `standalone.xml` file.

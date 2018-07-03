@@ -6,12 +6,12 @@ Note, these are not Java EE compliant APIs and classes we're going to use. But t
 
 ## Project `pom.xml`
 
-The project adds a `<plugin>` to configure `wildfly-swarm-plugin` to
+The project adds a `<plugin>` to configure `thorntail-maven-plugin` to
 create the runnable `.jar`.
 
     <plugin>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>wildfly-swarm-plugin</artifactId>
+      <groupid>io.thorntail</groupId>
+      <artifactId>thorntail-maven-plugin</artifactId>
       <version>${version.wildfly-swarm}</version>
       <executions>
         <execution>
@@ -23,15 +23,15 @@ create the runnable `.jar`.
       </executions>
     </plugin>
 
-To define the needed parts of WildFly Swarm, a dependency is added
+To define the needed parts of Thorntail, a dependency is added
 
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>jaxrs</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>
     <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupid>io.thorntail</groupId>
         <artifactId>transactions</artifactId>
         <version>${version.wildfly-swarm}</version>
     </dependency>

@@ -3,9 +3,9 @@
 > Please raise any issues found with the examples in our JIRA:
 > https://issues.jboss.org/browse/SWARM
 
-== WildFly Swarm
+== Thorntail
 
-This repository contains examples for the http://wildfly-swarm.io[WildFly Swarm] project.
+This repository contains examples for the http://wildfly-swarm.io[Thorntail] project.
 
 It is currently listed as *alpha* release software, subject to massive, possibly-breaking,
 changes as we determine exactly how it should all hang together.
@@ -16,12 +16,12 @@ These examples demonstrate utilizing and combining different parts of WildFly to
 a self-contained executable jar. They provide small, specific, working examples that can be used
 as a reference for your own project.
 
-By default, this repository uses `SNAPSHOT` versions of WildFly Swarm.  They are used to test
-particular aspects of the WildFly Swarm project in addition to being useful examples of what
+By default, this repository uses `SNAPSHOT` versions of Thorntail.  They are used to test
+particular aspects of the Thorntail project in addition to being useful examples of what
 you can do and how you can do it.
 
 Since these examples are `SNAPSHOT`-centric, our *snapshot* repository is added to the
-root `pom.xml`.  If you were to build https://github.com/wildfly-swarm/wildfly-swarm[WildFly Swarm]
+root `pom.xml`.  If you were to build https://github.com/thorntail/thorntail[Thorntail]
 directly, that would of course take precedence.
 
 If you want to build these examples as they stand (using the snapshot) then you should start by either
