@@ -36,17 +36,17 @@ To add Vaadin (and Vaadin CDI) support there are also these dependencies:
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-client-compiled</artifactId>
-        <version>7.5.3</version>
+        <version>${vaadin.version}</version>
     </dependency>
     <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-themes</artifactId>
-        <version>7.5.3</version>
+        <version>${vaadin.version}</version>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>vaadin-cdi</artifactId>
-      <version>1.0.3</version>
+      <version>${vaadin-cdi.version}</version>
     </dependency>
 
 Additional application dependencies can be
