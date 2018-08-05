@@ -267,7 +267,8 @@
     <module>servlet</module>
     <module>static</module>
     <module>transactions</module>
-    <module>vaadin</module>
+    <module>vaadin08</module>
+    <module>vaadin10</module>
     <module>vertx</module>
     <module>docker</module>
     <module>spring</module>
