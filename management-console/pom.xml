@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>example-management-console</artifactId>
-
+  <name>Thorntail Examples: Management Console</name>
   <build>
     <plugins>
       <plugin>
