@@ -11,6 +11,7 @@
   </parent>
 
   <artifactId>examples-microprofile-opentracing</artifactId>
+  <name>Thorntail Examples: Microprofile Opentracing</name>
   <packaging>war</packaging>
 
   <build>
