@@ -267,8 +267,7 @@
     <module>servlet</module>
     <module>static</module>
     <module>transactions</module>
-    <module>vaadin08</module>
-    <module>vaadin10</module>
+
     <module>vertx</module>
     <module>docker</module>
     <module>spring</module>
@@ -281,6 +280,7 @@
     <module>jaeger</module>
     <module>ribbon</module>
     <module>ribbon-consul</module>
+    <module>vaadin</module>
     <!--
     <module>kitchensink-html5-mobile</module>
     <module>gradle</module>
