@@ -283,7 +283,7 @@
     <module>vaadin</module>
     <!--
     <module>kitchensink-html5-mobile</module>
-    <module>gradle</module>
+    <module>gradle-examples/jaxrs-cdi</module>
     -->
   </modules>
 

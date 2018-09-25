@@ -1,0 +1,57 @@
+buildscript {
+  version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+    classpath "io.thorntail:thorntail-gradle-plugin:$version"
+  }
+}
+
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'wildfly-swarm'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.wildfly.swarm.examples.gradle.Main'
+
+swarm {
+  properties {
+    swarm.http.port = 8181
+  }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
+  }
+}
+
+dependencyManagement {
+  imports {
+    mavenBom "io.thorntail:bom-all:$version"
+  }
+}
+
+dependencies {
+  compile "io.thorntail:cdi"
+  compile "io.thorntail:jaxrs"
+  compile "commons-io:commons-io:2.4"
+
+  testCompile "junit:junit:4.12"
+  testCompile "io.thorntail:gradle-arquillian-adapter:$version"
+}
+
+test {
+
+  // The following property needed *only if* you have a pom.xml file along with your build.gradle script.
+  // Otherwise, you do not need to set this property.
+  systemProperty 'thorntail.filesystem.layout.class', 'org.wildfly.swarm.internal.GradleFileSystemLayout'
+
+}

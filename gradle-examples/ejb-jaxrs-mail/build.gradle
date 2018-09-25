@@ -1,0 +1,44 @@
+buildscript {
+  version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+    classpath "io.thorntail:thorntail-gradle-plugin:$version"
+  }
+}
+
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'wildfly-swarm'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.wildfly.swarm.examples.mail.Main'
+
+run {
+  systemProperties = [
+    'smtp.host': 'localhost',
+    'smtp.port': '25'
+  ]
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencyManagement {
+  imports {
+    mavenBom "io.thorntail:bom:$version"
+  }
+}
+
+dependencies {
+    compile "io.thorntail:jaxrs"
+    compile "io.thorntail:ejb"
+    compile "io.thorntail:mail"
+}
