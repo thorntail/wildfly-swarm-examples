@@ -13,7 +13,7 @@ buildscript {
 }
 
 apply plugin: "io.spring.dependency-management"
-apply plugin: 'wildfly-swarm'
+apply plugin: 'thorntail'
 apply plugin: 'java'
 apply plugin: 'application'
 

@@ -1,0 +1,39 @@
+apply plugin: 'thorntail'
+apply plugin: 'war'
+
+dependencies {
+    compile project(':library-module')
+    testCompile "commons-io:commons-io:2.4"
+    testCompile "io.thorntail:cdi"
+    testCompile "io.thorntail:jaxrs"
+    
+    // Additional fractions to include.
+    // providedRuntime "io.thorntail:swagger"
+}
+
+thorntail {
+    properties {
+        swarm.http.port = 8181
+    }
+    
+    bundleDependencies = true
+    fractions = ['io.thorntail:swagger']
+}
+
+/**
+ * Run the Thorntail application with the debug option enabled.
+ */
+task runApp(type: JavaExec, dependsOn: [assemble, 'wildfly-swarm-package']) {
+    jvmArgs += '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787'
+    main = '-jar'
+
+    doFirst() {
+        File file = (project.tasks['jar'].destinationDir as File).listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File dir, String name) {
+                return name.endsWith('-thorntail.jar')
+            }
+        }).first()
+        args file.absolutePath
+    }
+}

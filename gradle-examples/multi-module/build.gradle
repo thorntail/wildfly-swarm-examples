@@ -1,0 +1,72 @@
+buildscript {
+    version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+        classpath("io.thorntail:thorntail-gradle-plugin:$version") {
+            if (version.endsWith('-SNAPSHOT')) {
+                changing = true
+            }
+        }
+    }
+}
+
+subprojects {
+    // Apply the dependency management plugin to all projects.
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: "java"
+
+    // Configure the repositories for all projects.
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
+        }
+        maven {
+            name 'Gradle Tooling'
+            url 'https://repo.gradle.org/gradle/libs-releases/'
+        }
+    }
+
+    version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+
+    // Assuming that all our modules might require one or more dependencies from the Thorntail BOM.
+    dependencyManagement {
+        imports {
+            mavenBom "io.thorntail:bom-all:$version"
+        }
+    }
+    dependencies {
+        // Include the JavaEE API dependency.
+        compileOnly 'javax:javaee-api:7.0'
+        testCompileOnly 'javax:javaee-api:7.0'
+
+        testCompile "junit:junit:4.12"
+        testCompile("io.thorntail:gradle-arquillian-adapter:$version") {
+            if (version.endsWith('-SNAPSHOT')) {
+                changing = true
+            }
+        }
+        // Make use of the tooling jar appropriate for the current Gradle version.
+        testCompile "org.gradle:gradle-tooling-api:${gradle.gradleVersion}"
+    }
+
+    // Optional configuration
+    // ----------------------
+    // The following property needed *only if* you have a pom.xml file along with your build.gradle script.
+    // Otherwise, you do not need to set this property.
+    afterEvaluate { Project project ->
+        if (project.pluginManager.hasPlugin('java')) {
+            project.test {
+                systemProperty 'thorntail.filesystem.layout.class', 'org.wildfly.swarm.internal.GradleFileSystemLayout'
+            }
+        }
+    }
+}
+

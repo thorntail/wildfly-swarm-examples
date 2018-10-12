@@ -9,6 +9,11 @@ The following are examples of simple Gradle projects that leverage the [Gradle A
 * [JAXRS + CDI](jaxrs-cdi)
 * [EJB + JAXRS + Mail](ejb-jaxrs-mail)
 
+## Multi-module Projects
+The following are examples of multi-module Gradle projects that showcase building a traditional web application.
+
+* [CDI + JAXRS + Swagger](multi-module)
+
 ## Developer Notes
 
 ### Updating the Gradle version.

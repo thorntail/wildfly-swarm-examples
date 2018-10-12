@@ -13,13 +13,13 @@ buildscript {
 }
 
 apply plugin: "io.spring.dependency-management"
-apply plugin: 'wildfly-swarm'
+apply plugin: 'thorntail'
 apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = 'org.wildfly.swarm.examples.gradle.Main'
 
-swarm {
+thorntail {
   properties {
     swarm.http.port = 8181
   }
