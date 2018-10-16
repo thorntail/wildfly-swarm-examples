@@ -37,14 +37,13 @@ Now run the server and pass the 'APPROVED' and 'REJECTED' signatures as 'approve
 
 ``` sh
 mvn thorntail:run -DapprovedJws=... -DrejectedJws=...
-
 ```
 
 ## Run curl
 
 ``` sh
-curl -X POST -H "Content-Type: application/json" -d @src/target/classes/approvedStatus.json
-curl -X POST -H "Content-Type: application/json" -d @src/target/classes/rejectedStatus.json
+curl -X POST -H "Content-Type: application/json" -d @target/classes/approvedStatus.json
+curl -X POST -H "Content-Type: application/json" -d @target/classes/rejectedStatus.json
 ```
 
 You will get 'APPROVED' and 'REJECTED' echoed back.
@@ -52,10 +51,10 @@ You will get 'APPROVED' and 'REJECTED' echoed back.
 Finally run
 
 ``` sh
-curl -v -X POST -H "Content-Type: application/json" -d @src/target/classes/rejectedApprovedStatus.json
+curl -v -X POST -H "Content-Type: application/json" -d @target/classes/rejectedApprovedStatus.json
 ```
 
-You will get HTTP 401. This request emulates a case where the content has been manipulated after it has been signed, in this case, the signed 'REJECTED' content has been replaced with 'APPROVED'. 
+This request emulates a case where the content has been manipulated after it has been signed, in this case, the signed 'REJECTED' content has been replaced with 'APPROVED'. This will cause the signature verification failure and the server will reject the request with HTTP 401.
 
 
 
