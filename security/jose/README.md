@@ -56,9 +56,3 @@ curl -v -X POST -H "Content-Type: application/json" -d @target/classes/rejectedA
 
 This request emulates a case where the content has been manipulated after it has been signed, in this case, the signed 'REJECTED' content has been replaced with 'APPROVED'. This will cause the signature verification failure and the server will reject the request with HTTP 401.
 
-
-
-
- 
-
-
