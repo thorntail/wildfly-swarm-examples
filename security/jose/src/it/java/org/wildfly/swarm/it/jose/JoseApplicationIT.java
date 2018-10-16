@@ -31,7 +31,6 @@ public class JoseApplicationIT extends AbstractIntegrationTest {
     @Before
     public void setup() throws Exception {
         client = ClientBuilder.newClient();
-        client.register(new BadRequestFilter());
         target = client.target("http://localhost:8080/loans");
     }
 
@@ -48,10 +47,23 @@ public class JoseApplicationIT extends AbstractIntegrationTest {
         
         sign(request);
         
-        ApprovalStatus response = target.path("approved").request(MediaType.APPLICATION_JSON)
+        ApprovalStatus response = target.path("loanStatus").request(MediaType.APPLICATION_JSON)
             .post(Entity.json(request), ApprovalStatus.class);
 
         assertThat(response).isSameAs(ApprovalStatus.APPROVED);
+    }
+    
+    @Test
+    public void testRejectedLoanRequest() throws Exception {
+        LoanRequest request = new LoanRequest();
+        request.setApprovalStatus(ApprovalStatus.REJECTED);
+        
+        sign(request);
+        
+        ApprovalStatus response = target.path("loanStatus").request(MediaType.APPLICATION_JSON)
+            .post(Entity.json(request), ApprovalStatus.class);
+
+        assertThat(response).isSameAs(ApprovalStatus.REJECTED);
     }
     
     @Test(expected = BadRequestException.class)
@@ -60,8 +72,8 @@ public class JoseApplicationIT extends AbstractIntegrationTest {
         request.setApprovalStatus(ApprovalStatus.REJECTED);
         
         sign(request);
-        
-        target.path("mayBeApproved").request(MediaType.APPLICATION_JSON)
+        target.register(new BadRequestFilter());
+        target.path("loanStatus").request(MediaType.APPLICATION_JSON)
             .post(Entity.json(request), ApprovalStatus.class);
     }
 

@@ -18,15 +18,8 @@ public class BankResource {
     @POST
     @Produces("application/json")
     @Consumes("application/json")
-    @Path("/approved")
+    @Path("/loanStatus")
     public ApprovalStatus approved(LoanRequest request) {
-        return getApprovalStatus(request);
-    }
-    @POST
-    @Produces("application/json")
-    @Consumes("application/json")
-    @Path("/mayBeApproved")
-    public ApprovalStatus mayBeApproved(LoanRequest request) {
         return getApprovalStatus(request);
     }
     
