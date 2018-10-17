@@ -3,9 +3,9 @@ apply plugin: 'war'
 
 dependencies {
     compile project(':library-module')
-    testCompile "commons-io:commons-io:2.4"
-    testCompile "io.thorntail:cdi"
-    testCompile "io.thorntail:jaxrs"
+    testImplementation 'commons-io:commons-io:2.4'
+    testImplementation 'io.thorntail:cdi'
+    testImplementation 'io.thorntail:jaxrs'
     
     // Additional fractions to include.
     // providedRuntime "io.thorntail:swagger"

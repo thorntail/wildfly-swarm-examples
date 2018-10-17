@@ -7,7 +7,6 @@ buildscript {
     }
 
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
         classpath("io.thorntail:thorntail-gradle-plugin:$version") {
             if (version.endsWith('-SNAPSHOT')) {
                 changing = true
@@ -17,8 +16,6 @@ buildscript {
 }
 
 subprojects {
-    // Apply the dependency management plugin to all projects.
-    apply plugin: "io.spring.dependency-management"
     apply plugin: "java"
 
     // Configure the repositories for all projects.
@@ -36,19 +33,20 @@ subprojects {
 
     version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
 
-    // Assuming that all our modules might require one or more dependencies from the Thorntail BOM.
-    dependencyManagement {
-        imports {
-            mavenBom "io.thorntail:bom-all:$version"
-        }
-    }
     dependencies {
         // Include the JavaEE API dependency.
         compileOnly 'javax:javaee-api:7.0'
         testCompileOnly 'javax:javaee-api:7.0'
+        
+        // Include the Thorntail BOM for testing the code.
+        testImplementation ("io.thorntail:bom-all:$version") {
+            if (version.endsWith('-SNAPSHOT')) {
+                changing = true
+            }
+        }
 
-        testCompile "junit:junit:4.12"
-        testCompile("io.thorntail:gradle-arquillian-adapter:$version") {
+        testImplementation "junit:junit:4.12"
+        testImplementation("io.thorntail:gradle-arquillian-adapter:$version") {
             if (version.endsWith('-SNAPSHOT')) {
                 changing = true
             }

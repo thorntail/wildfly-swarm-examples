@@ -1,3 +1,3 @@
 dependencies {
-    testRuntime "io.thorntail:cdi"
+    testImplementation 'io.thorntail:cdi'
 }

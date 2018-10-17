@@ -1,5 +1,5 @@
 // Turn on Gradle 5 feature
-// enableFeaturePreview('IMPROVED_POM_SUPPORT')
+enableFeaturePreview('IMPROVED_POM_SUPPORT')
 
 rootProject.name = 'thorntail-multi-module-app'
 include 'library-module', 'web-app'

@@ -14,6 +14,10 @@ The following are examples of multi-module Gradle projects that showcase buildin
 
 * [CDI + JAXRS + Swagger](multi-module)
 
+> NOTE: The multi-module example showcases leveraging the upcoming Gradle 5 preview-feature of importing dependency
+>  constraints from Maven BOMs, i.e., 
+> [IMPROVED_POM_SUPPORT](https://docs.gradle.org/current/userguide/managing_transitive_dependencies.html#sec:bom_import)
+
 ## Developer Notes
 
 ### Updating the Gradle version.
