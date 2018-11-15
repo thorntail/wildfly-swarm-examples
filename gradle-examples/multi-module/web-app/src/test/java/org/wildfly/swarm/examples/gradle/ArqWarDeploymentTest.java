@@ -6,7 +6,9 @@ import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -21,6 +23,9 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(Arquillian.class)
 public class ArqWarDeploymentTest {
+
+    @ArquillianResource
+    private URL url;
 
     /**
      * Build the archive for testing.
@@ -45,8 +50,10 @@ public class ArqWarDeploymentTest {
      * Verify that we are able to make use of the RunAsClient annotation as well.
      */
     @Test
+    @RunAsClient
     public void testAPIInvocation() throws IOException {
-        String content = IOUtils.toString(new URL("http://127.0.0.1:8080/api/"), Charset.forName("UTF-8").toString());
+        URL endPoint = new URL(url.getProtocol(), url.getHost(), url.getPort(), "/api");
+        String content = IOUtils.toString(endPoint, Charset.forName("UTF-8").toString());
         assertTrue("Did not receive the appropriate content.", content.contains("hello: Thorntail + gradle + java"));
     }
 

@@ -1,5 +1,5 @@
 buildscript {
-    version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+    version = System.getProperty('swarmVersion') ?: VERSION_THORNTAIL
 
     repositories {
         mavenLocal()
@@ -16,7 +16,8 @@ buildscript {
 }
 
 subprojects {
-    apply plugin: "java"
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
 
     // Configure the repositories for all projects.
     repositories {
@@ -31,15 +32,15 @@ subprojects {
         }
     }
 
-    version = System.getProperty('swarmVersion') ?: '2.3.0.Final-SNAPSHOT'
+    version = System.getProperty('swarmVersion') ?: VERSION_THORNTAIL
 
     dependencies {
         // Include the JavaEE API dependency.
         compileOnly 'javax:javaee-api:7.0'
         testCompileOnly 'javax:javaee-api:7.0'
-        
+
         // Include the Thorntail BOM for testing the code.
-        testImplementation ("io.thorntail:bom-all:$version") {
+        testImplementation("io.thorntail:bom-all:$version") {
             if (version.endsWith('-SNAPSHOT')) {
                 changing = true
             }
@@ -52,7 +53,26 @@ subprojects {
             }
         }
         // Make use of the tooling jar appropriate for the current Gradle version.
-        testCompile "org.gradle:gradle-tooling-api:${gradle.gradleVersion}"
+        testImplementation "org.gradle:gradle-tooling-api:${gradle.gradleVersion}"
+
+        // Include the Arquillian JaCoCo extension
+        testImplementation 'org.jboss.arquillian.extension:arquillian-jacoco:1.0.0.Alpha9'
+
+    }
+
+    // Configure the properties required for enabling the JaCoCo agent withing Arquillian tests
+    test {
+
+        doFirst {
+            // Gradle starts the test task with the JaCoCo agent configured.
+            // The Arquillian tests are run in a separate thread which does not have the JaCoCo agent enabled.
+            // In the below code, we retrieve the JaCoCo details and make it available as a system property that is
+            // consumed by the "arquillian.xml" file in the "test/resources" folder.
+            String arg = jacoco.asJvmArg
+            String dir = project.buildDir
+            arg = arg.replaceAll(project.relativePath(dir), dir)
+            systemProperty 'thorntail.arquillian.jvm.args', arg
+        }
     }
 
     // Optional configuration

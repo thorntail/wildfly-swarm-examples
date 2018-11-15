@@ -18,6 +18,51 @@ The following are examples of multi-module Gradle projects that showcase buildin
 >  constraints from Maven BOMs, i.e., 
 > [IMPROVED_POM_SUPPORT](https://docs.gradle.org/current/userguide/managing_transitive_dependencies.html#sec:bom_import)
 
+## Generating Code Coverage for Arquillian Tests
+Generating code coverage for Arquillian based tests can be tricky. The below instructions (also implemented in the
+"multi-module" example) will help you setup JaCoCo for your Arquillian tests.
+
+1. Configure the key configurations in your arquillian.xml file. [Example](multi-module/library-module/src/test/resources/arquillian.xml).
+```
+    <arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns="http://jboss.org/schema/arquillian"
+                xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+    
+        <container qualifier="daemon" default="true">
+            <configuration>
+                ...
+                <property name="javaVmArguments">${thorntail.arquillian.jvm.args:}</property>
+                ...
+            </configuration>
+        </container>
+        <extension qualifier="jacoco">
+            <property name="includes">org.*</property>
+        </extension>
+    </arquillian>
+```
+
+2. Update your `build.gradle` file with the below changes. [Example](multi-module/build.gradle).
+```
+    dependencies {
+        // Include the Arquillian JaCoCo extension
+        testImplementation 'org.jboss.arquillian.extension:arquillian-jacoco:1.0.0.Alpha9'
+    }
+    ...
+    test {
+        ...
+        doFirst {
+            // Gradle starts the test task with the JaCoCo agent configured.
+            // The Arquillian tests are run in a separate thread which does not have the JaCoCo agent enabled.
+            // In the below code, we retrieve the JaCoCo details and make it available as a system property that is
+            // consumed by the "arquillian.xml" file in the "test/resources" folder.
+            String arg = jacoco.asJvmArg
+            String dir = project.buildDir
+            arg = arg.replaceAll(project.relativePath(dir), dir)
+            systemProperty 'thorntail.arquillian.jvm.args', arg
+        }
+    }
+```
+
 ## Developer Notes
 
 ### Updating the Gradle version.
