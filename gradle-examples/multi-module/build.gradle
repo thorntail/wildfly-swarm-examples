@@ -34,11 +34,7 @@ dependencies {
     constraints {
 
         // The recommended version of Thorntail.
-        api platform("io.thorntail:bom-all:$VERSION_THORNTAIL")
-
-        // Include the bootstrap & arquillian jar so that the test cases can work properly
-        api "io.thorntail:bootstrap:$VERSION_THORNTAIL"
-        api "io.thorntail:gradle-arquillian-adapter:$VERSION_THORNTAIL"
+        api "io.thorntail:bom-all:$VERSION_THORNTAIL"
 
         // Export the library module.
         api project(':library-module')
@@ -75,15 +71,15 @@ subprojects {
 
 
     dependencies {
-        // Include the JavaEE API dependency.
-        compileOnly 'javax:javaee-api:8.0'
-        testCompileOnly 'javax:javaee-api:8.0'
+
+        // We wish to code against the JEE APIs
+        compileOnly 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
+        testCompileOnly 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
 
         // Include the Thorntail BOM for testing the code.
-        testImplementation(enforcedPlatform("io.thorntail:bom-all:$thorntailVersion"))
+        testImplementation platform("io.thorntail:bom-all:$thorntailVersion")
 
         testImplementation "junit:junit:4.12"
-        testImplementation("io.thorntail:gradle-arquillian-adapter:$thorntailVersion")
 
         // Include the Arquillian JaCoCo extension
         testImplementation 'org.jboss.arquillian.extension:arquillian-jacoco:1.0.0.Alpha9'

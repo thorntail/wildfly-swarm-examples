@@ -35,20 +35,16 @@ dependencies {
     implementation platform('io.thorntail.examples.gradle:thorntail-multi-module-app:0.0.0')
 
     // Pull in the Thorntail BOM that we are supposed to use (as dictated by our "platform-project").
-    implementation platform('io.thorntail:bom-all:')
+    implementation platform('io.thorntail:bom-all')
 
     // If the dependent project is available (as an included build), then the below version number is ignored.
     // This is useful when you wish to test changes across multiple projects at the same time.
     implementation 'io.thorntail.examples.gradle:library-module:0.0.0'
 
-    // We just need the bootstrap jar as a strong dependency.
-    implementation 'io.thorntail:bootstrap'
-
     testImplementation 'junit:junit:4.12'
     testImplementation 'commons-io:commons-io:2.4'
     testImplementation "io.thorntail:cdi"
     testImplementation "io.thorntail:jaxrs"
-    testImplementation "io.thorntail:gradle-arquillian-adapter"
 }
 
 thorntail {
