@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: example-microprofile
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: example-microprofile

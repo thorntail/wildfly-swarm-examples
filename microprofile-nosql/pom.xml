@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2018 Red Hat, Inc. and/or its affiliates.
+  ~
+  ~ Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.thorntail.examples</groupId>
+    <artifactId>examples-parent</artifactId>
+    <version>2.2.0.Final-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  <artifactId>example-microprofile-nosql</artifactId>
+
+  <name>Thorntail Examples: Microprofile NoSQL</name>
+  <description>Thorntail Examples: Microprofile NoSQL</description>
+
+  <packaging>war</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>package</id>
+          </execution>
+          <execution>
+            <id>start</id>
+          </execution>
+          <execution>
+            <id>stop</id>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>3.5.41</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>resource</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>execution1</id>
+                        <configuration>
+              <!-- Standard d-m-p configuration which defines how images are build, i.e. how the docker.tar is created -->
+              <images>
+                <image>
+                  <name>mongo</name>
+                  <!-- "alias" is used to correlate to the containers in the pod spec -->
+                  <alias>mymongo</alias>
+                </image>
+              </images>
+              <!-- resources to be created -->
+              <resources>
+                <!-- Labels that are applied to all created objects -->
+                <labels>
+                  <group>quickstarts</group>
+                </labels>
+                <!-- Definition of the ReplicationController / ReplicaSet. Any better name than "containers" ? -->
+                <deployment>
+                  <!-- Name of the replication controller, which will have a sane default (container alisa, mvn coords, ..) -->
+                  <name>${project.artifactId}</name>
+                  <!-- Replica count-->
+                  <replicas>1</replicas>
+                  <!-- Container to include in the POD template. By default all with a "build" section in the
+                       "images" configuration will be add to the POD. However, they can be configured separately, too.
+                      -->
+                  <containers>
+                    <container>
+                      <!-- Alias name correlating with the same named "image" configuration above. Can be ommitted
+                           if there is only a single image added -->
+                      <alias>camel-service</alias>
+                      <ports>
+                        <!-- Ports to expose in the pod specs -->
+                        <port>8778</port>
+                      </ports>
+                      <mounts>
+                        <scratch>/var/scratch</scratch>
+                      </mounts>
+                    </container>
+                  </containers>
+                  <!-- Volumes used in the replicaSet -->
+                  <volumes>
+                    <volume>
+                      <name>scratch</name>
+                      <type>emptyDir</type>
+                    </volume>
+                  </volumes>
+                </deployment>
+                <!-- Dedicated section for (multiple) services to define -->
+                <services>
+                  <service>
+                    <name>${project.artifactId}</name>
+                    <headless>true</headless>
+                  </service>
+                </services>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <generator>
+            <includes>
+              <include>thorntail-v2</include>
+            </includes>
+            <config>
+              <thorntail>
+                <from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift</from>
+              </thorntail>
+            </config>
+          </generator>
+        </configuration>
+    </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.thorntail.examples</groupId>
+      <artifactId>examples-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>microprofile</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.7</version>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>mongodb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>3.2.2</version>
+    </dependency>
+  </dependencies>
+
+</project>
