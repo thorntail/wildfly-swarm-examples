@@ -46,14 +46,13 @@ repositories {
 dependencies {
 
   // Include the Thorntail BOM for compilation.
-  implementation(enforcedPlatform("io.thorntail:bom-all:$thorntailVersion"))
+  implementation platform("io.thorntail:bom-all:$thorntailVersion")
   implementation "io.thorntail:cdi"
   implementation "io.thorntail:jaxrs"
 
   implementation "commons-io:commons-io:2.4"
 
   testImplementation "junit:junit:4.12"
-  testImplementation "io.thorntail:gradle-arquillian-adapter:$thorntailVersion"
 }
 
 test {

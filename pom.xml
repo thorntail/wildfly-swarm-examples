@@ -264,8 +264,8 @@
     <module>ribbon</module>
     <module>ribbon-consul</module>
     <module>vaadin</module>
-    <!--
     <module>gradle-examples</module>
+    <!--
     <module>kitchensink-html5-mobile</module>
     -->
   </modules>
